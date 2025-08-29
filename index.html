@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sonic Sentinel Saga</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Sonic Sentinel Saga</title>
+<style>
     :root{
       --bg:#ffffff;
       --card:#f9f9f9;
@@ -23,7 +24,7 @@
 
     .hero{
       text-align:center; padding:80px 20px 40px;
-      background: linear-gradient(135deg, #111827 0%, #1e293b 50%, #0f172a 100%);
+      background: #000000;
       background-size: 400% 400%;
       animation: gradientPulse 12s ease infinite;
       color:#fff;
@@ -33,7 +34,7 @@
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
     }
-    .hero img.logo{width:140px;height:auto;margin-bottom:20px;}
+    .hero img.logo{width:180px;height:auto;margin-bottom:20px;}
     .hero h2{margin:0;font-size:clamp(36px,5vw,64px)}
     .hero h3{margin:12px 0 0;font-size:22px;color:var(--accent);font-weight:700;}
     .hero .tagline{margin-top:28px;font-size:16px;color:#ffd166;letter-spacing:1.5px;font-weight:600;border-top:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2);padding:10px 0;display:inline-block;}
@@ -97,115 +98,121 @@
 
     footer{max-width:1200px;margin:56px auto 32px;padding:0 20px;text-align:center;color:var(--muted);font-size:14px;}
     .story-summary{max-width:900px;margin:0 auto 28px;color:var(--text);font-size:16px;line-height:1.6;text-align:center;}
-  </style>
+  
+    /* Banners section */
+    .banners-wrap{max-width:1200px;margin:20px auto 80px;padding:0 20px}
+    .banners-title{ text-align:center; font-size:28px; font-weight:700; color:var(--accent); margin:20px 0 16px; position:relative;}
+    .banners-title::after{content:""; display:block; width:60px; height:2px; background:var(--accent); margin:12px auto 0;}
+    .banners-grid{display:grid; gap:20px; grid-template-columns:1fr;}
+    @media(min-width:900px){ .banners-grid{grid-template-columns:1fr 1fr;}}
+    .banner-card{border-radius:18px; overflow:hidden; background:#000; border:1px solid rgba(0,0,0,.12); box-shadow:0 6px 24px rgba(0,0,0,.18);}
+    .banner{width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:block;}
+
+    .banner-card a img {
+        transition: transform 0.4s ease;
+    }
+    .banner-card a:hover img {
+        transform: scale(1.05);
+    }
+</style>
 </head>
 <body>
-  <section class="hero">
-    <img src="uploads/new-logo.png" alt="Sonic Sentinel logo" class="logo" />
-    <h2>Sonic Sentinel Saga</h2>
-    <h3>Sound is Sacred</h3>
-    <div class="tagline">Signal of the Sentinel · Rebirth of the Sentinel · Legacy of the Sentinel</div>
-  </section>
-
-  <section class="story-section">
-    <h2 class="section-title">The Story</h2>
-    <p class="story-summary">In a digital world, an unknown signal awakens: the Sentinel. At first just a pulse sowing chaos, it later rises from the silence as a force that unites humanity. In the end, the Sentinel becomes a mythical legend — a presence that never vanishes, but lives on as an eternal echo of music and light.</p>
-  </section>
-
-  <section class="about-section">
-    <h2 class="section-title">About</h2>
-    <p>Sonic Sentinel is a concept-driven electronic music project that explores the intersection of sound, energy, and emotion. Blending elements of progressive house, melodic techno, and cinematic EDM, the project creates sonic landscapes that feel both futuristic and primal. Drawing influences from melodic techno, progressive house, and cinematic sound design, the project invites listeners into a narrative universe. Each track is a transmission—each set a signal—from a world where sound is sacred, and rhythm is power.</p>
-  </section>
-
-  <main class="albums-wrap">
-    <section class="albums-grid">
-      <article class="card">
-        <div class="cover"><img src="uploads/album1.png" alt="Signal of the Sentinel cover"></div>
-        <div class="content">
-          <div class="album-desc">
+<section class="hero">
+<img alt="Sonic Sentinel Logo Banner" class="logo" src="logobanner.png"/><h2>Sonic Sentinel Saga</h2>
+<h3>Sound is Sacred</h3>
+<div class="tagline">Signal of the Sentinel · Rebirth of the Sentinel · Legacy of the Sentinel</div>
+</section>
+<section class="story-section">
+<h2 class="section-title">The Story</h2>
+<p class="story-summary">In a digital world, an unknown signal awakens: the Sentinel. At first just a pulse sowing chaos, it later rises from the silence as a force that unites humanity. In the end, the Sentinel becomes a mythical legend — a presence that never vanishes, but lives on as an eternal echo of music and light.</p>
+</section>
+<section class="about-section">
+<h2 class="section-title">About</h2>
+<p>Sonic Sentinel is a concept-driven electronic music project that explores the intersection of sound, energy, and emotion. Blending elements of progressive house, melodic techno, and cinematic EDM, the project creates sonic landscapes that feel both futuristic and primal. Drawing influences from melodic techno, progressive house, and cinematic sound design, the project invites listeners into a narrative universe. Each track is a transmission—each set a signal—from a world where sound is sacred, and rhythm is power.</p>
+</section>
+<main class="albums-wrap">
+<section class="albums-grid">
+<article class="card">
+<div class="cover"><img alt="Signal of the Sentinel cover" src="uploads/album1.png"/></div>
+<div class="content">
+<div class="album-desc">
             In the shadows of a digital world, an unknown signal emerges. It begins as a pulse – Transmission – crawling through the networks. As the waves grow stronger, disturbances arise (System Breach), unexplained phenomena surface, and a growing awareness forms of a hidden order: a guardian. The Sentinel.
             Its presence feels like a command, a Core Directive, but also a looming threat. What first seemed like mere waves and glitches escalates into catastrophe (Frequency Collapse). Yet one certainty remains: the signal is alive. It is the message of the Sentinel itself.
           </div>
-          <a href="#" class="listen-btn">Listen</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="cover"><img src="uploads/album2.png" alt="Rebirth of the Sentinel cover"></div>
-        <div class="content">
-          <div class="album-desc">
-            After the collapse, silence returns – but silence never lasts. From the ashes, a new force rises (Resurgence). The signal is heard again, but this time by humanity. Across the world, the echo of the Sentinel resonates: in sorrow (Sentinel’s Cry), in celebration (Summer of Rave), in unity (Around the World).
+<a class="listen-btn" href="#">Listen</a>
+</div>
+</article>
+<article class="card">
+<div class="cover"><img alt="Rebirth of the Sentinel cover" src="uploads/album2.png"/></div>
+<div class="content">
+<div class="album-desc">
+            After the collapse, silence returns – but silence never lasts. From the ashes, a new force rises (Second Dawn). The signal is heard again, but this time by humanity. Across the world, the echo of the Sentinel resonates: in sorrow (Sentinel’s Cry), in celebration (Summer of Rave), in unity (Around the World).
             Then comes Transmission II: not a call from the past, but a renewed presence. The pulse returns, stronger, more vivid. And yet, a shadow lingers (Shadows Return). It is no longer mere technology – it is an entity, an energy feeding on the collective spirit.
           </div>
-          <a href="#" class="listen-btn">Listen</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="cover"><img src="uploads/album3.png" alt="Legacy of the Sentinel cover"></div>
-        <div class="content">
-          <div class="album-desc">
+<a class="listen-btn" href="#">Listen</a>
+</div>
+</article>
+<article class="card">
+<div class="cover"><img alt="Legacy of the Sentinel cover" src="uploads/album3.png"/></div>
+<div class="content">
+<div class="album-desc">
             The world now lives with its legacy. There is an Aftermath, scars of the past, and Lost Signals still drifting in the ether. But the power of the Sentinel cannot be erased. Transmission III resounds like a final message, a codex confronting humanity with its future.
             The Sentinel is no longer seen solely as a threat, but as a mythical guardian. Stories emerge of Guardians of the Grid, and temples of light (Temple of Neon) where people honor the pulse. In the end, only a legacy remains: the memory of a mighty presence that never truly disappears – Legacy of the Sentinel.
           </div>
-          <a href="#" class="listen-btn">Listen</a>
-        </div>
-      </article>
-    </section>
-  </main>
-
-  <h2 class="notes-title">Discography</h2>
-  <div class="notes-wrap" id="notes">
-    <section class="notes-card">
-      <h3>Album I – Signal of the Sentinel</h3>
-      <ol>
-        <li><span>Initiation</span> – The awakening begins: faint sparks in the digital void.</li>
-        <li><span>Transmission</span> – A first whisper leaves the grid, a signal searching for ears.</li>
-        <li><span>Infra Pulse</span> – Invisible waves ripple through unseen layers of the network.</li>
-        <li><span>System Breach</span> – Firewalls collapse; the pulse breaks into the open world.</li>
-        <li><span>Core Directive</span> – The hidden purpose of the signal reveals itself: control, or salvation?</li>
-        <li><span>The Sentinel</span> – A towering presence materializes in fragments of light.</li>
-        <li><span>Warden</span> – A guardian emerges, neither human nor machine, enforcing balance.</li>
-        <li><span>Echoes of Tomorrow</span> – Visions of futures carried within the pulse.</li>
-        <li><span>Frequency Collapse</span> – Chaos unfolds as the system buckles under resonance.</li>
-        <li><span>Signal of the Sentinel</span> – The identity of the signal is revealed: the Sentinel itself, eternal.</li>
-      </ol>
-    </section>
-
-    <section class="notes-card">
-      <h3>Album II – Rebirth of the Sentinel</h3>
-      <ol>
-        <li><span>Ashes of Silence</span> – Stillness after collapse, broken only by faint static.</li>
-        <li><span>Resurgence</span> – The signal reforms, stronger and more human than before.</li>
-        <li><span>Sentinel’s Cry</span> – A lament of sorrow, echoing through the skies.</li>
-        <li><span>Around the World</span> – The message spreads across continents, uniting the masses.</li>
-        <li><span>Summer of Rave</span> – Humanity answers with celebration, rhythm as resistance.</li>
-        <li><span>Transmission II</span> – A renewed call, no longer just survival: transformation.</li>
-        <li><span>Pulse Reignited</span> – The beat becomes the heartbeat of the living world.</li>
-        <li><span>Shadows Return</span> – Darkness grows alongside the light, hinting at conflict.</li>
-        <li><span>Echoes of Tomorrow (Reprise)</span> – The vision returns, reshaped by new hope.</li>
-        <li><span>Rebirth of the Sentinel</span> – The entity rises once more, evolved through humanity.</li>
-      </ol>
-    </section>
-
-    <section class="notes-card">
-      <h3>Album III – Legacy of the Sentinel</h3>
-      <ol>
-        <li><span>Aftermath</span> – The world reconfigures itself in the wake of the signal’s power.</li>
-        <li><span>Lost Signals</span> – Fragments scatter: forgotten messages drifting endlessly.</li>
-        <li><span>Neon Exodus</span> – A mass migration from the old systems into radiant new networks.</li>
-        <li><span>Silent Rebellion</span> – A quiet defiance forms against the endless pulse.</li>
-        <li><span>Dark Horizon</span> – Uncertainty looms as the world edges toward collapse again.</li>
-        <li><span>Transmission III</span> – A final call: part warning, part promise.</li>
-        <li><span>Guardians of the Grid</span> – New protectors rise, carrying the Sentinel’s mantle.</li>
-        <li><span>Temple of Neon</span> – A sacred place where light and rhythm become worship.</li>
-        <li><span>Sentinel Eternal</span> – The entity transcends time, becoming legend.</li>
-        <li><span>Legacy of the Sentinel</span> – The saga ends, but its echo remains forever.</li>
-      </ol>
-    </section>
-  </div>
-
-  <footer>
-  </footer>
+<a class="listen-btn" href="#">Listen</a>
+</div>
+</article>
+</section>
+</main>
+<h2 class="notes-title">Discography</h2>
+<div class="notes-wrap" id="notes">
+<section class="notes-card">
+<h3>Album I – Signal of the Sentinel</h3>
+<ol>
+<li><span>Awakening</span> – The awakening begins: faint sparks in the digital void.</li>
+<li><span>Transmission</span> – A first whisper leaves the grid, a signal searching for ears.</li>
+<li><span>Sentinel Pulse</span> – Invisible waves ripple through unseen layers of the network.</li>
+<li><span>System Breach</span> – Firewalls collapse; the pulse breaks into the open world.</li>
+<li><span>Core Directive</span> – The hidden purpose of the signal reveals itself: control, or salvation?</li>
+<li><span>The Signal</span> – A towering presence materializes in fragments of light.</li>
+<li><span>Warden</span> – A guardian emerges, neither human nor machine, enforcing balance.</li>
+<li><span>Echoes of Tomorrow</span> – Visions of futures carried within the pulse.</li>
+<li><span>Frequency Collapse</span> – Chaos unfolds as the system buckles under resonance.</li>
+<li><span>Signal of the Sentinel</span> – The identity of the signal is revealed: the Sentinel itself, eternal.</li>
+</ol>
+</section>
+<section class="notes-card">
+<h3>Album II – Rebirth of the Sentinel</h3>
+<ol>
+<li><span>Beyond Silence</span> – Stillness after collapse, broken only by faint static.</li>
+<li><span>Second Dawn</span> – The signal reforms, stronger and more human than before.</li>
+<li><span>Sentinel’s Cry</span> – A lament of sorrow, echoing through the skies.</li>
+<li><span>Around the World</span> – The message spreads across continents, uniting the masses.</li>
+<li><span>Summer of Rave</span> – Humanity answers with celebration, rhythm as resistance.</li>
+<li><span>Transmission II</span> – A renewed call, no longer just survival: transformation.</li>
+<li><span>Pulse Reignited</span> – The beat becomes the heartbeat of the living world.</li>
+<li><span>Shadows Return</span> – Darkness grows alongside the light, hinting at conflict.</li>
+<li><span>Echoes of Tomorrow (Reprise)</span> – The vision returns, reshaped by new hope.</li>
+<li><span>Rebirth of the Sentinel</span> – The entity rises once more, evolved through humanity.</li>
+</ol>
+</section>
+<section class="notes-card">
+<h3>Album III – Legacy of the Sentinel</h3>
+<ol>
+<li><span>Aftermath</span> – The world reconfigures itself in the wake of the signal’s power.</li>
+<li><span>Lost Signals</span> – Fragments scatter: forgotten messages drifting endlessly.</li>
+<li><span>Neon Exodus</span> – A mass migration from the old systems into radiant new networks.</li>
+<li><span>Silent Rebellion</span> – A quiet defiance forms against the endless pulse.</li>
+<li><span>Dark Horizon</span> – Uncertainty looms as the world edges toward collapse again.</li>
+<li><span>Transmission III</span> – A final call: part warning, part promise.</li>
+<li><span>Guardians of the Grid</span> – New protectors rise, carrying the Sentinel’s mantle.</li>
+<li><span>Temple of Neon</span> – A sacred place where light and rhythm become worship.</li>
+<li><span>Sentinel Eternal</span> – The entity transcends time, becoming legend.</li>
+<li><span>Legacy of the Sentinel</span> – The saga ends, but its echo remains forever.</li>
+</ol>
+</section>
+</div>
+<section class="banners-wrap"><h2 class="banners-title">Realms of the Sentinel</h2><div class="banners-grid"><article class="banner-card"><a href="banneruniverse.PNG" target="_blank"><img alt="Universe Burst Banner" class="banner" src="banneruniverse.PNG"/></a></article><article class="banner-card"><a href="bannerdistrortion.PNG" target="_blank"><img alt="Sentinel Logo Banner" class="banner" src="bannerlogo.PNG"/></a></article><article class="banner-card"><a href="bannerplanet.PNG" target="_blank"><img alt="Planet Horizon Banner" class="banner" src="bannerplanet.PNG"/></a></article><article class="banner-card"><a href="bannersentinel.PNG" target="_blank"><img alt="Distortion Banner" class="banner" src="bannerdistrortion.PNG"/></a></article></div></section><footer>
+</footer>
 </body>
 </html>
