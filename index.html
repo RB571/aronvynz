@@ -1,141 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sonic Sentinel Saga</title>
-  <style>
-    :root{
-      --bg:#ffffff;
-      --card:#f9f9f9;
-      --text:#1a1a1a;
-      --muted:#555;
-      --accent:#d4af37; /* goudkleur */
-      --accent-2:#0891b2;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial;
-      background: var(--bg);
-      color:var(--text);
-      scroll-behavior:smooth;
-    }
-
-    .hero{
-      text-align:center; padding:80px 20px 40px;
-      background:#000; /* zwart gemaakt */
-      color:#fff;
-    }
-    .hero img.logo{width:180px;height:auto;margin-bottom:20px;}
-    .hero h2{margin:0;font-size:clamp(36px,5vw,64px)}
-    .hero h3{margin:12px 0 0;font-size:22px;color:var(--accent);font-weight:700;}
-    .hero .tagline{margin-top:28px;font-size:16px;color:#ffd166;letter-spacing:1.5px;font-weight:600;border-top:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2);padding:10px 0;display:inline-block;}
-
-    .section-title{
-      text-align:center;
-      font-size:28px;
-      font-weight:700;
-      color:var(--accent);
-      margin:40px 0 16px;
-      position:relative;
-    }
-    .section-title::after{
-      content:"";
-      display:block;
-      width:60px;
-      height:2px;
-      background:var(--accent);
-      margin:12px auto 0;
-    }
-
-    .about-section,.story-section{max-width:900px;margin:40px auto;padding:0 20px;font-size:16px;line-height:1.6;color:var(--text);text-align:center;}
-
-    .albums-wrap,.singles-wrap{max-width:1200px; margin:24px auto 72px; padding:0 20px}
-    .albums-grid,.singles-grid{display:grid; gap:24px; grid-template-columns: repeat(3, minmax(240px,1fr));}
-    @media (max-width:980px){.albums-grid,.singles-grid{grid-template-columns: repeat(2, minmax(220px,1fr));}}
-    @media (max-width:640px){.albums-grid,.singles-grid{grid-template-columns: 1fr;}}
-
-    .card{position:relative; border-radius:18px; background:var(--card);
-      box-shadow:0 1px 2px rgba(0,0,0,.08),0 8px 20px rgba(0,0,0,.08);
-      overflow:hidden; border:1px solid rgba(0,0,0,.08);}
-    .cover{aspect-ratio:1/1;width:100%;background:#e5e7eb;position:relative;}
-    .cover img{width:100%;height:100%;object-fit:cover;display:block;}
-    .content{padding:18px 18px 20px;}
-    .album-desc{margin:0 0 16px;color:var(--text);font-size:14px;line-height:1.5;}
-
-    .listen-btn{
-      display:inline-block; margin-top:12px; padding:10px 16px; font-size:14px; font-weight:600; text-decoration:none;
-      color:white; background:linear-gradient(90deg,#d4af37,var(--accent-2)); border-radius:999px;
-      box-shadow:0 0 0 2px rgba(212,175,55,.2),0 0 20px rgba(212,175,55,.25);
-      transition:transform .2s ease, box-shadow .2s ease;
-    }
-    .listen-btn:hover{transform:translateY(-2px); box-shadow:0 0 0 2px rgba(212,175,55,.3),0 0 25px rgba(212,175,55,.3);}
-
-    /* Banners section */
-    .banners-wrap{max-width:1200px;margin:20px auto 80px;padding:0 20px}
-    .banners-title{ text-align:center; font-size:28px; font-weight:700; color:var(--accent); margin:20px 0 16px; position:relative;}
-    .banners-title::after{content:""; display:block; width:60px; height:2px; background:var(--accent); margin:12px auto 0;}
-    .banners-grid{display:flex; flex-direction:column; gap:20px;}
-    .banner-card{border-radius:18px; overflow:hidden; background:#000; border:1px solid rgba(0,0,0,.12); box-shadow:0 6px 24px rgba(0,0,0,.18);}
-    .banner{width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:block;}
-    .banner-card a img{transition:transform 0.4s ease;}
-    .banner-card a:hover img{transform:scale(1.05);}
-  </style>
-</head>
-<body>
-  <section class="hero">
-    <img src="uploads/new-logo.png" alt="Sonic Sentinel logo" class="logo" />
-    <h2>Sonic Sentinel Saga</h2>
-    <h3>Sound is Sacred</h3>
-    <div class="tagline">Signal of the Sentinel · Second Dawn of the Sentinel · Legacy of the Sentinel</div>
-  </section>
-
-  <section class="story-section">
-    <h2 class="section-title">The Story</h2>
-    <p class="story-summary">In a digital world, an unknown signal awakens: the Sentinel. At first just a pulse sowing chaos, it later rises from the silence as a force that unites humanity. In the end, the Sentinel becomes a mythical legend — a presence that never vanishes, but lives on as an eternal echo of music and light.</p>
-  </section>
-
-  <section class="about-section">
-    <h2 class="section-title">About</h2>
-    <p>Sonic Sentinel is a concept-driven electronic music project that explores the intersection of sound, energy, and emotion. Blending elements of progressive house, melodic techno, and cinematic EDM, the project creates sonic landscapes that feel both futuristic and primal. Each track is a transmission—each set a signal—from a world where sound is sacred, and rhythm is power.</p>
-  </section>
-
-  <main class="albums-wrap">
-    <h2 class="section-title">Albums</h2>
-    <section class="albums-grid">
-      <!-- Album cards hier -->
-    </section>
-  </main>
-
-  <!-- New Singles Section -->
-  <section class="singles-wrap">
-    <h2 class="section-title">Singles</h2>
-    <section class="singles-grid">
-      <!-- Voeg hier je singles toe -->
-      <!-- Voorbeeld -->
-      <!--
-      <article class="card">
-        <div class="cover"><img src="uploads/single1.png" alt="Transmission cover"></div>
-        <div class="content">
-          <div class="album-desc">Transmission</div>
-          <a href="#" class="listen-btn">Listen</a>
+<!-- Albums Section -->
+<main class="albums-wrap">
+  <h2 class="section-title">Albums</h2>
+  <section class="albums-grid">
+    <!-- Album 1 -->
+    <article class="card">
+      <div class="cover"><img src="uploads/album1.png" alt="Signal of the Sentinel cover"></div>
+      <div class="content">
+        <div class="album-desc">
+          In the shadows of a digital world, an unknown signal emerges...
         </div>
-      </article>
-      -->
-    </section>
-  </section>
+        <a href="#" class="listen-btn">Listen</a>
+      </div>
+    </article>
 
-  <!-- Banners Section -->
-  <section class="banners-wrap">
-    <h2 class="banners-title">Realms of the Sentinel</h2>
-    <div class="banners-grid">
-      <article class="banner-card"><a href="banneruniverse.PNG" target="_blank"><img src="banneruniverse.PNG" alt="Universe Banner" class="banner"></a></article>
-      <article class="banner-card"><a href="bannerplanet.PNG" target="_blank"><img src="bannerplanet.PNG" alt="Planet Banner" class="banner"></a></article>
-      <article class="banner-card"><a href="bannersentinel.PNG" target="_blank"><img src="bannersentinel.PNG" alt="Sentinel Banner" class="banner"></a></article>
-      <article class="banner-card"><a href="bannerdistrortion.PNG" target="_blank"><img src="bannerdistrortion.PNG" alt="Distortion Banner" class="banner"></a></article>
-    </div>
-  </section>
+    <!-- Album 2 -->
+    <article class="card">
+      <div class="cover"><img src="uploads/album2.png" alt="Second Dawn of the Sentinel cover"></div>
+      <div class="content">
+        <div class="album-desc">
+          After the collapse, silence returns – but silence never lasts...
+        </div>
+        <a href="#" class="listen-btn">Listen</a>
+      </div>
+    </article>
 
-  <footer></footer>
-</body>
-</html>
+    <!-- Album 3 -->
+    <article class="card">
+      <div class="cover"><img src="uploads/album3.png" alt="Legacy of the Sentinel cover"></div>
+      <div class="content">
+        <div class="album-desc">
+          The world now lives with its legacy. There is an Aftermath...
+        </div>
+        <a href="#" class="listen-btn">Listen</a>
+      </div>
+    </article>
+  </section>
+</main>
