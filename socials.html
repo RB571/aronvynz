@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sonic Sentinel – Socials</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .socials-wrap {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      text-align: center;
+    }
+    .socials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .social-card {
+      background: #111;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+    .social-card:hover {
+      transform: translateY(-4px);
+    }
+    .social-card a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      display: block;
+    }
+    .social-card span {
+      display: block;
+      font-size: 0.9rem;
+      margin-top: .3rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="story.html">Story</a>
+    <a href="tracks.html">Tracks</a>
+    <a href="socials.html" class="active">Socials</a>
+  </nav>
+
+  <section class="hero">
+    <img src="uploads/new-logo.png" alt="Sonic Sentinel logo" class="logo" />
+    <h2>Socials</h2>
+    <h3>Follow Sonic Sentinel</h3>
+  </section>
+
+  <main class="socials-wrap">
+    <p>Stay connected with Sonic Sentinel across the grid:</p>
+    <div class="socials-grid">
+      <div class="social-card">
+        <a href="https://facebook.com/" target="_blank">Facebook</a>
+        <span>@sonicsentinel</span>
+      </div>
+      <div class="social-card">
+        <a href="https://instagram.com/" target="_blank">Instagram</a>
+        <span>@sonicsentinel</span>
+      </div>
+      <div class="social-card">
+        <a href="https://youtube.com/" target="_blank">YouTube</a>
+        <span>Sonic Sentinel</span>
+      </div>
+      <div class="social-card">
+        <a href="https://open.spotify.com/" target="_blank">Spotify</a>
+        <span>Sonic Sentinel</span>
+      </div>
+      <div class="social-card">
+        <a href="https://soundcloud.com/" target="_blank">SoundCloud</a>
+        <span>Sonic Sentinel</span>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
