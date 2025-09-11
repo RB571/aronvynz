@@ -3,85 +3,417 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sonic Sentinel – Contact</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Sonic Sentinel Saga – Contact</title>
   <style>
-    .socials-wrap {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
-      text-align: center;
+    :root{--anchor-offset:88px;
+      --bg:#0b0f16; --panel:#101623; --panel-2:#0e1420;
+      --text:#e7ecf3; --muted:#aab4c6; --accent-ice:#7fd0ff; --accent-gold:#f0c146;
+      --border:rgba(255,255,255,.08); --ring:rgba(127,208,255,.25);
+      --shadow:0 10px 30px rgba(0,0,0,.45), 0 2px 10px rgba(0,0,0,.35);
+      --radius:18px; --focus:0 0 0 3px rgba(127,208,255,.35);
     }
-    .socials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font:15px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text); background:
+        radial-gradient(1200px 800px at 20% -10%, #132037, transparent 60%),
+        radial-gradient(900px 700px at 120% 10%, #1a2640, transparent 60%),
+        var(--bg);
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
-    .social-card {
-      background: #111;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform 0.2s;
+    .wrap{max-width:900px; margin:40px auto; padding:0 20px}
+    .hero{
+      position:sticky; top:0; z-index:40; overflow:hidden;
+      border:1px solid var(--border); border-radius:var(--radius);
+      background:linear-gradient(180deg,var(--panel),var(--panel-2));
+      box-shadow:var(--shadow); padding:22px 16px 14px; backdrop-filter:blur(8px);
     }
-    .social-card:hover {
-      transform: translateY(-4px);
+    .brand{font-weight:800; letter-spacing:.08em; text-transform:uppercase; font-size:14px; color:var(--muted)}
+    .tagline{margin:6px 0 0; font-size:20px; font-weight:700}
+    .panel{
+      border:1px solid var(--border); border-radius:var(--radius);
+      background:linear-gradient(180deg,#0e1522,#0d1320 60%,#0b111c);
+      box-shadow:var(--shadow); padding:20px; margin-top:26px;
     }
-    .social-card a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.1rem;
-      font-weight: bold;
-      display: block;
+    h2{margin:0 0 10px; font-size:22px}
+    .grid{display:grid; gap:16px}
+    @media (min-width:720px){ .grid{ grid-template-columns:1fr 1fr } }
+    .card{
+      border:1px solid var(--border); border-radius:14px; padding:14px;
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
     }
-    .social-card span {
-      display: block;
-      font-size: 0.9rem;
-      margin-top: .3rem;
-      color: #aaa;
+    .label{font-weight:700}
+    a.link{color:var(--accent-ice); text-decoration:none}
+    a.link:hover{ text-decoration:underline }
+    .small{color:var(--muted); font-size:13px}
+    .credit{margin:26px 0 34px; text-align:center; color:var(--muted); font-size:12px}
+  :target{ scroll-margin-top: var(--anchor-offset) }
+html{ scroll-behavior:smooth }
+
+    #backToTop {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(127,208,255,.45);
+      background: linear-gradient(180deg, rgba(127,208,255,.18), rgba(127,208,255,.10));
+      color: #eaf5ff;
+      font-size: 22px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      opacity: 0; visibility: hidden; transform: translateY(12px);
+      box-shadow: 0 6px 18px rgba(0,0,0,.35);
+      transition: opacity .25s ease, visibility .25s ease, transform .2s ease; opacity .35s ease, transform .35s ease;
+      z-index: 9999;
+    
     }
-  </style>
+    #backToTop:hover {
+      transform: translateY(-2px);
+      border-color: rgba(127,208,255,.65);
+    }
+    #backToTop.show {
+      opacity: 1; visibility: visible; transform: translateY(0);
+      animation: backToTopFadePop .25s ease-out;
+    }
+
+
+/* === Glass/Neon Banner (Option 2) Overrides === */
+.hero{
+  position: sticky; top: 0; z-index: 40;
+  overflow: hidden;
+  border-radius: var(--radius);
+  /* Frosted glass look */
+  background: rgba(16,22,35,.35);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 10px 30px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.06);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+}
+
+/* Animated gradient flowing behind the glass */
+.hero::before{
+  content:"";
+  position:absolute; inset:-40% -10% -60% -10%;
+  background: conic-gradient(from 0deg, #0ea5e9, #7c3aed, #f59e0b, #0ea5e9);
+  filter: blur(28px) saturate(140%);
+  opacity: .18;
+  animation: neonFlow 16s linear infinite;
+  pointer-events:none;
+}
+
+/* Neon edge accent */
+.hero::after{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,0)),
+    radial-gradient(1200px 200px at 50% 0%, rgba(127,208,255,.25), transparent 60%);
+  mix-blend-mode: screen;
+  pointer-events:none;
+}
+
+/* Thin glowing line at the bottom of hero */
+.hero .neon-bar{
+  position:absolute; left:12px; right:12px; bottom:8px; height:2px;
+  background: linear-gradient(90deg, rgba(127,208,255,.00), rgba(127,208,255,.85), rgba(240,193,70,.75), rgba(127,208,255,.85), rgba(127,208,255,.00));
+  filter: drop-shadow(0 0 8px rgba(127,208,255,.65));
+  border-radius: 2px;
+  pointer-events:none;
+  opacity:.9;
+}
+
+/* Nav chips get a little neon hover */
+.nav a{
+  position:relative;
+  overflow:hidden;
+}
+.nav a::after{
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(120px 30px at var(--x,50%) 100%, rgba(127,208,255,.25), transparent 65%);
+  opacity:0; transition: opacity .25s ease;
+  pointer-events:none;
+}
+.nav a:hover::after{ opacity:1; }
+
+/* Active nav pill stronger glass */
+.nav a.active{
+  color: var(--accent-ice);
+  border-color: rgba(127,208,255,.6);
+  background: linear-gradient(180deg, rgba(127,208,255,.22), rgba(127,208,255,.12));
+  box-shadow: 0 8px 24px rgba(0,0,0,.35), 0 0 0 1px rgba(127,208,255,.25) inset;
+}
+
+/* Keyframes */
+@keyframes neonFlow{
+  to { transform: rotate(360deg); }
+}
+
+/* Reduce motion: stop background animation */
+@media (prefers-reduced-motion: reduce){
+  .hero::before{ animation: none !important; }
+}
+
+
+/* === Full Cosmic Banner (Option 3) === */
+.hero.cosmic{
+  position: relative;
+  top: 0; z-index: 40;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 10px 30px rgba(0,0,0,.45);
+  /* Full image banner */
+  background-image: url('uploads/banner-space.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 260px;
+  display: grid;
+  align-content: start;
+  padding: 22px 16px 56px;
+}
+/* Dark overlay + ice-blue glow */
+.hero.cosmic::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(800px 280px at 50% 0%, rgba(127,208,255,.24), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.65));
+  pointer-events:none;
+}
+/* Soft gold halo ring */
+.hero.cosmic::after{
+  content:"";
+  position:absolute; inset:-20% -10% 40% -10%;
+  background: radial-gradient(closest-side, rgba(240,193,70,.18), transparent 70%);
+  filter: blur(14px);
+  opacity:.7;
+  pointer-events:none;
+}
+/* Content placed above overlays */
+.hero.cosmic > *{ position: relative; z-index: 1; }
+
+/* Neon bar adapted to cosmic (slightly brighter) */
+.hero.cosmic .neon-bar{
+  bottom: 10px;
+  background: linear-gradient(90deg, rgba(127,208,255,0), rgba(127,208,255,.95), rgba(240,193,70,.85), rgba(127,208,255,.95), rgba(127,208,255,0));
+}
+
+/* Reduce motion: remove fixed attachment to avoid jank */
+@media (prefers-reduced-motion: reduce){
+  .hero.cosmic{ background-attachment: scroll; }
+}
+
+
+.brand.gold {
+  color: var(--accent-gold);
+  text-shadow: 0 0 6px rgba(240,193,70,.45);
+}
+
+
+.brand.gold:hover {
+  text-shadow: 0 0 10px rgba(240,193,70,.75), 0 0 18px rgba(240,193,70,.55);
+  transform: scale(1.02);
+  transition: all .3s ease;
+}
+
+
+/* Golden hover accent for nav buttons */
+.nav a:hover {
+  border-color: rgba(240,193,70,.65);
+  color: var(--accent-gold);
+  box-shadow: 0 6px 20px rgba(240,193,70,.35);
+  transition: all .25s ease;
+}
+
+
+.divider {
+  height: 2px;
+  margin: 40px auto;
+  max-width: 600px;
+  background: linear-gradient(
+    90deg,
+    rgba(127,208,255,0) 0%,
+    rgba(127,208,255,0.8) 50%,
+    rgba(240,193,70,0.7) 75%,
+    rgba(127,208,255,0) 100%
+  );
+  filter: drop-shadow(0 0 8px rgba(127,208,255,0.6));
+  border-radius: 2px;
+}
+
+
+.shield-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 4px rgba(240,193,70,0.5));
+}
+.brandline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+</style>
+
+<link rel="icon" type="image/png" sizes="32x32" href="uploads/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="uploads/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="uploads/favicon-180.png">
+<link rel="icon" href="uploads/favicon.ico">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sonic Sentinel Saga — Contact">
+<meta property="og:description" content="Bookings, inquiries, and collaboration requests.">
+<meta property="og:image" content="uploads/banner-space.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sonic Sentinel Saga — Contact">
+<meta name="twitter:description" content="Bookings, inquiries, and collaboration requests.">
+<meta name="twitter:image" content="uploads/banner-space.png">
+<link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <a href="index.html">Home</a>
-    <a href="story.html">Story</a>
-    <a href="tracks.html">Tracks</a>
-    <a href="contact.html" class="active">Contact</a>
-  </nav>
+  <div class="wrap">
+    <header class="hero cosmic cosmic">
+      <div class="brandline">
+<svg class="shield-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="goldGradientShield" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0c146"/>
+      <stop offset="100%" stop-color="#c79e35"/>
+    </linearGradient>
+  </defs>
+  <path d="M50 6 L90 20 L82 82 L50 94 L18 82 L10 20 Z" fill="url(#goldGradientShield)" stroke="rgba(0,0,0,0.35)" stroke-width="2"/>
+  <path d="M27 38 L73 62" stroke="rgba(0,0,0,0.55)" stroke-width="7" stroke-linecap="round"/>
+  <path d="M27 52 L73 76" stroke="rgba(0,0,0,0.55)" stroke-width="7" stroke-linecap="round"/>
+</svg>
+<div class="brand gold">SONIC SENTINEL SAGA</div>
+</div>
+      <p class="tagline">Get in Touch</p>
+          <div class="neon-bar" aria-hidden="true"></div>
+    </header>
 
-  <section class="hero">
-    <img src="uploads/new-logo.png" alt="Sonic Sentinel logo" class="logo" />
-    <h2>Contact</h2>
-    <h3>Follow Sonic Sentinel</h3>
-  </section>
+    <div class="divider"></div>
+    <section class="panel">
+      <h2>Get in touch</h2>
+      <div class="grid">
+        <div class="card">
+          <p class="label">Email</p>
+          <p><a class="link" href="mailto:hello@sonicsentinel.nl">hello@sonicsentinel.nl</a></p>
+          <p class="small">Booking, press, collabs.</p>
+        </div>
+        <div class="card">
+          <p class="label">Instagram</p>
+          <p><a class="link" href="#" target="_blank" rel="noopener">instagram.com/sonicsentinel</a></p>
+          <p class="small">Artwork, teasers, behind-the-scenes.</p>
+        </div>
+        <div class="card">
+          <p class="label">YouTube</p>
+          <p><a class="link" href="#" target="_blank" rel="noopener">youtube.com/@sonicsentinel</a></p>
+          <p class="small">Visualizers, trailers, full tracks.</p>
+        </div>
+        <div class="card">
+          <p class="label">Spotify</p>
+          <p><a class="link" href="#" target="_blank" rel="noopener">open.spotify.com/artist/sonicsentinel</a></p>
+          <p class="small">Follow for new releases.</p>
+        </div>
+      </div>
+    </section>
 
-  <main class="socials-wrap">
-    <p>Stay connected with Sonic Sentinel across the grid:</p>
-    <div class="socials-grid">
-      <div class="social-card">
-        <a href="https://facebook.com/" target="_blank">Facebook</a>
-        <span>@sonicsentinel</span>
+    <div class="divider"></div>
+    <section class="panel">
+      <h2>Brand kit</h2>
+      <div class="grid">
+        <div class="card">
+          <p class="label">Logo (PNG)</p>
+          <p><a class="link" href="uploads/new-logo.png" download>Download</a></p>
+          <p class="small">Shield with twin stripes, transparent background.</p>
+        </div>
+        <div class="card">
+          <p class="label">Press photo</p>
+          <p><a class="link" href="uploads/press/press-photo.png" download>Download</a></p>
+          <p class="small">Use with credit “© Sonic Sentinel”.</p>
+        </div>
       </div>
-      <div class="social-card">
-        <a href="https://instagram.com/" target="_blank">Instagram</a>
-        <span>@sonicsentinel</span>
-      </div>
-      <div class="social-card">
-        <a href="https://www.youtube.com/@sonicsentinelmusic/" target="_blank">YouTube</a>
-        <span>Sonic Sentinel</span>
-      </div>
-      <div class="social-card">
-        <a href="https://open.spotify.com/" target="_blank">Spotify</a>
-        <span>Sonic Sentinel</span>
-      </div>
-      <div class="social-card">
-        <a href="https://soundcloud.com/" target="_blank">SoundCloud</a>
-        <span>Sonic Sentinel</span>
-      </div>
-    </div>
-  </main>
+    </section>
+
+    <p class="credit">© Sonic Sentinel • Contact &amp; Socials</p>
+  </div>
+
+  <script>
+    // Smooth scrolling for in-page anchors + apply on load when arriving with a hash
+    (function(){
+      const getOffset = () => parseInt(getComputedStyle(document.documentElement).getPropertyValue('--anchor-offset')) || 88;
+
+      // On load with a hash, smooth scroll to it
+      window.addEventListener('DOMContentLoaded', () => {
+        if (location.hash) {
+          const el = document.querySelector(location.hash);
+          if (el) {
+            // Use requestAnimationFrame to ensure layout is ready
+            requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+          }
+        }
+      });
+
+      // Intercept same-page anchor clicks for smooth scroll
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest('a[href^="#"]');
+        if (!a) return;
+        const id = a.getAttribute('href');
+        const target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          history.pushState(null, '', id);
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    })();
+  </script>
+
+
+  <button id="backToTop" aria-label="Back to top"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
+  <script>
+    (function(){
+      const btn = document.getElementById('backToTop');
+      if (!btn) return;
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          btn.classList.add('show');
+        } else {
+          btn.classList.remove('show');
+        }
+      });
+      btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+
+  <script>
+    // Move hover glow under cursor for nav pills
+    document.addEventListener('mousemove', (e) => {
+      const a = e.target.closest('.nav a');
+      if(!a) return;
+      const rect = a.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      a.style.setProperty('--x', x + '%');
+    }, { passive: true });
+  </script>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js")
+      .then(() => console.log("Service Worker geregistreerd"))
+      .catch(err => console.error("SW fout:", err));
+  }
+</script>
+
 </body>
 </html>
