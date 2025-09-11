@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sonic Sentinel Saga – Timeline</title>
+  <style>
+    :root{
+      --bg:#0b0f16; --panel:#101623; --panel-2:#0e1420;
+      --text:#e7ecf3; --muted:#aab4c6;
+      --accent-ice:#7fd0ff; --accent-gold:#f0c146;
+      --border:rgba(255,255,255,.08);
+      --shadow:0 10px 30px rgba(0,0,0,.45), 0 2px 10px rgba(0,0,0,.35);
+      --radius:18px; --focus:0 0 0 3px rgba(127,208,255,.35);
+      --anchor-offset:88px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%} html{scroll-behavior:smooth}
+    body{
+      margin:0; font:15px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% -10%, #132037, transparent 60%),
+        radial-gradient(900px 700px at 120% 10%, #1a2640, transparent 60%),
+        var(--bg);
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    :target{scroll-margin-top:var(--anchor-offset)}
+    .wrap{max-width:1100px; margin:40px auto; padding:0 20px}
+
+    /* === Full Cosmic Banner (Option 3) === */
+    .hero.cosmic{
+      position: relative; top: 0; z-index: 40; overflow: hidden;
+      border-radius: var(--radius); border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 10px 30px rgba(0,0,0,.45);
+      background-image: url('uploads/banner-space.png');
+      background-size: cover; background-position: center; background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 260px; display: grid; align-content: start; padding: 22px 16px 56px;
+    }
+    .hero.cosmic::before{
+      content:""; position:absolute; inset:0;
+      background:
+        radial-gradient(800px 280px at 50% 0%, rgba(127,208,255,.24), transparent 60%),
+        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.65));
+      pointer-events:none;
+    }
+    .hero.cosmic::after{
+      content:""; position:absolute; inset:-20% -10% 40% -10%;
+      background: radial-gradient(closest-side, rgba(240,193,70,.18), transparent 70%);
+      filter: blur(14px); opacity:.7; pointer-events:none;
+    }
+    .hero.cosmic > *{ position: relative; z-index: 1; }
+    .hero.cosmic .neon-bar{
+      position:absolute; left:12px; right:12px; bottom:10px; height:2px;
+      background: linear-gradient(90deg, rgba(127,208,255,0), rgba(127,208,255,.95), rgba(240,193,70,.85), rgba(127,208,255,.95), rgba(127,208,255,0));
+      filter: drop-shadow(0 0 8px rgba(127,208,255,.65)); border-radius:2px; pointer-events:none;
+    }
+
+    /* Brand + nav */
+    .brand{font-weight:800; letter-spacing:.08em; text-transform:uppercase; font-size:22px; color:var(--accent-gold);
+      text-shadow:0 0 6px rgba(240,193,70,.45)}
+    @media (min-width:768px){ .brand{ font-size:28px } }
+    .brand:hover{ text-shadow: 0 0 10px rgba(240,193,70,.75), 0 0 18px rgba(240,193,70,.55); transform:scale(1.02); transition:all .3s ease }
+    .tagline{ margin:6px 0 0; font-size:20px; font-weight:700 }
+    .nav{ margin-top:10px; display:flex; gap:10px; flex-wrap:wrap }
+    .nav a{
+      text-decoration:none; color:var(--text); background:#0e1522; border:1px solid var(--border);
+      padding:10px 14px; border-radius:999px; box-shadow:var(--shadow);
+      transition:transform .12s ease,border-color .2s ease,background .2s ease,color .2s ease;
+    }
+    .nav a:hover{ border-color: rgba(240,193,70,.65); color: var(--accent-gold); box-shadow: 0 6px 20px rgba(240,193,70,.35) }
+
+    /* Panel */
+    .panel{
+      border:1px solid var(--border); border-radius:var(--radius);
+      background:linear-gradient(180deg,#0e1522,#0d1320 60%,#0b111c);
+      box-shadow:var(--shadow); padding:22px; margin-top:26px;
+    }
+
+    /* Divider */
+    .divider {
+      height: 2px; margin: 30px auto; max-width: 600px;
+      background: linear-gradient(90deg, rgba(127,208,255,0) 0%, rgba(127,208,255,0.8) 50%, rgba(240,193,70,0.7) 75%, rgba(127,208,255,0) 100%);
+      filter: drop-shadow(0 0 8px rgba(127,208,255,0.6)); border-radius: 2px;
+    }
+
+    /* Timeline */
+    .timeline{
+      position:relative; margin: 20px auto 10px; padding: 12px 0;
+    }
+    .timeline::before{
+      content:""; position:absolute; top:0; bottom:0; left:50%; width:2px; transform:translateX(-50%);
+      background: linear-gradient(180deg, rgba(127,208,255,.15), rgba(127,208,255,.45), rgba(127,208,255,.15));
+      filter: drop-shadow(0 0 6px rgba(127,208,255,.5));
+    }
+    .event{
+      position:relative; display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin: 22px 0;
+    }
+    .event .dot{
+      position:absolute; left:50%; top:10px; transform:translate(-50%,-50%);
+      width:14px; height:14px; border-radius:50%;
+      background: radial-gradient(circle at 50% 50%, var(--accent-ice), rgba(240,193,70,.9));
+      box-shadow: 0 0 12px var(--accent-ice), 0 0 24px rgba(240,193,70,.35);
+    }
+    .event .card{
+      border:1px solid var(--border); border-radius:14px; padding:14px;
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
+      box-shadow: var(--shadow);
+    }
+    .event.left .card{ grid-column:1 / 2; margin-right:40px }
+    .event.right .card{ grid-column:2 / 3; margin-left:40px }
+    .event h3{ margin:0 0 6px; font-size:18px; color:var(--accent-ice) }
+    .event p{ margin:0; color:var(--muted) }
+    .event .cover{ width:100%; border-radius:12px; overflow:hidden; border:1px solid var(--border); margin-bottom:10px }
+    .event .cover img{ width:100%; height:auto; display:block }
+
+    /* Mobile */
+    @media (max-width: 820px){
+      .timeline::before{ left: 20px; transform:none }
+      .event{ grid-template-columns: 1fr; }
+      .event .dot{ left:20px }
+      .event.left .card, .event.right .card{ grid-column:1 / -1; margin: 0 0 0 40px }
+    }
+
+    /* Back-to-top button (reuse style) */
+    #backToTop {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 1px solid rgba(127,208,255,.45);
+      background: linear-gradient(180deg, rgba(127,208,255,.18), rgba(127,208,255,.10));
+      color: #eaf5ff; display:flex; align-items:center; justify-content:center;
+      cursor:pointer; opacity:0; visibility:hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,.35);
+      transition: opacity .25s ease, visibility .25s ease, transform .2s ease;
+      z-index: 9999;
+    }
+    #backToTop:hover { transform: translateY(-2px); border-color: rgba(127,208,255,.65); }
+    #backToTop.show { opacity: 1; visibility: visible; transform: translateY(0); }
+    @keyframes backToTopFadePop {
+      from { opacity: 0; transform: translateY(6px) scale(.98); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    #backToTop.show{ animation: backToTopFadePop .25s ease-out; }
+  
+.nav a.active{
+  color: var(--accent-ice);
+  border-color: rgba(127,208,255,.6);
+  background: linear-gradient(180deg, rgba(127,208,255,.22), rgba(127,208,255,.12));
+  box-shadow: 0 8px 24px rgba(0,0,0,.35), 0 0 0 1px rgba(127,208,255,.25) inset;
+}
+
+
+/* Gold accent for active nav on Timeline page */
+.nav a.active.timeline-active{
+  color: var(--accent-gold);
+  border-color: rgba(240,193,70,.75);
+  background: linear-gradient(180deg, rgba(240,193,70,.22), rgba(240,193,70,.12));
+  box-shadow: 0 8px 26px rgba(240,193,70,.35), 0 0 0 1px rgba(240,193,70,.25) inset;
+}
+
+
+/* Simple Lightbox */
+.lightbox-backdrop{
+  position: fixed; inset: 0; background: rgba(0,0,0,.7);
+  display: none; align-items: center; justify-content: center;
+  z-index: 10000;
+}
+.lightbox-backdrop.show{ display: flex; }
+.lightbox-content{
+  max-width: 92vw; max-height: 88vh; border-radius: 12px;
+  overflow: hidden; background: #0b0f16; border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(0,0,0,.6);
+}
+.lightbox-content img{ display: block; width: 100%; height: auto; }
+.lightbox-close{
+  position: absolute; top: 14px; right: 18px; font-size: 26px; color: #fff;
+  cursor: pointer; user-select: none;
+}
+
+
+.shield-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 4px rgba(240,193,70,0.5));
+}
+.brandline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.brand.gold {
+  color: var(--accent-gold);
+  text-shadow: 0 0 6px rgba(240,193,70,.45);
+  font-size: 22px;
+}
+@media (min-width:768px){
+  .brand.gold { font-size: 28px; }
+}
+
+</style>
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="uploads/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="uploads/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="uploads/favicon-180.png">
+  <link rel="icon" href="uploads/favicon.ico">
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sonic Sentinel Saga — Timeline">
+<meta property="og:description" content="A visual timeline of the saga — key moments from Disc I & II.">
+<meta property="og:image" content="uploads/banner-space.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sonic Sentinel Saga — Timeline">
+<meta name="twitter:description" content="A visual timeline of the saga — key moments from Disc I & II.">
+<meta name="twitter:image" content="uploads/banner-space.png">
+<link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div class="wrap">
+    <!-- HERO -->
+    <header class="hero cosmic" aria-label="Sonic Sentinel timeline header">
+      <div class="brandline">
+<svg class="shield-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="goldGradientShield" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0c146"/>
+      <stop offset="100%" stop-color="#c79e35"/>
+    </linearGradient>
+  </defs>
+  <path d="M50 6 L90 20 L82 82 L50 94 L18 82 L10 20 Z" fill="url(#goldGradientShield)" stroke="rgba(0,0,0,0.35)" stroke-width="2"/>
+  <path d="M27 38 L73 62" stroke="rgba(0,0,0,0.55)" stroke-width="7" stroke-linecap="round"/>
+  <path d="M27 52 L73 76" stroke="rgba(0,0,0,0.55)" stroke-width="7" stroke-linecap="round"/>
+</svg>
+<div class="brand gold">SONIC SENTINEL SAGA</div>
+</div>
+      <p class="tagline">Saga Timeline</p>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="discography.html">Discography</a>
+        <a href="tracks.html">Tracks</a>
+        <a href="story.html">Story</a>
+        <a href="timeline.html" class="active">Timeline</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="neon-bar" aria-hidden="true"></div>
+    </header>
+
+    <!-- TIMELINE -->
+    <section class="panel">
+      <h2 style="margin:0 0 10px;">Visual Timeline</h2>
+      <p class="muted" style="margin-top:0;">From static to legend — key moments of the Sonic Sentinel Saga.</p>
+      <div class="divider"></div>
+
+      <div class="timeline">
+        <!-- Disc I -->
+        <div class="event left">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/awakening.png" class="lb" aria-label="Open Awakening cover"><img src="uploads/tracks/awakening.png" alt="Awakening cover"></a></div>
+            <h3>Awakening</h3>
+            <p>A dormant presence flickers in the abyss.</p>
+          </div>
+        </div>
+
+        <div class="event right">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/first-transmission.png" class="lb" aria-label="Open First Transmission cover"><img src="uploads/tracks/first-transmission.png" alt="First Transmission cover"></a></div>
+            <h3>First Transmission</h3>
+            <p>The signal slips free, seeking ears to hear.</p>
+          </div>
+        </div>
+
+        <div class="event left">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/citadel-collapse.png" class="lb" aria-label="Open Citadel Collapse cover"><img src="uploads/tracks/citadel-collapse.png" alt="Citadel Collapse cover"></a></div>
+            <h3>Citadel Collapse</h3>
+            <p>A fortress crumbles, order falls to chaos.</p>
+          </div>
+        </div>
+
+        <div class="event right">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/escape-protocol.png" class="lb" aria-label="Open Escape Protocol cover"><img src="uploads/tracks/escape-protocol.png" alt="Escape Protocol cover"></a></div>
+            <h3>Escape Protocol</h3>
+            <p>Codes ignite, but the pulse cannot be contained.</p>
+          </div>
+        </div>
+
+        <div class="event left">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/celestial-voyage.png" class="lb" aria-label="Open Celestial Voyage cover"><img src="uploads/tracks/celestial-voyage.png" alt="Celestial Voyage cover"></a></div>
+            <h3>Celestial Voyage</h3>
+            <p>The signal drifts across stars in search of form.</p>
+          </div>
+        </div>
+
+        <div class="event right">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/the-signal.png" class="lb" aria-label="Open The Signal cover"><img src="uploads/tracks/the-signal.png" alt="The Signal cover"></a></div>
+            <h3>The Signal</h3>
+            <p>Fragments converge; the voice emerges.</p>
+          </div>
+        </div>
+
+        <div class="event left">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/the-grid.png" class="lb" aria-label="Open The Grid cover"><img src="uploads/tracks/the-grid.png" alt="The Grid cover"></a></div>
+            <h3>The Grid</h3>
+            <p>An infinite lattice binds all existence.</p>
+          </div>
+        </div>
+
+        <div class="event right">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/galactic-siege.png" class="lb" aria-label="Open Galactic Siege cover"><img src="uploads/tracks/galactic-siege.png" alt="Galactic Siege cover"></a></div>
+            <h3>Galactic Siege</h3>
+            <p>Fleets clash, the cosmos trembles with war.</p>
+          </div>
+        </div>
+
+        <div class="event left">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/lost-signal.png" class="lb" aria-label="Open Lost Signal cover"><img src="uploads/tracks/lost-signal.png" alt="Lost Signal cover"></a></div>
+            <h3>Lost Signal</h3>
+            <p>Silence—broken fragments fade into nothing.</p>
+          </div>
+        </div>
+
+        <div class="event right">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/echoes-of-tomorrow.png" class="lb" aria-label="Open Echoes of Tomorrow cover"><img src="uploads/tracks/echoes-of-tomorrow.png" alt="Echoes of Tomorrow cover"></a></div>
+            <h3>Echoes of Tomorrow</h3>
+            <p>Visions shimmer of futures yet to come.</p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Disc II -->
+        <div class="event left">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/aurora-dawn.png" class="lb" aria-label="Open Aurora Dawn cover"><img src="uploads/tracks/aurora-dawn.png" alt="Aurora Dawn cover"></a></div>
+            <h3>Aurora Dawn</h3>
+            <p>From ruins, fragile light rises again.</p>
+          </div>
+        </div>
+
+        <div class="event right">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/sentinel-rising.png" class="lb" aria-label="Open Sentinel Rising cover"><img src="uploads/tracks/sentinel-rising.png" alt="Sentinel Rising cover"></a></div>
+            <h3>Sentinel Rising</h3>
+            <p>The guardian awakens, vast and undeniable.</p>
+          </div>
+        </div>
+
+        <div class="event left">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/second-transmission.png" class="lb" aria-label="Open Second Transmission cover"><img src="uploads/tracks/second-transmission.png" alt="Second Transmission cover"></a></div>
+            <h3>Second Transmission</h3>
+            <p>A renewed voice guides humanity forward.</p>
+          </div>
+        </div>
+
+        <div class="event right">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/around-the-world.png" class="lb" aria-label="Open Around the World cover"><img src="uploads/tracks/around-the-world.png" alt="Around the World cover"></a></div>
+            <h3>Around the World</h3>
+            <p>The signal unites voices across nations.</p>
+          </div>
+        </div>
+
+        <div class="event left">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/sentinels-voice.png" class="lb" aria-label="Open Sentinel’s Voice cover"><img src="uploads/tracks/sentinels-voice.png" alt="Sentinel’s Voice cover"></a></div>
+            <h3>Sentinel’s Voice</h3>
+            <p>A lament of grief carrying hope within.</p>
+          </div>
+        </div>
+
+        <div class="event right">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/summer-of-rave.png" class="lb" aria-label="Open Summer of Rave cover"><img src="uploads/tracks/summer-of-rave.png" alt="Summer of Rave cover"></a></div>
+            <h3>Summer of Rave</h3>
+            <p>Celebration erupts—joy becomes resistance.</p>
+          </div>
+        </div>
+
+        <div class="event left">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/exodus.png" class="lb" aria-label="Open Exodus cover"><img src="uploads/tracks/exodus.png" alt="Exodus cover"></a></div>
+            <h3>Exodus</h3>
+            <p>Humanity departs, drawn to distant horizons.</p>
+          </div>
+        </div>
+
+        <div class="event right">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/citadel-ascension.png" class="lb" aria-label="Open Citadel Ascension cover"><img src="uploads/tracks/citadel-ascension.png" alt="Citadel Ascension cover"></a></div>
+            <h3>Citadel Ascension</h3>
+            <p>From ashes, a new stronghold reaches upward.</p>
+          </div>
+        </div>
+
+        <div class="event left">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/echoes-reprise.png" class="lb" aria-label="Open Echoes of Tomorrow (Reprise) cover"><img src="uploads/tracks/echoes-reprise.png" alt="Echoes of Tomorrow (Reprise) cover"></a></div>
+            <h3>Echoes of Tomorrow (Reprise)</h3>
+            <p>Visions return, no longer warning but promise.</p>
+          </div>
+        </div>
+
+        <div class="event right">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/sentinel-eternal.png" class="lb" aria-label="Open Sentinel Eternal cover"><img src="uploads/tracks/sentinel-eternal.png" alt="Sentinel Eternal cover"></a></div>
+            <h3>Sentinel Eternal</h3>
+            <p>Beyond time, the signal becomes legend.</p>
+          </div>
+        </div>
+
+        <div class="event left">
+          <span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="cover"><a href="uploads/tracks/epilogue.png" class="lb" aria-label="Open Epilogue cover"><img src="uploads/tracks/epilogue.png" alt="Epilogue cover"></a></div>
+            <h3>Epilogue</h3>
+            <p>The Sentinel fades, but its myth endures.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- Back to Top -->
+  <button id="backToTop" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <script>
+    // Back-to-top toggle
+    (function(){
+      const btn = document.getElementById('backToTop');
+      if (!btn) return;
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) btn.classList.add('show'); else btn.classList.remove('show');
+      });
+      btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    })();
+  </script>
+
+  <div id="lightboxBackdrop" class="lightbox-backdrop" aria-modal="true" role="dialog" aria-label="Image viewer">
+    <div class="lightbox-content">
+      <span class="lightbox-close" aria-label="Close">×</span>
+      <img id="lightboxImage" alt="Track artwork">
+    </div>
+  </div>
+
+
+  <script>
+    (function(){
+      const backdrop = document.getElementById('lightboxBackdrop');
+      const img = document.getElementById('lightboxImage');
+      const close = backdrop ? backdrop.querySelector('.lightbox-close') : null;
+      function open(src, alt){
+        img.src = src; img.alt = alt || 'Artwork';
+        backdrop.classList.add('show');
+      }
+      function hide(){
+        backdrop.classList.remove('show');
+        img.src = '';
+      }
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest('a.lb');
+        if(a){
+          e.preventDefault();
+          open(a.getAttribute('href'), a.getAttribute('aria-label') || 'Artwork');
+        }
+        if(e.target === backdrop){ hide(); }
+      });
+      if(close){ close.addEventListener('click', hide); }
+      document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape' && backdrop.classList.contains('show')) hide();
+      });
+    })();
+  </script>
+
+
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js")
+      .then(() => console.log("Service Worker geregistreerd"))
+      .catch(err => console.error("SW fout:", err));
+  }
+</script>
+
+</body>
+</html>
