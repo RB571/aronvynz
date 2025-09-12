@@ -285,6 +285,18 @@ img{ max-width:100%; height:auto }
 /* Ensure tap targets are large enough */
 .btn, .nav a{ min-height:44px; min-width:44px }
 #backToTop{ min-width:44px; min-height:44px }
+
+/* Active nav link gold */
+.nav a.active{
+  color: var(--accent-gold) !important;
+  border-color: rgba(240,193,70,.65) !important;
+  background: linear-gradient(180deg, rgba(240,193,70,.22), rgba(240,193,70,.12)) !important;
+  box-shadow: 0 8px 24px rgba(240,193,70,.35), 0 0 0 1px rgba(240,193,70,.25) inset !important;
+}
+
+/* Extra spacing between story sections */
+#story h2{ margin-top:40px; margin-bottom:12px }
+#story h2:first-of-type{ margin-top:0 }
 </style>
 <link href='\"style.css\"' rel='\"stylesheet\"'/>
 </head><body><a class="skip-link" href="#main">Skip to content</a><header aria-label="Page header" class="hero">

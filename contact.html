@@ -293,6 +293,14 @@ img{ max-width:100%; height:auto }
 /* Ensure tap targets are large enough */
 .btn, .nav a{ min-height:44px; min-width:44px }
 #backToTop{ min-width:44px; min-height:44px }
+
+/* Active nav link gold */
+.nav a.active{
+  color: var(--accent-gold) !important;
+  border-color: rgba(240,193,70,.65) !important;
+  background: linear-gradient(180deg, rgba(240,193,70,.22), rgba(240,193,70,.12)) !important;
+  box-shadow: 0 8px 24px rgba(240,193,70,.35), 0 0 0 1px rgba(240,193,70,.25) inset !important;
+}
 </style>
 <link href='\"style.css\"' rel='\"stylesheet\"'/>
 <link href='\"style.css\"' rel='\"stylesheet\"'/>
@@ -330,7 +338,7 @@ img{ max-width:100%; height:auto }
 <div class="brand gold">SONIC SENTINEL SAGA</div>
 </div>
 <p class="section-title">Get in Touch</p>
-<nav aria-label="Site navigation" class="nav" role="navigation"><a href="index.html">Home</a><a href="discography.html">Albums</a><a href="tracks.html">Tracks</a><a href="story.html">Story</a><a aria-current="page" class="active" href="contact.html">Contact</a></nav>
+<nav aria-label="Site navigation" class="nav" role="navigation"><a href="index.html">Home</a><a href="discography.html">Albums</a><a href="tracks.html">Tracks</a><a href="story.html">Story</a><a aria-current="page" class="active" href="contact.html">Contact</a><a class="btn album" href="https://music.apple.com/">Apple Music</a><a class="btn album" href="https://facebook.com/">Facebook</a><a class="btn album" href="https://spotify.com/">Spotify</a><a class="btn album" href="https://instagram.com/">Instagram</a><a class="btn album" href="https://youtube.com/">YouTube</a></nav>
 <div aria-hidden="true" class="neon-bar"></div>
 </header>
 <div class="divider"></div>
@@ -339,7 +347,6 @@ img{ max-width:100%; height:auto }
 <div class="grid">
 <div class="card">
 <p class="label">Email</p>
-<p><a class="link" href="mailto:hello@sonicsentinel.nl">hello@sonicsentinel.nl</a></p>
 <p class="small">Booking, press, collabs.</p>
 </div>
 <div class="card">
@@ -360,20 +367,6 @@ img{ max-width:100%; height:auto }
 </div>
 </section>
 <div class="divider"></div>
-<section class="panel">
-<h2>Brand kit</h2>
-<div class="grid">
-<div class="card">
-<p class="label">Logo (PNG)</p>
-<p><a class="link" download="" href="uploads/new-logo.png">Download</a></p>
-<p class="small">Shield with twin stripes, transparent background.</p>
-</div>
-<div class="card">
-<p class="label">Press photo</p>
-<p><a class="link" download="" href="uploads/press/press-photo.png">Download</a></p>
-</div>
-</div>
-</section>
 </div></main>
 <script>
     // Smooth scrolling for in-page anchors + apply on load when arriving with a hash
