@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Sonic Sentinel Saga – Contact</title>
-<style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sonic Sentinel Saga – Contact</title>
+  
+
+      <style>
 
 :root{
   --bg:#0b0f16; --panel:#101623; --panel-2:#0e1420;
@@ -82,17 +83,6 @@ body{
 }
 
 /* Section titles gold */
-
-/* Track titles gold */
-.item .meta .title,
-.item .meta .title a,
-.track-title,
-tbody td.track,
-tbody td.track a {
-  color: var(--accent-gold) !important;
-  text-shadow: 0 0 6px rgba(240,193,70,.35);
-}
-
 .section-title, h2.title{
   color: var(--accent-gold);
   text-shadow: 0 0 6px rgba(240,193,70,.45);
@@ -224,151 +214,102 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
   box-shadow: 0 0 14px rgba(127,208,255,.55), 0 0 20px rgba(127,208,255,.35);
 }
 
-  
-/* --- Mobile responsiveness improvements --- */
-/* Make nav horizontally scrollable on small screens */
-.nav{ overflow-x:auto; -webkit-overflow-scrolling:touch }
-.nav::-webkit-scrollbar{ display:none }
+  </style>
+<link rel=\"stylesheet\" href=\"style.css\">
+<link rel=\"stylesheet\" href=\"style.css\">
+<link rel="icon" type="image/png" sizes="32x32" href="uploads/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="uploads/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="uploads/favicon-180.png">
+<link rel="icon" href="uploads/favicon.ico">
 
-/* Ensure images never overflow */
-img{ max-width:100%; height:auto }
-
-/* Wrap padding tighter on small screens */
-@media (max-width: 640px){
-  .wrap{ max-width:100%; margin:20px auto; padding:0 14px }
-  .brand.gold{ font-size:18px }
-  .shield-icon{ width:22px; height:22px }
-  .hero{ padding:16px 12px 38px }
-  .title, h2, h3{ font-size:18px }
-  p{ font-size:14px; line-height:1.55 }
-  .btn{ padding:10px 12px; font-size:13px }
-  .grid{ grid-template-columns:1fr !important; gap:14px }
-  /* Track item covers smaller */
-  .item .cover img{ width:168px; height:168px }
-  .item .meta{ padding:10px 12px 12px; min-height:auto }
-  .card:hover, .item:hover{ transform:none } /* reduce motion on mobile */
-  /* Reduce divider margins */
-  .divider{ margin:18px auto }
-  /* Back to top button offset */
-  #backToTop{ right:16px; bottom:18px; width:40px; height:40px }
-}
-
-/* Slightly larger phones / small tablets */
-@media (min-width:641px) and (max-width: 900px){
-  .wrap{ max-width:100%; margin:30px auto; padding:0 18px }
-  .grid{ grid-template-columns:1fr 1fr }
-  .item .cover img{ width:200px; height:200px }
-}
-
-/* Tables: make horizontally scrollable on small screens */
-@media (max-width: 780px){
-  table{ display:block; width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; border-spacing:0 }
-  thead, tbody, tr, th, td{ white-space:nowrap }
-}
-
-/* Reduce box shadows to avoid heavy paints on mobile GPUs */
-@media (max-width: 640px){
-  .card, .item, .btn{ box-shadow:none }
-}
-
-/* Ensure story section headings have spacing on mobile */
-@media (max-width: 640px){
-  #story h2{ margin-top:18px; margin-bottom:8px }
-}
-
-/* --- Accessibility & Motion Preferences --- */
-:focus-visible{ outline:3px solid rgba(127,208,255,.9); outline-offset:3px; border-radius:8px }
-.skip-link{
-  position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
-}
-.skip-link:focus{
-  position:fixed; left:16px; top:16px; width:auto; height:auto; z-index:1000;
-  background:#0e1522; color:#e7ecf3; padding:10px 14px; border-radius:10px;
-  border:1px solid rgba(127,208,255,.6); box-shadow:0 8px 24px rgba(0,0,0,.4);
-}
-@media (prefers-reduced-motion: reduce){
-  *{ animation:none !important; transition:none !important; scroll-behavior:auto !important }
-  .card:hover, .item:hover, .btn:hover{ transform:none !important }
-}
-/* Ensure tap targets are large enough */
-.btn, .nav a{ min-height:44px; min-width:44px }
-#backToTop{ min-width:44px; min-height:44px }
-
-/* Active nav link gold */
-.nav a.active{
-  color: var(--accent-gold) !important;
-  border-color: rgba(240,193,70,.65) !important;
-  background: linear-gradient(180deg, rgba(240,193,70,.22), rgba(240,193,70,.12)) !important;
-  box-shadow: 0 8px 24px rgba(240,193,70,.35), 0 0 0 1px rgba(240,193,70,.25) inset !important;
-}
-</style>
-<link href='\"style.css\"' rel='\"stylesheet\"'/>
-<link href='\"style.css\"' rel='\"stylesheet\"'/>
-<link href="uploads/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="uploads/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
-<link href="uploads/favicon-180.png" rel="apple-touch-icon" sizes="180x180"/>
-<link href="uploads/favicon.ico" rel="icon"/>
 <!-- Open Graph / Twitter -->
-<meta content="website" property="og:type"/>
-<meta content="Sonic Sentinel Saga — Contact" property="og:title"/>
-<meta content="Bookings, inquiries, and collaboration requests." property="og:description"/>
-<meta content="" property="og:image"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="Sonic Sentinel Saga — Contact" name="twitter:title"/>
-<meta content="Bookings, inquiries, and collaboration requests." name="twitter:description"/>
-<meta content="" name="twitter:image"/>
-<link href="manifest.json" rel="manifest"/>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sonic Sentinel Saga — Contact">
+<meta property="og:description" content="Bookings, inquiries, and collaboration requests.">
+<meta property="og:image" content="">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sonic Sentinel Saga — Contact">
+<meta name="twitter:description" content="Bookings, inquiries, and collaboration requests.">
+<meta name="twitter:image" content="">
+<link rel="manifest" href="manifest.json">
 </head>
-<body><a class="skip-link" href="#main">Skip to content</a>
-<main id="main" role="main"><div class="wrap">
-<header aria-label="Page header" class="hero">
-<div class="brandline">
-<!-- SVG Shield -->
-<svg aria-hidden="true" class="shield-icon" focusable="false" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<lineargradient id="goldGradientShield" x1="0" x2="0" y1="0" y2="1">
-<stop offset="0%" stop-color="#f0c146"></stop>
-<stop offset="100%" stop-color="#c79e35"></stop>
-</lineargradient>
-</defs>
-<path d="M50 6 L90 20 L82 82 L50 94 L18 82 L10 20 Z" fill="url(#goldGradientShield)" stroke="rgba(0,0,0,0.35)" stroke-width="2"></path>
-<path d="M27 38 L73 62" stroke="rgba(0,0,0,0.55)" stroke-linecap="round" stroke-width="7"></path>
-<path d="M27 52 L73 76" stroke="rgba(0,0,0,0.55)" stroke-linecap="round" stroke-width="7"></path>
-</svg>
-<div class="brand gold">SONIC SENTINEL SAGA</div>
-</div>
-<p class="section-title">Get in Touch</p>
-<nav aria-label="Site navigation" class="nav" role="navigation"><a href="index.html">Home</a><a href="discography.html">Albums</a><a href="tracks.html">Tracks</a><a href="story.html">Story</a><a aria-current="page" class="active" href="contact.html">Contact</a><a class="btn album" href="https://music.apple.com/">Apple Music</a><a class="btn album" href="https://facebook.com/">Facebook</a><a class="btn album" href="https://spotify.com/">Spotify</a></nav>
-<div aria-hidden="true" class="neon-bar"></div>
-</header>
-<div class="divider"></div>
-<section class="panel">
-<h2>Get in touch</h2>
-<div class="grid">
-<div class="card">
-<p class="label">Email</p>
-<p class="small">Booking, press, collabs.</p>
-</div>
-<div class="card">
-<p class="label">Instagram</p>
-<p><a class="link" href="#" rel="noopener" target="_blank">instagram.com/sonicsentinel</a></p>
-<p class="small">Artwork, teasers, behind-the-scenes.</p>
-</div>
-<div class="card">
-<p class="label">YouTube</p>
-<p><a class="link" href="#" rel="noopener" target="_blank">youtube.com/@sonicsentinel</a></p>
-<p class="small">Visualizers, trailers, full tracks.</p>
-</div>
-<div class="card">
-<p class="label">Spotify</p>
-<p><a class="link" href="#" rel="noopener" target="_blank">open.spotify.com/artist/sonicsentinel</a></p>
-<p class="small">Follow for new releases.</p>
-</div>
-</div>
-</section>
-<div class="divider"></div>
-</div></main>
-<script>
+<body>
+  <div class="wrap">
+    <header class="hero" aria-label="Page header">
+      <div class="brandline">
+        <!-- SVG Shield -->
+        <svg class="shield-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="goldGradientShield" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f0c146"/>
+              <stop offset="100%" stop-color="#c79e35"/>
+            </linearGradient>
+          </defs>
+          <path d="M50 6 L90 20 L82 82 L50 94 L18 82 L10 20 Z" fill="url(#goldGradientShield)" stroke="rgba(0,0,0,0.35)" stroke-width="2"/>
+          <path d="M27 38 L73 62" stroke="rgba(0,0,0,0.55)" stroke-width="7" stroke-linecap="round"/>
+          <path d="M27 52 L73 76" stroke="rgba(0,0,0,0.55)" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+        <div class="brand gold">SONIC SENTINEL SAGA</div>
+      </div>
+      <p class="section-title">Get in Touch</p>
+      <nav class="nav" aria-label="Site navigation">
+        <a href="index.html">Home</a>
+        <a href="discography.html">Discography</a>
+        <a href="tracks.html">Tracks</a>
+        <a href="contact.html" class="active">Contact</a>
+      <a href="story-timeline.html">Story &amp; Timeline</a>
+      </nav>
+      <div class="neon-bar" aria-hidden="true"></div>
+    </header>
+
+    <div class="divider"></div>
+    <section class="panel">
+      <h2>Get in touch</h2>
+      <div class="grid">
+        <div class="card">
+          <p class="label">Email</p>
+          <p><a class="link" href="mailto:hello@sonicsentinel.nl">hello@sonicsentinel.nl</a></p>
+          <p class="small">Booking, press, collabs.</p>
+        </div>
+        <div class="card">
+          <p class="label">Instagram</p>
+          <p><a class="link" href="#" target="_blank" rel="noopener">instagram.com/sonicsentinel</a></p>
+          <p class="small">Artwork, teasers, behind-the-scenes.</p>
+        </div>
+        <div class="card">
+          <p class="label">YouTube</p>
+          <p><a class="link" href="#" target="_blank" rel="noopener">youtube.com/@sonicsentinel</a></p>
+          <p class="small">Visualizers, trailers, full tracks.</p>
+        </div>
+        <div class="card">
+          <p class="label">Spotify</p>
+          <p><a class="link" href="#" target="_blank" rel="noopener">open.spotify.com/artist/sonicsentinel</a></p>
+          <p class="small">Follow for new releases.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+    <section class="panel">
+      <h2>Brand kit</h2>
+      <div class="grid">
+        <div class="card">
+          <p class="label">Logo (PNG)</p>
+          <p><a class="link" href="uploads/new-logo.png" download>Download</a></p>
+          <p class="small">Shield with twin stripes, transparent background.</p>
+        </div>
+        <div class="card">
+          <p class="label">Press photo</p>
+          <p><a class="link" href="uploads/press/press-photo.png" download>Download</a></p>
+          <p class="small">Use with credit “© Sonic Sentinel”.</p>
+        </div>
+      </div>
+    </section>
+
+    <p class="credit">© Sonic Sentinel • Contact &amp; Socials</p>
+  </div>
+
+  <script>
     // Smooth scrolling for in-page anchors + apply on load when arriving with a hash
     (function(){
       const getOffset = () => parseInt(getComputedStyle(document.documentElement).getPropertyValue('--anchor-offset')) || 88;
@@ -398,8 +339,10 @@ img{ max-width:100%; height:auto }
       });
     })();
   </script>
-<button aria-label="Back to top" id="backToTop"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
-<script>
+
+
+  <button id="backToTop" aria-label="Back to top"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
+  <script>
     (function(){
       const btn = document.getElementById('backToTop');
       if (!btn) return;
@@ -415,7 +358,9 @@ img{ max-width:100%; height:auto }
       });
     })();
   </script>
-<script>
+
+
+  <script>
     // Move hover glow under cursor for nav pills
     document.addEventListener('mousemove', (e) => {
       const a = e.target.closest('.nav a');
@@ -425,6 +370,7 @@ img{ max-width:100%; height:auto }
       a.style.setProperty('--x', x + '%');
     }, { passive: true });
   </script>
+
 <script>
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("service-worker.js")
@@ -432,5 +378,6 @@ img{ max-width:100%; height:auto }
       .catch(err => console.error("SW fout:", err));
   }
 </script>
+
 </body>
 </html>
