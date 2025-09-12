@@ -27,7 +27,7 @@
     .wrap{max-width:1100px; margin:40px auto; padding:0 20px}
     :target{scroll-margin-top:var(--anchor-offset)}
 
-    /* Glass/Neon banner (no image dependency) */
+    /* Glass/Neon hero */
     .hero{
       position: relative; overflow:hidden; border:1px solid rgba(255,255,255,.12);
       border-radius: var(--radius);
@@ -74,7 +74,6 @@
       background: linear-gradient(180deg, rgba(127,208,255,.22), rgba(127,208,255,.12));
       box-shadow: 0 8px 24px rgba(0,0,0,.35), 0 0 0 1px rgba(127,208,255,.25) inset;
     }
-
     .neon-bar{
       position:absolute; left:12px; right:12px; bottom:10px; height:2px;
       background: linear-gradient(90deg, rgba(127,208,255,0), rgba(127,208,255,.95), rgba(240,193,70,.85), rgba(127,208,255,.95), rgba(127,208,255,0));
@@ -98,7 +97,7 @@
     }
     .disc h2{ margin:0; font-size:18px }
     .disc .subtitle{ margin:4px 0 0; color:var(--muted); font-size:13px }
-    .cover{ flex:0 0 120px; height:120px; border-radius:12px; overflow:hidden; border:1px solid var(--border); background:#0f1524 }
+    .cover{ flex:0 0 80px; height:80px; border-radius:10px; overflow:hidden; border:1px solid var(--border); background:#0f1524 }
     .cover img{ width:100%; height:100%; object-fit:cover; display:block }
 
     table{ width:100%; border-collapse:separate; border-spacing:0 }
@@ -153,7 +152,7 @@
     }
   </style>
 
-  <!-- Favicons -->
+  <!-- Favicons + Manifest -->
   <link rel="icon" type="image/png" sizes="32x32" href="uploads/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="uploads/favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="uploads/favicon-180.png">
@@ -208,65 +207,23 @@
               <tr>
                 <th>#</th>
                 <th>Track</th>
-                <th>Short Description</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td class="gold-title">Prologue</td>
                 <td><strong class="gold-title">Signal of the Sentinel</strong></td>
-                <td>From silence, a spark becomes rhythm, and rhythm becomes a signal.</td>
               </tr>
-              <tr>
-                <td>1</td>
-                <td><strong class="gold-title">Awakening</strong></td>
-                <td>A dormant presence flickers in the abyss.</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td><strong class="gold-title">First Transmission</strong></td>
-                <td>The signal slips free, seeking ears to hear.</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td><strong class="gold-title">Citadel Collapse</strong></td>
-                <td>A fortress crumbles, order falls to chaos.</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td><strong class="gold-title">Escape Protocol</strong></td>
-                <td>Codes ignite, but the pulse cannot be contained.</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td><strong class="gold-title">Celestial Voyage</strong></td>
-                <td>The signal drifts across stars in search of form.</td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td><strong class="gold-title">The Signal</strong></td>
-                <td>Fragments converge; the voice emerges.</td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td><strong class="gold-title">The Grid</strong></td>
-                <td>An infinite lattice binds all existence.</td>
-              </tr>
-              <tr>
-                <td>8</td>
-                <td><strong class="gold-title">Galactic Siege</strong></td>
-                <td>Fleets clash, the cosmos trembles with war.</td>
-              </tr>
-              <tr>
-                <td>9</td>
-                <td><strong class="gold-title">Lost Signal</strong></td>
-                <td>Silence—broken fragments fade into nothing.</td>
-              </tr>
-              <tr>
-                <td>10</td>
-                <td><strong class="gold-title">Echoes of Tomorrow</strong></td>
-                <td>Visions shimmer of futures yet to come.</td>
-              </tr>
+              <tr><td>1</td><td><strong class="gold-title">Awakening</strong></td></tr>
+              <tr><td>2</td><td><strong class="gold-title">First Transmission</strong></td></tr>
+              <tr><td>3</td><td><strong class="gold-title">Citadel Collapse</strong></td></tr>
+              <tr><td>4</td><td><strong class="gold-title">Escape Protocol</strong></td></tr>
+              <tr><td>5</td><td><strong class="gold-title">Celestial Voyage</strong></td></tr>
+              <tr><td>6</td><td><strong class="gold-title">The Signal</strong></td></tr>
+              <tr><td>7</td><td><strong class="gold-title">The Grid</strong></td></tr>
+              <tr><td>8</td><td><strong class="gold-title">Galactic Siege</strong></td></tr>
+              <tr><td>9</td><td><strong class="gold-title">Lost Signal</strong></td></tr>
+              <tr><td>10</td><td><strong class="gold-title">Echoes of Tomorrow</strong></td></tr>
             </tbody>
           </table>
         </div>
@@ -287,65 +244,20 @@
               <tr>
                 <th>#</th>
                 <th>Track</th>
-                <th>Short Description</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td><strong class="gold-title">Aurora Dawn</strong></td>
-                <td>From ruins, fragile light rises again.</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td><strong class="gold-title">Sentinel Rising</strong></td>
-                <td>The guardian awakens, vast and undeniable.</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td><strong class="gold-title">Second Transmission</strong></td>
-                <td>A renewed voice guides humanity forward.</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td><strong class="gold-title">Around the World</strong></td>
-                <td>The signal unites voices across nations.</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td><strong class="gold-title">Sentinel’s Voice</strong></td>
-                <td>A lament of grief carrying hope within.</td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td><strong class="gold-title">Summer of Rave</strong></td>
-                <td>Celebration erupts—joy becomes resistance.</td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td><strong class="gold-title">Exodus</strong></td>
-                <td>Humanity departs, drawn to distant horizons.</td>
-              </tr>
-              <tr>
-                <td>8</td>
-                <td><strong class="gold-title">Citadel Ascension</strong></td>
-                <td>From ashes, a new stronghold reaches upward.</td>
-              </tr>
-              <tr>
-                <td>9</td>
-                <td><strong class="gold-title">Echoes of Tomorrow (Reprise)</strong></td>
-                <td>Visions return, no longer warning but promise.</td>
-              </tr>
-              <tr>
-                <td>10</td>
-                <td><strong class="gold-title">Sentinel Eternal</strong></td>
-                <td>Beyond time, the signal becomes legend.</td>
-              </tr>
-              <tr>
-                <td>11</td>
-                <td><strong class="gold-title">Epilogue</strong></td>
-                <td>The Sentinel fades, but its myth endures.</td>
-              </tr>
+              <tr><td>1</td><td><strong class="gold-title">Aurora Dawn</strong></td></tr>
+              <tr><td>2</td><td><strong class="gold-title">Sentinel Rising</strong></td></tr>
+              <tr><td>3</td><td><strong class="gold-title">Second Transmission</strong></td></tr>
+              <tr><td>4</td><td><strong class="gold-title">Around the World</strong></td></tr>
+              <tr><td>5</td><td><strong class="gold-title">Sentinel’s Voice</strong></td></tr>
+              <tr><td>6</td><td><strong class="gold-title">Summer of Rave</strong></td></tr>
+              <tr><td>7</td><td><strong class="gold-title">Exodus</strong></td></tr>
+              <tr><td>8</td><td><strong class="gold-title">Citadel Ascension</strong></td></tr>
+              <tr><td>9</td><td><strong class="gold-title">Echoes of Tomorrow (Reprise)</strong></td></tr>
+              <tr><td>10</td><td><strong class="gold-title">Sentinel Eternal</strong></td></tr>
+              <tr><td>11</td><td><strong class="gold-title">Epilogue</strong></td></tr>
             </tbody>
           </table>
         </div>
@@ -370,7 +282,6 @@
   <!-- Share + Listen wiring -->
   <script>
   (function(){
-    // Share buttons per row
     function slugify(text){
       return text.toString().toLowerCase()
         .replace(/\s+/g, '-').replace(/[^\w\-]+/g, '')
@@ -403,7 +314,6 @@
       });
     }
 
-    // Listen buttons per row (fill your URLs below)
     const LISTEN_LINKS = {
       // 'disc-1-awakening': 'https://...',
       // 'disc-2-aurora-dawn': 'https://...'
@@ -427,7 +337,6 @@
 
     function init(){
       document.querySelectorAll('article.disc').forEach(a => { addShareButtons(a); addListenButtons(a); });
-      // back to top toggle
       const btn = document.getElementById('backToTop');
       window.addEventListener('scroll', () => {
         if (window.scrollY > 300) btn.classList.add('show'); else btn.classList.remove('show');
