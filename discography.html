@@ -27,7 +27,7 @@
     .wrap{max-width:1100px; margin:40px auto; padding:0 20px}
     :target{scroll-margin-top:var(--anchor-offset)}
 
-    /* Glass/Neon hero */
+    /* Hero */
     .hero{
       position: relative; overflow:hidden; border:1px solid rgba(255,255,255,.12);
       border-radius: var(--radius);
@@ -80,11 +80,9 @@
       filter: drop-shadow(0 0 8px rgba(127,208,255,.65)); border-radius:2px; pointer-events:none;
     }
 
-    .divider {
-      height: 2px; margin: 30px auto; max-width: 600px;
+    .divider { height: 2px; margin: 30px auto; max-width: 600px;
       background: linear-gradient(90deg, rgba(127,208,255,0) 0%, rgba(127,208,255,0.8) 50%, rgba(240,193,70,0.7) 75%, rgba(127,208,255,0) 100%);
-      filter: drop-shadow(0 0 8px rgba(127,208,255,0.6)); border-radius: 2px;
-    }
+      filter: drop-shadow(0 0 8px rgba(127,208,255,0.6)); border-radius: 2px; }
 
     .section-title{ font-size:20px; margin:6px 0 0; font-weight:700; letter-spacing:.02em }
 
@@ -96,17 +94,21 @@
       background: linear-gradient(90deg, rgba(127,208,255,0.08), transparent 40%);
     }
     .disc h2{ margin:0; font-size:18px }
-    .disc .subtitle{ margin:4px 0 0; color:var(--muted); font-size:13px }
     .cover{ flex:0 0 80px; height:80px; border-radius:10px; overflow:hidden; border:1px solid var(--border); background:#0f1524 }
     .cover img{ width:100%; height:100%; object-fit:cover; display:block }
 
     table{ width:100%; border-collapse:separate; border-spacing:0 }
     thead th{ text-align:left; font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); padding:12px 14px; border-bottom:1px solid var(--border) }
+    thead th.cover-col{ width:46px }
     tbody td{ padding:12px 14px; vertical-align:middle }
     tbody tr:nth-child(odd){ background: rgba(255,255,255,0.03) }
     tbody tr:hover{ background: rgba(127,208,255,0.06) }
-    tbody td:first-child{ width:90px; color:var(--muted) }
-    tbody td:nth-child(2){ font-weight:700 }
+    tbody td.cover{ width:46px; padding:8px 10px }
+    tbody td.cover img{ width:40px; height:40px; border-radius:6px; border:1px solid var(--border); object-fit:cover; display:block }
+    tbody td.num{ width:70px; color:var(--muted) }
+    tbody td.track{ font-weight:700; display:flex; align-items:center; justify-content:space-between; gap:10px }
+    .track-title{ display:inline-block }
+    .track-buttons{ display:flex; gap:8px }
 
     .gold-title{ color: var(--accent-gold); text-shadow: 0 0 6px rgba(240,193,70,.45) }
 
@@ -117,7 +119,6 @@
       background:#0e1522; color:var(--text);
       text-decoration:none; font-size:13px; line-height:1; cursor:pointer;
       transition: transform .12s ease, border-color .25s ease, box-shadow .25s ease, color .25s ease;
-      margin-left:10px;
     }
     .btn:hover{ transform: translateY(-1px); border-color: rgba(127,208,255,.45); box-shadow: 0 8px 24px rgba(0,0,0,.35) }
     .btn.share{
@@ -151,29 +152,14 @@
       .disc{ break-inside: avoid }
     }
   </style>
-
-  <!-- Favicons + Manifest -->
-  <link rel="icon" type="image/png" sizes="32x32" href="uploads/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="uploads/favicon-192.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="uploads/favicon-180.png">
-  <link rel="icon" href="uploads/favicon.ico">
-  <link rel="manifest" href="manifest.json">
 </head>
 <body>
   <div class="wrap">
     <header class="hero" aria-label="Discography header">
       <div class="brandline">
-        <!-- SVG Shield -->
+        <!-- Minimal shield for brevity -->
         <svg class="shield-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
-          <defs>
-            <linearGradient id="goldGradientShield" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#f0c146"/>
-              <stop offset="100%" stop-color="#c79e35"/>
-            </linearGradient>
-          </defs>
-          <path d="M50 6 L90 20 L82 82 L50 94 L18 82 L10 20 Z" fill="url(#goldGradientShield)" stroke="rgba(0,0,0,0.35)" stroke-width="2"/>
-          <path d="M27 38 L73 62" stroke="rgba(0,0,0,0.55)" stroke-width="7" stroke-linecap="round"/>
-          <path d="M27 52 L73 76" stroke="rgba(0,0,0,0.55)" stroke-width="7" stroke-linecap="round"/>
+          <path d="M50 6 L90 20 L82 82 L50 94 L18 82 L10 20 Z" fill="#f0c146" stroke="rgba(0,0,0,0.35)" stroke-width="2"/>
         </svg>
         <div class="brand gold">SONIC SENTINEL SAGA</div>
       </div>
@@ -198,32 +184,98 @@
           <div class="cover"><img src="uploads/album1.png" alt="Signal of the Sentinel cover"></div>
           <div>
             <h2>Disc I – <span class="gold-title">Signal of the Sentinel</span></h2>
-            <p class="subtitle">From silence to voice: the signal takes form.</p>
           </div>
         </header>
         <div class="tablewrap">
           <table>
             <thead>
               <tr>
+                <th class="cover-col" aria-label="cover"></th>
                 <th>#</th>
                 <th>Track</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="gold-title">Prologue</td>
-                <td><strong class="gold-title">Signal of the Sentinel</strong></td>
+                <td class="cover"><img src="uploads/album1.png" alt=""></td>
+                <td class="num">1</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">Awakening</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
               </tr>
-              <tr><td>1</td><td><strong class="gold-title">Awakening</strong></td></tr>
-              <tr><td>2</td><td><strong class="gold-title">First Transmission</strong></td></tr>
-              <tr><td>3</td><td><strong class="gold-title">Citadel Collapse</strong></td></tr>
-              <tr><td>4</td><td><strong class="gold-title">Escape Protocol</strong></td></tr>
-              <tr><td>5</td><td><strong class="gold-title">Celestial Voyage</strong></td></tr>
-              <tr><td>6</td><td><strong class="gold-title">The Signal</strong></td></tr>
-              <tr><td>7</td><td><strong class="gold-title">The Grid</strong></td></tr>
-              <tr><td>8</td><td><strong class="gold-title">Galactic Siege</strong></td></tr>
-              <tr><td>9</td><td><strong class="gold-title">Lost Signal</strong></td></tr>
-              <tr><td>10</td><td><strong class="gold-title">Echoes of Tomorrow</strong></td></tr>
+              <tr>
+                <td class="cover"><img src="uploads/album1.png" alt=""></td>
+                <td class="num">2</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">First Transmission</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="cover"><img src="uploads/album1.png" alt=""></td>
+                <td class="num">3</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">Citadel Collapse</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="cover"><img src="uploads/album1.png" alt=""></td>
+                <td class="num">4</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">Escape Protocol</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="cover"><img src="uploads/album1.png" alt=""></td>
+                <td class="num">5</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">Celestial Voyage</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="cover"><img src="uploads/album1.png" alt=""></td>
+                <td class="num">6</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">The Signal</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="cover"><img src="uploads/album1.png" alt=""></td>
+                <td class="num">7</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">The Grid</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="cover"><img src="uploads/album1.png" alt=""></td>
+                <td class="num">8</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">Galactic Siege</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="cover"><img src="uploads/album1.png" alt=""></td>
+                <td class="num">9</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">Lost Signal</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="cover"><img src="uploads/album1.png" alt=""></td>
+                <td class="num">10</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">Echoes of Tomorrow</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -235,29 +287,106 @@
           <div class="cover"><img src="uploads/album2.png" alt="Legacy of the Sentinel cover"></div>
           <div>
             <h2>Disc II – <span class="gold-title">Legacy of the Sentinel</span></h2>
-            <p class="subtitle">From dawn to legend: the signal becomes myth.</p>
           </div>
         </header>
         <div class="tablewrap">
           <table>
             <thead>
               <tr>
+                <th class="cover-col" aria-label="cover"></th>
                 <th>#</th>
                 <th>Track</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>1</td><td><strong class="gold-title">Aurora Dawn</strong></td></tr>
-              <tr><td>2</td><td><strong class="gold-title">Sentinel Rising</strong></td></tr>
-              <tr><td>3</td><td><strong class="gold-title">Second Transmission</strong></td></tr>
-              <tr><td>4</td><td><strong class="gold-title">Around the World</strong></td></tr>
-              <tr><td>5</td><td><strong class="gold-title">Sentinel’s Voice</strong></td></tr>
-              <tr><td>6</td><td><strong class="gold-title">Summer of Rave</strong></td></tr>
-              <tr><td>7</td><td><strong class="gold-title">Exodus</strong></td></tr>
-              <tr><td>8</td><td><strong class="gold-title">Citadel Ascension</strong></td></tr>
-              <tr><td>9</td><td><strong class="gold-title">Echoes of Tomorrow (Reprise)</strong></td></tr>
-              <tr><td>10</td><td><strong class="gold-title">Sentinel Eternal</strong></td></tr>
-              <tr><td>11</td><td><strong class="gold-title">Epilogue</strong></td></tr>
+              <tr>
+                <td class="cover"><img src="uploads/album2.png" alt=""></td>
+                <td class="num">1</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">Aurora Dawn</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="cover"><img src="uploads/album2.png" alt=""></td>
+                <td class="num">2</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">Sentinel Rising</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="cover"><img src="uploads/album2.png" alt=""></td>
+                <td class="num">3</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">Second Transmission</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="cover"><img src="uploads/album2.png" alt=""></td>
+                <td class="num">4</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">Around the World</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="cover"><img src="uploads/album2.png" alt=""></td>
+                <td class="num">5</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">Sentinel’s Voice</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="cover"><img src="uploads/album2.png" alt=""></td>
+                <td class="num">6</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">Summer of Rave</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="cover"><img src="uploads/album2.png" alt=""></td>
+                <td class="num">7</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">Exodus</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="cover"><img src="uploads/album2.png" alt=""></td>
+                <td class="num">8</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">Citadel Ascension</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="cover"><img src="uploads/album2.png" alt=""></td>
+                <td class="num">9</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">Echoes of Tomorrow (Reprise)</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="cover"><img src="uploads/album2.png" alt=""></td>
+                <td class="num">10</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">Sentinel Eternal</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="cover"><img src="uploads/album2.png" alt=""></td>
+                <td class="num">11</td>
+                <td class="track">
+                  <span class="track-title"><strong class="gold-title">Epilogue</strong></span>
+                  <span class="track-buttons"></span>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -270,28 +399,30 @@
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
   </button>
 
-  <!-- Service worker registration -->
-  <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("service-worker.js")
-        .then(() => console.log("Service Worker geregistreerd"))
-        .catch(err => console.error("SW fout:", err));
-    }
-  </script>
-
   <!-- Share + Listen wiring -->
   <script>
   (function(){
     function slugify(text){
       return text.toString().toLowerCase()
-        .replace(/\s+/g, '-').replace(/[^\w\-]+/g, '')
-        .replace(/\-\-+/g, '-').replace(/^-+/, '').replace(/-+$/, '');
+        .replace(/\\s+/g, '-').replace(/[^\\w\\-]+/g, '')
+        .replace(/\\-\\-+/g, '-').replace(/^-+/, '').replace(/-+$/, '');
     }
+
+    function ensureButtonWrap(trackCell){
+      let btnWrap = trackCell.querySelector('.track-buttons');
+      if(!btnWrap){
+        btnWrap = document.createElement('span');
+        btnWrap.className = 'track-buttons';
+        trackCell.appendChild(btnWrap);
+      }
+      return btnWrap;
+    }
+
     function addShareButtons(article){
       const tbody = article.querySelector('tbody'); if(!tbody) return;
       Array.from(tbody.querySelectorAll('tr')).forEach(tr => {
-        const trackCell = tr.querySelector('td:nth-child(2)') || tr.children[1];
-        const titleEl = trackCell ? (trackCell.querySelector('strong') || trackCell) : null;
+        const trackCell = tr.querySelector('td.track');
+        const titleEl = trackCell ? (trackCell.querySelector('.track-title strong') || trackCell.querySelector('.track-title') || trackCell.querySelector('strong') || trackCell) : null;
         if(!titleEl) return;
         const title = titleEl.textContent.trim();
         const discId = article.id || 'disc';
@@ -299,6 +430,7 @@
         tr.id = id;
 
         if(tr.querySelector('.btn.share')) return;
+        const btnWrap = ensureButtonWrap(trackCell);
         const shareBtn = document.createElement('button');
         shareBtn.className = 'btn share'; shareBtn.type = 'button'; shareBtn.textContent = 'Share';
         shareBtn.addEventListener('click', async () => {
@@ -310,7 +442,7 @@
             else { prompt('Kopieer deze link:', url); }
           }catch(e){ console.warn(e); }
         });
-        trackCell.appendChild(shareBtn);
+        btnWrap.appendChild(shareBtn);
       });
     }
 
@@ -322,16 +454,17 @@
       const tbody = article.querySelector('tbody'); if(!tbody) return;
       Array.from(tbody.querySelectorAll('tr')).forEach(tr => {
         if(tr.querySelector('.btn.listen')) return;
-        const id = tr.id; if(!id) return;
-        const trackCell = tr.querySelector('td:nth-child(2)') || tr.children[1];
+        const id = tr.id || ''; // will be set by share pass if not already
+        const trackCell = tr.querySelector('td.track'); if(!trackCell) return;
+        const btnWrap = trackCell.querySelector('.track-buttons') || (function(){ const w=document.createElement('span'); w.className='track-buttons'; trackCell.appendChild(w); return w; })();
         const listen = document.createElement('button');
         listen.className = 'btn listen'; listen.type = 'button'; listen.textContent = 'Listen';
         listen.addEventListener('click', () => {
           const url = LISTEN_LINKS[id];
           if(url){ window.open(url, '_blank', 'noopener'); }
-          else { alert('Nog geen link ingesteld voor dit nummer. Voeg een URL toe in LISTEN_LINKS["' + id + '"] in de HTML.'); }
+          else { alert('Nog geen link ingesteld voor dit nummer. Voeg een URL toe in LISTEN_LINKS[\"' + id + '\"] in de HTML.'); }
         });
-        trackCell.appendChild(listen);
+        btnWrap.appendChild(listen);
       });
     }
 
