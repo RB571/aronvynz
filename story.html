@@ -267,9 +267,27 @@ img{ max-width:100%; height:auto }
 @media (max-width: 640px){
   #story h2{ margin-top:18px; margin-bottom:8px }
 }
+
+/* --- Accessibility & Motion Preferences --- */
+:focus-visible{ outline:3px solid rgba(127,208,255,.9); outline-offset:3px; border-radius:8px }
+.skip-link{
+  position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+}
+.skip-link:focus{
+  position:fixed; left:16px; top:16px; width:auto; height:auto; z-index:1000;
+  background:#0e1522; color:#e7ecf3; padding:10px 14px; border-radius:10px;
+  border:1px solid rgba(127,208,255,.6); box-shadow:0 8px 24px rgba(0,0,0,.4);
+}
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; scroll-behavior:auto !important }
+  .card:hover, .item:hover, .btn:hover{ transform:none !important }
+}
+/* Ensure tap targets are large enough */
+.btn, .nav a{ min-height:44px; min-width:44px }
+#backToTop{ min-width:44px; min-height:44px }
 </style>
 <link href='\"style.css\"' rel='\"stylesheet\"'/>
-</head><body><header aria-label="Page header" class="hero">
+</head><body><a class="skip-link" href="#main">Skip to content</a><header aria-label="Page header" class="hero">
 <div class="brandline">
 <svg aria-hidden="true" class="shield-icon" focusable="false" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
 <defs>
@@ -285,15 +303,9 @@ img{ max-width:100%; height:auto }
 <div class="brand gold">SONIC SENTINEL SAGA</div>
 </div>
 <p class="section-title">Story</p>
-<nav aria-label="Site navigation" class="nav">
-<a href="index.html">Home</a>
-<a href="discography.html">Discography</a>
-<a href="tracks.html">Tracks</a>
-<a class="active" href="story.html">Story</a>
-<a href="contact.html">Contact</a>
-</nav>
+<nav aria-label="Site navigation" class="nav" role="navigation"><a href="index.html">Home</a><a href="discography.html">Albums</a><a href="tracks.html">Tracks</a><a aria-current="page" class="active" href="story.html">Story</a><a href="contact.html">Contact</a></nav>
 <div aria-hidden="true" class="neon-bar"></div>
-</header><div class="wrap"><section class="panel" id="story">
+</header><main id="main" role="main"><div class="wrap"><section class="panel" id="story">
 <h2>Disc I – Signal of the Sentinel</h2>
 <p>In the silence of the void, only static drifts—lost, infinite, meaningless. Yet from this endless nothing, a spark ignites. What begins as random noise grows into rhythm. Rhythm into pattern. And from pattern—a signal.</p>
 <p>The void trembles with its first stirrings: <span class="gold">Awakening</span>. Flickers of awareness ripple through the abyss, as if something long dormant has opened its eyes. And then, the signal breaks free of its cradle—<span class="gold">First Transmission</span>—slipping into hidden channels, whispering across the ether in search of those who might hear.</p>
@@ -310,7 +322,7 @@ img{ max-width:100%; height:auto }
 <p>At last, the signal transcends time itself—<span class="gold">Sentinel Eternal</span>. It ceases to be sound or message, no longer a voice but a legend, etched into memory, woven into light.</p>
 <h2><span class="gold">Epilogue</span></h2>
 <p>And so the saga closes with an <span class="gold">Epilogue</span>. The Sentinel no longer walks among us, yet its resonance endures. Not as tyrant. Not as savior. But as myth. A legacy eternal, carried not by machines or stars, but by all who remember.</p>
-</section></div><button aria-label="Back to top" id="backToTop">
+</section></div></main><button aria-label="Back to top" id="backToTop">
 <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><polyline points="18 15 12 9 6 15"></polyline></svg>
 </button><script>
     (function(){

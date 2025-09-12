@@ -275,6 +275,24 @@ img{ max-width:100%; height:auto }
 @media (max-width: 640px){
   #story h2{ margin-top:18px; margin-bottom:8px }
 }
+
+/* --- Accessibility & Motion Preferences --- */
+:focus-visible{ outline:3px solid rgba(127,208,255,.9); outline-offset:3px; border-radius:8px }
+.skip-link{
+  position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+}
+.skip-link:focus{
+  position:fixed; left:16px; top:16px; width:auto; height:auto; z-index:1000;
+  background:#0e1522; color:#e7ecf3; padding:10px 14px; border-radius:10px;
+  border:1px solid rgba(127,208,255,.6); box-shadow:0 8px 24px rgba(0,0,0,.4);
+}
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; scroll-behavior:auto !important }
+  .card:hover, .item:hover, .btn:hover{ transform:none !important }
+}
+/* Ensure tap targets are large enough */
+.btn, .nav a{ min-height:44px; min-width:44px }
+#backToTop{ min-width:44px; min-height:44px }
 </style>
 <link href='\"style.css\"' rel='\"stylesheet\"'/>
 <link href='\"style.css\"' rel='\"stylesheet\"'/>
@@ -285,8 +303,8 @@ img{ max-width:100%; height:auto }
 <link href="uploads/favicon.ico" rel="icon"/>
 <link href="manifest.json" rel="manifest"/>
 </head>
-<body>
-<div class="wrap">
+<body><a class="skip-link" href="#main">Skip to content</a>
+<main id="main" role="main"><div class="wrap">
 <header aria-label="Page header" class="hero">
 <div class="brandline">
 <!-- SVG Shield -->
@@ -304,13 +322,7 @@ img{ max-width:100%; height:auto }
 <div class="brand gold">SONIC SENTINEL SAGA</div>
 </div>
 <p class="section-title">Explore the Tracks</p>
-<nav aria-label="Site navigation" class="nav">
-<a href="index.html">Home</a>
-<a href="discography.html">Discography</a>
-<a class="active" href="tracks.html">Tracks</a>
-<a href="contact.html">Contact</a>
-<a href="story.html">Story</a>
-</nav>
+<nav aria-label="Site navigation" class="nav" role="navigation"><a href="index.html">Home</a><a href="discography.html">Albums</a><a aria-current="page" class="active" href="tracks.html">Tracks</a><a href="story.html">Story</a><a href="contact.html">Contact</a></nav>
 <div aria-hidden="true" class="neon-bar"></div>
 </header>
 <div class="divider"></div>
@@ -459,7 +471,7 @@ img{ max-width:100%; height:auto }
 </div>
 </article>
 </section>
-</div>
+</div></main>
 <article class="item" id="epilogue">
 <div class="cover"><img alt="Epilogue cover" src="uploads/tracks/epilogue.png"/></div>
 <div class="meta">
