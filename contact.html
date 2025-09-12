@@ -269,29 +269,25 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
 <h2>Get in touch</h2>
 <div class="grid">
 <div class="card">
-<p class="label">Facebook</p>
-<p><a class="link" href="#" rel="noopener" target="_blank">facebook.com/sonicsentinel</a></p>
-<p class="small">Follow for new releases.</p>
+<p class="label">Email</p>
+<p><a class="link" href="mailto:hello@sonicsentinel.nl">hello@sonicsentinel.nl</a></p>
+<p class="small">Booking, press, collabs.</p>
 </div>
 <div class="card">
 <p class="label">Instagram</p>
-<p><a class="link" href="#" rel="noopener" target="_blank">instagram.com/sonicsentinelmusic</a></p>
-<p class="small">Follow for new releases.</p>
+<p><a class="link" href="#" rel="noopener" target="_blank">instagram.com/sonicsentinel</a></p>
+<p class="small">Artwork, teasers, behind-the-scenes.</p>
 </div>
 <div class="card">
 <p class="label">YouTube</p>
-<p><a class="link" href="#" rel="noopener" target="_blank">youtube.com/@sonicsentinelmusic</a></p>
-<p class="small">Follow for new releases.</p>
+<p><a class="link" href="#" rel="noopener" target="_blank">youtube.com/@sonicsentinel</a></p>
+<p class="small">Visualizers, trailers, full tracks.</p>
 </div>
 <div class="card">
 <p class="label">Spotify</p>
 <p><a class="link" href="#" rel="noopener" target="_blank">open.spotify.com/artist/sonicsentinel</a></p>
 <p class="small">Follow for new releases.</p>
 </div>
-<div class="card">
-<p class="label">Apple Music</p>
-<p><a class="link" href="#" rel="noopener" target="_blank">applemusic.com/sonicsentinel</a></p>
-<p class="small">Follow for new releases.</p>
 </div>
 </section>
 <div class="divider"></div>
@@ -359,6 +355,33 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
       .then(() => console.log("Service Worker geregistreerd"))
       .catch(err => console.error("SW fout:", err));
   }
+</script>
+
+<script>
+(function(){
+  const current = location.pathname.split('/').pop().toLowerCase() || 'index.html';
+  // Don't run on index; it's the source of truth
+  if (current === 'index.html') return;
+  // Fetch the source banner from index.html
+  fetch('index.html').then(r => r.text()).then(html => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const masterHero = doc.querySelector('.hero');
+    const hereHero = document.querySelector('.hero');
+    if (masterHero && hereHero) {
+      hereHero.replaceWith(masterHero.cloneNode(true));
+      // Set active nav link based on current file
+      const nav = document.querySelector('.nav');
+      if (nav) {
+        nav.querySelectorAll('a').forEach(a => {
+          a.classList.remove('active'); a.removeAttribute('aria-current');
+          const href = (a.getAttribute('href')||'').toLowerCase();
+          if (href === current) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
+        });
+      }
+    }
+  }).catch(()=>{});
+})();
 </script>
 </body>
 </html>
