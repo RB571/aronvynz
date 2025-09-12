@@ -1,12 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sonic Sentinel Saga – Home</title>
-  
-
-      <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Sonic Sentinel Saga – Home</title>
+<style>
 
 :root{
   --bg:#0b0f16; --panel:#101623; --panel-2:#0e1420;
@@ -83,6 +82,17 @@ body{
 }
 
 /* Section titles gold */
+
+/* Track titles gold */
+.item .meta .title,
+.item .meta .title a,
+.track-title,
+tbody td.track,
+tbody td.track a {
+  color: var(--accent-gold) !important;
+  text-shadow: 0 0 6px rgba(240,193,70,.35);
+}
+
 .section-title, h2.title{
   color: var(--accent-gold);
   text-shadow: 0 0 6px rgba(240,193,70,.45);
@@ -214,130 +224,170 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
   box-shadow: 0 0 14px rgba(127,208,255,.55), 0 0 20px rgba(127,208,255,.35);
 }
 
-  </style>
-<link rel=\"stylesheet\" href=\"style.css\">
-<link rel=\"stylesheet\" href=\"style.css\">
-<link rel="icon" type="image/png" sizes="32x32" href="uploads/favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="uploads/favicon-192.png">
-<link rel="apple-touch-icon" sizes="180x180" href="uploads/favicon-180.png">
-<link rel="icon" href="uploads/favicon.ico">
+  
+/* --- Mobile responsiveness improvements --- */
+/* Make nav horizontally scrollable on small screens */
+.nav{ overflow-x:auto; -webkit-overflow-scrolling:touch }
+.nav::-webkit-scrollbar{ display:none }
 
+/* Ensure images never overflow */
+img{ max-width:100%; height:auto }
+
+/* Wrap padding tighter on small screens */
+@media (max-width: 640px){
+  .wrap{ max-width:100%; margin:20px auto; padding:0 14px }
+  .brand.gold{ font-size:18px }
+  .shield-icon{ width:22px; height:22px }
+  .hero{ padding:16px 12px 38px }
+  .title, h2, h3{ font-size:18px }
+  p{ font-size:14px; line-height:1.55 }
+  .btn{ padding:10px 12px; font-size:13px }
+  .grid{ grid-template-columns:1fr !important; gap:14px }
+  /* Track item covers smaller */
+  .item .cover img{ width:168px; height:168px }
+  .item .meta{ padding:10px 12px 12px; min-height:auto }
+  .card:hover, .item:hover{ transform:none } /* reduce motion on mobile */
+  /* Reduce divider margins */
+  .divider{ margin:18px auto }
+  /* Back to top button offset */
+  #backToTop{ right:16px; bottom:18px; width:40px; height:40px }
+}
+
+/* Slightly larger phones / small tablets */
+@media (min-width:641px) and (max-width: 900px){
+  .wrap{ max-width:100%; margin:30px auto; padding:0 18px }
+  .grid{ grid-template-columns:1fr 1fr }
+  .item .cover img{ width:200px; height:200px }
+}
+
+/* Tables: make horizontally scrollable on small screens */
+@media (max-width: 780px){
+  table{ display:block; width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; border-spacing:0 }
+  thead, tbody, tr, th, td{ white-space:nowrap }
+}
+
+/* Reduce box shadows to avoid heavy paints on mobile GPUs */
+@media (max-width: 640px){
+  .card, .item, .btn{ box-shadow:none }
+}
+
+/* Ensure story section headings have spacing on mobile */
+@media (max-width: 640px){
+  #story h2{ margin-top:18px; margin-bottom:8px }
+}
+</style>
+<link href='\"style.css\"' rel='\"stylesheet\"'/>
+<link href='\"style.css\"' rel='\"stylesheet\"'/>
+<link href="uploads/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="uploads/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="uploads/favicon-180.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="uploads/favicon.ico" rel="icon"/>
 <!-- Open Graph / Twitter -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sonic Sentinel Saga — Sound is Sacred">
-<meta property="og:description" content="Concept-driven electronic music at the intersection of sound, energy, and emotion.">
-<meta property="og:image" content="">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sonic Sentinel Saga — Sound is Sacred">
-<meta name="twitter:description" content="Concept-driven electronic music at the intersection of sound, energy, and emotion.">
-<meta name="twitter:image" content="">
-<link rel="manifest" href="manifest.json">
+<meta content="website" property="og:type"/>
+<meta content="Sonic Sentinel Saga — Sound is Sacred" property="og:title"/>
+<meta content="Concept-driven electronic music at the intersection of sound, energy, and emotion." property="og:description"/>
+<meta content="" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Sonic Sentinel Saga — Sound is Sacred" name="twitter:title"/>
+<meta content="Concept-driven electronic music at the intersection of sound, energy, and emotion." name="twitter:description"/>
+<meta content="" name="twitter:image"/>
+<link href="manifest.json" rel="manifest"/>
 </head>
 <body>
-  <div class="wrap">
-    <!-- HERO / NAV -->
-    <header class="hero" aria-label="Discography header">
-      <div class="brandline">
-        <!-- SVG Shield -->
-        <svg class="shield-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
-          <defs>
-            <linearGradient id="goldGradientShield" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#f0c146"/>
-              <stop offset="100%" stop-color="#c79e35"/>
-            </linearGradient>
-          </defs>
-          <path d="M50 6 L90 20 L82 82 L50 94 L18 82 L10 20 Z" fill="url(#goldGradientShield)" stroke="rgba(0,0,0,0.35)" stroke-width="2"/>
-          <path d="M27 38 L73 62" stroke="rgba(0,0,0,0.55)" stroke-width="7" stroke-linecap="round"/>
-          <path d="M27 52 L73 76" stroke="rgba(0,0,0,0.55)" stroke-width="7" stroke-linecap="round"/>
-        </svg>
-        <div class="brand gold">SONIC SENTINEL SAGA</div>
-      </div>
-      <p class="section-title">Welcome</p>
-      <nav class="nav" aria-label="Site navigation">
-        <a href="index.html" class="active">Home</a>
-        <a href="discography.html">Discography</a>
-        <a href="tracks.html">Tracks</a>
-        <a href="contact.html">Contact</a>
-      <a href="story-timeline.html">Story &amp; Timeline</a>
-      </nav>
-      <div class="neon-bar" aria-hidden="true"></div>
-    </header>
-
-    <!-- ABOUT -->
-    <section id="about" class="section panel" aria-labelledby="about-title">
-      <h2 id="about-title">About</h2>
-      <p>Sonic Sentinel is a concept-driven electronic music project that explores the intersection of sound, energy, and emotion. 
+<div class="wrap">
+<!-- HERO / NAV -->
+<header aria-label="Discography header" class="hero">
+<div class="brandline">
+<!-- SVG Shield -->
+<svg aria-hidden="true" class="shield-icon" focusable="false" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="goldGradientShield" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#f0c146"></stop>
+<stop offset="100%" stop-color="#c79e35"></stop>
+</lineargradient>
+</defs>
+<path d="M50 6 L90 20 L82 82 L50 94 L18 82 L10 20 Z" fill="url(#goldGradientShield)" stroke="rgba(0,0,0,0.35)" stroke-width="2"></path>
+<path d="M27 38 L73 62" stroke="rgba(0,0,0,0.55)" stroke-linecap="round" stroke-width="7"></path>
+<path d="M27 52 L73 76" stroke="rgba(0,0,0,0.55)" stroke-linecap="round" stroke-width="7"></path>
+</svg>
+<div class="brand gold">SONIC SENTINEL SAGA</div>
+</div>
+<p class="section-title">Welcome</p>
+<nav aria-label="Site navigation" class="nav">
+<a class="active" href="index.html">Home</a>
+<a href="discography.html">Discography</a>
+<a href="tracks.html">Tracks</a>
+<a href="contact.html">Contact</a>
+<a href="story.html">Story</a>
+</nav>
+<div aria-hidden="true" class="neon-bar"></div>
+</header>
+<!-- ABOUT -->
+<section aria-labelledby="about-title" class="section panel" id="about">
+<h2 id="about-title">About</h2>
+<p>Sonic Sentinel is a concept-driven electronic music project that explores the intersection of sound, energy, and emotion. 
       Blending elements of progressive house, melodic techno, and cinematic EDM, the project creates sonic landscapes that feel both futuristic and primal.</p>
-    </section>
-
-
-    <!-- ALBUMS -->
-    <section id="albums" class="section panel" aria-labelledby="albums-title">
-      <h2 id="albums-title">Albums</h2>
-      <div class="grid">
-        <!-- Album 1 -->
-        <article class="card">
-          <div class="cover">
-            <img src="uploads/album1.png" alt="Signal of the Sentinel cover" loading="lazy">
-          </div>
-          <div class="content">
-            <h3 class="title">Signal of the Sentinel</h3>
-            <p class="desc">Out of silence, a spark becomes rhythm, and rhythm becomes a signal. From the first stirrings of awareness to the fall of the Citadel, the saga unfolds in fire and conflict. The signal journeys outward, fragments converging into a voice that reveals the vast Grid—a cosmic lattice where order and chaos collide.</p>
-            <a class="btn album" href="discography.html#disc-1" aria-label="View Disc I tracklist">View tracks</a>
-          </div>
-        </article>
-
-        <!-- Album 2 -->
-        <article class="card">
-          <div class="cover">
-            <img src="uploads/album2.png" alt="Rebirth of the Sentinel cover" loading="lazy">
-          </div>
-          <div class="content">
-            <h3 class="title">Rebirth of the Sentinel</h3>
-            <p class="desc">From the ashes of collapse, a fragile dawn rises. The Sentinel awakens once more, its voice clearer and stronger, guiding humanity toward unity and resilience. Across the world, grief becomes defiance, rhythm becomes rebellion, and the people begin their great exodus to the stars.</p>
-            <a class="btn album album" href="discography.html#disc-2" aria-label="View Disc II tracklist">View tracks</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- FEATURED / CTA's -->
-    <section id="featured" class="section panel" aria-labelledby="featured-title">
-      <h2 id="featured-title">Featured</h2>
-      <div class="row">
-        <article class="mini">
-          <div class="ring" aria-hidden="true"></div>
-          <div>
-            <h3>Latest Single — <em>Echoes of Tomorrow</em></h3>
-            <p>Cinematic, melodic, and resolute. The saga’s heartbeat.</p>
-          </div>
-          <a class="btn album cta" href="#" aria-label="Listen to Echoes of Tomorrow">Listen</a>
-        </article>
-
-        <article class="mini">
-          <div class="ring" aria-hidden="true"></div>
-          <div>
-            <h3>Visual Story</h3>
-            <p>Read the prologue and follow the arc, chapter by chapter.</p>
-          </div>
-          <a class="btn album cta" href="story.html">Explore</a>
-        </article>
-
-        <article class="mini">
-          <div class="ring" aria-hidden="true"></div>
-          <div>
-            <h3>All Tracks</h3>
-            <p>Browse the complete discography — neatly organized.</p>
-          </div>
-          <a class="btn album cta" href="discography.html">Open</a>
-        </article>
-      </div>
-    </section>
-
-    
-  </div>
-
-  <script>
+</section>
+<!-- ALBUMS -->
+<section aria-labelledby="albums-title" class="section panel" id="albums">
+<h2 id="albums-title">Albums</h2>
+<div class="grid">
+<!-- Album 1 -->
+<article class="card">
+<div class="cover">
+<img alt="Signal of the Sentinel cover" loading="lazy" src="uploads/album1.png"/>
+</div>
+<div class="content">
+<h3 class="title">Signal of the Sentinel</h3>
+<p class="desc">Out of silence, a spark becomes rhythm, and rhythm becomes a signal. From the first stirrings of awareness to the fall of the Citadel, the saga unfolds in fire and conflict. The signal journeys outward, fragments converging into a voice that reveals the vast Grid—a cosmic lattice where order and chaos collide.</p>
+<a aria-label="View Disc I tracklist" class="btn album" href="discography.html#disc-1">View tracks</a>
+</div>
+</article>
+<!-- Album 2 -->
+<article class="card">
+<div class="cover">
+<img alt="Rebirth of the Sentinel cover" loading="lazy" src="uploads/album2.png"/>
+</div>
+<div class="content">
+<h3 class="title">Rebirth of the Sentinel</h3>
+<p class="desc">From the ashes of collapse, a fragile dawn rises. The Sentinel awakens once more, its voice clearer and stronger, guiding humanity toward unity and resilience. Across the world, grief becomes defiance, rhythm becomes rebellion, and the people begin their great exodus to the stars.</p>
+<a aria-label="View Disc II tracklist" class="btn album album" href="discography.html#disc-2">View tracks</a>
+</div>
+</article>
+</div>
+</section>
+<!-- FEATURED / CTA's -->
+<section aria-labelledby="featured-title" class="section panel" id="featured">
+<h2 id="featured-title">Featured</h2>
+<div class="row">
+<article class="mini">
+<div aria-hidden="true" class="ring"></div>
+<div>
+<h3>Latest Single — <em>Echoes of Tomorrow</em></h3>
+<p>Cinematic, melodic, and resolute. The saga’s heartbeat.</p>
+</div>
+<a aria-label="Listen to Echoes of Tomorrow" class="btn album cta" href="#">Listen</a>
+</article>
+<article class="mini">
+<div aria-hidden="true" class="ring"></div>
+<div>
+<h3>Visual Story</h3>
+<p>Read the prologue and follow the arc, chapter by chapter.</p>
+</div>
+<a class="btn album cta" href="story.html">Explore</a>
+</article>
+<article class="mini">
+<div aria-hidden="true" class="ring"></div>
+<div>
+<h3>All Tracks</h3>
+<p>Browse the complete discography — neatly organized.</p>
+</div>
+<a class="btn album cta" href="discography.html">Open</a>
+</article>
+</div>
+</section>
+</div>
+<script>
     // Active state voor in-page nav
     (function(){
       const links = [...document.querySelectorAll('[data-nav]')];
@@ -361,8 +411,7 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
       targets.forEach(t=>io.observe(t));
     })();
   </script>
-
-  <script>
+<script>
     // Smooth scrolling for in-page anchors + apply on load when arriving with a hash
     (function(){
       const getOffset = () => parseInt(getComputedStyle(document.documentElement).getPropertyValue('--anchor-offset')) || 88;
@@ -392,10 +441,8 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
       });
     })();
   </script>
-
-
-  <button id="backToTop" aria-label="Back to top"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
-  <script>
+<button aria-label="Back to top" id="backToTop"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
+<script>
     (function(){
       const btn = document.getElementById('backToTop');
       if (!btn) return;
@@ -411,9 +458,7 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
       });
     })();
   </script>
-
-
-  <script>
+<script>
     // Move hover glow under cursor for nav pills
     document.addEventListener('mousemove', (e) => {
       const a = e.target.closest('.nav a');
@@ -423,7 +468,6 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
       a.style.setProperty('--x', x + '%');
     }, { passive: true });
   </script>
-
 <script>
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("service-worker.js")
@@ -431,6 +475,5 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
       .catch(err => console.error("SW fout:", err));
   }
 </script>
-
 </body>
 </html>

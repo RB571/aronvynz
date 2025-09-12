@@ -216,6 +216,57 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
 
 /* Track titles gold */
 h3, .track-title { color: var(--accent-gold); text-shadow: 0 0 6px rgba(240,193,70,.45); }
+
+/* --- Mobile responsiveness improvements --- */
+/* Make nav horizontally scrollable on small screens */
+.nav{ overflow-x:auto; -webkit-overflow-scrolling:touch }
+.nav::-webkit-scrollbar{ display:none }
+
+/* Ensure images never overflow */
+img{ max-width:100%; height:auto }
+
+/* Wrap padding tighter on small screens */
+@media (max-width: 640px){
+  .wrap{ max-width:100%; margin:20px auto; padding:0 14px }
+  .brand.gold{ font-size:18px }
+  .shield-icon{ width:22px; height:22px }
+  .hero{ padding:16px 12px 38px }
+  .title, h2, h3{ font-size:18px }
+  p{ font-size:14px; line-height:1.55 }
+  .btn{ padding:10px 12px; font-size:13px }
+  .grid{ grid-template-columns:1fr !important; gap:14px }
+  /* Track item covers smaller */
+  .item .cover img{ width:168px; height:168px }
+  .item .meta{ padding:10px 12px 12px; min-height:auto }
+  .card:hover, .item:hover{ transform:none } /* reduce motion on mobile */
+  /* Reduce divider margins */
+  .divider{ margin:18px auto }
+  /* Back to top button offset */
+  #backToTop{ right:16px; bottom:18px; width:40px; height:40px }
+}
+
+/* Slightly larger phones / small tablets */
+@media (min-width:641px) and (max-width: 900px){
+  .wrap{ max-width:100%; margin:30px auto; padding:0 18px }
+  .grid{ grid-template-columns:1fr 1fr }
+  .item .cover img{ width:200px; height:200px }
+}
+
+/* Tables: make horizontally scrollable on small screens */
+@media (max-width: 780px){
+  table{ display:block; width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; border-spacing:0 }
+  thead, tbody, tr, th, td{ white-space:nowrap }
+}
+
+/* Reduce box shadows to avoid heavy paints on mobile GPUs */
+@media (max-width: 640px){
+  .card, .item, .btn{ box-shadow:none }
+}
+
+/* Ensure story section headings have spacing on mobile */
+@media (max-width: 640px){
+  #story h2{ margin-top:18px; margin-bottom:8px }
+}
 </style>
 <link href='\"style.css\"' rel='\"stylesheet\"'/>
 </head><body><header aria-label="Page header" class="hero">
