@@ -524,5 +524,32 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
     if (document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', init); } else { init(); }
   })();
   </script>
+
+<script>
+(function(){
+  const current = location.pathname.split('/').pop().toLowerCase() || 'index.html';
+  // Don't run on index; it's the source of truth
+  if (current === 'index.html') return;
+  // Fetch the source banner from index.html
+  fetch('index.html').then(r => r.text()).then(html => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const masterHero = doc.querySelector('.hero');
+    const hereHero = document.querySelector('.hero');
+    if (masterHero && hereHero) {
+      hereHero.replaceWith(masterHero.cloneNode(true));
+      // Set active nav link based on current file
+      const nav = document.querySelector('.nav');
+      if (nav) {
+        nav.querySelectorAll('a').forEach(a => {
+          a.classList.remove('active'); a.removeAttribute('aria-current');
+          const href = (a.getAttribute('href')||'').toLowerCase();
+          if (href === current) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
+        });
+      }
+    }
+  }).catch(()=>{});
+})();
+</script>
 </body>
 </html>
