@@ -210,7 +210,18 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
   box-shadow: 0 0 14px rgba(127,208,255,.55), 0 0 20px rgba(127,208,255,.35);
 }
 
-  </style>
+  
+/* Smaller hero title */
+.hero .title{
+  font-size:26px !important;
+  line-height:1.2 !important;
+}
+.hero .subtitle{
+  font-size:16px !important;
+  line-height:1.4 !important;
+  opacity:0.9;
+}
+</style>
 <link href='\"style.css\"' rel='\"stylesheet\"'/>
 <link href='\"style.css\"' rel='\"stylesheet\"'/>
 </head>
@@ -218,19 +229,22 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
 <div class="wrap">
 <header aria-label="Discography header" class="hero">
 <div class="brandline">
-<!-- Minimal shield for brevity -->
+<!-- SVG Shield -->
 <svg aria-hidden="true" class="shield-icon" focusable="false" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-<path d="M50 6 L90 20 L82 82 L50 94 L18 82 L10 20 Z" fill="#f0c146" stroke="rgba(0,0,0,0.35)" stroke-width="2"></path>
+<defs>
+<lineargradient id="goldGradientShield" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#f0c146"></stop>
+<stop offset="100%" stop-color="#c79e35"></stop>
+</lineargradient>
+</defs>
+<path d="M50 6 L90 20 L82 82 L50 94 L18 82 L10 20 Z" fill="url(#goldGradientShield)" stroke="rgba(0,0,0,0.35)" stroke-width="2"></path>
+<path d="M27 38 L73 62" stroke="rgba(0,0,0,0.55)" stroke-linecap="round" stroke-width="7"></path>
+<path d="M27 52 L73 76" stroke="rgba(0,0,0,0.55)" stroke-linecap="round" stroke-width="7"></path>
 </svg>
 <div class="brand gold">SONIC SENTINEL SAGA</div>
 </div>
-<p class="section-title">Complete Discography</p>
-<nav aria-label="Site navigation" class="nav">
-<a href="index.html">Home</a>
-<a class="active" href="discography.html">Discography</a>
-<a href="tracks.html">Tracks</a>
-<a href="contact.html">Contact</a>
-<a href="story.html">Story</a></nav>
+<p class="section-title">Welcome</p>
+<nav aria-label="Site navigation" class="nav"><a href="index.html">Home</a><a aria-current="page" class="active" href="discography.html">Albums</a><a href="tracks.html">Tracks</a><a href="story.html">Story</a><a href="contact.html">Contact</a></nav>
 <div aria-hidden="true" class="neon-bar"></div>
 </header>
 <div class="divider"></div>
