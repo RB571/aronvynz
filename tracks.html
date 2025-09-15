@@ -130,21 +130,8 @@ body{
 <body>
 <div class="wrap">
 
-<!-- Placeholder hero: wordt vervangen door de index hero -->
-<header class="hero">
-  <div class="brandline">
-    <div class="brand gold">SENTINEL PULSE SAGA</div>
-  </div>
-  <p class="section-title">Tracks</p>
-  <nav class="nav">
-    <a href="index.html">Home</a>
-    <a href="discography.html">Albums</a>
-    <a class="active" href="tracks.html">Tracks</a>
-    <a href="story.html">Story</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <div class="neon-bar"></div>
-</header>
+<!-- Hero will be cloned from index.html to ensure exact same banner -->
+<header class="hero"></header>
 
 <div class="divider"></div>
 
@@ -300,11 +287,9 @@ body{
 
 </section>
 
-<!-- Replace hero with exact copy from index.html to keep banner identical -->
 <script>
+// Clone hero from index.html to ensure identical banner
 (function(){
-  const current = location.pathname.split('/').pop().toLowerCase() || 'index.html';
-  if (current === 'index.html') return;
   fetch('index.html').then(r => r.text()).then(html => {
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
@@ -312,13 +297,13 @@ body{
     const hereHero = document.querySelector('.hero');
     if (masterHero && hereHero) {
       hereHero.replaceWith(masterHero.cloneNode(true));
-      // Set active nav link based on current file
+      // Mark nav link active
       const nav = document.querySelector('.nav');
       if (nav) {
         nav.querySelectorAll('a').forEach(a => {
           a.classList.remove('active'); a.removeAttribute('aria-current');
           const href = (a.getAttribute('href')||'').toLowerCase();
-          if (href === current) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
+          if (href === 'tracks.html') { a.classList.add('active'); a.setAttribute('aria-current','page'); }
         });
       }
     }
