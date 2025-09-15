@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Sentinel Pulse Saga – Tracks</title>
+<title>Sentinel Pulse – Tracks</title>
 <style>
 :root{
   --bg:#0b0f16; --panel:#101623; --panel-2:#0e1420;
@@ -51,6 +51,54 @@ body{
 }
 .wrap{max-width:1100px; margin:40px auto; padding:0 20px}
 :target{scroll-margin-top:var(--anchor-offset)}
+
+/* Hero (custom for Tracks page) */
+.hero{
+  position: relative; overflow:hidden; border:1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(16,22,35,.65), rgba(16,22,35,.35));
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  padding: 22px 16px 46px;
+  text-align:center;
+}
+.hero::before{
+  content:""; position:absolute; inset:-40% -10% -60% -10%;
+  background: conic-gradient(from 0deg, #0ea5e9, #7c3aed, #f59e0b, #0ea5e9);
+  filter: blur(28px) saturate(140%); opacity:.18; animation: neonFlow 16s linear infinite;
+  pointer-events:none;
+}
+.hero::after{
+  content:""; position:absolute; inset:0;
+  background: radial-gradient(1200px 200px at 50% 0%, rgba(127,208,255,.25), transparent 60%);
+  pointer-events:none;
+}
+@keyframes neonFlow{ to{ transform: rotate(360deg) } }
+.brandline{ display:flex; align-items:center; justify-content:center; gap:10px }
+.brand.gold{ color: var(--accent-gold); text-shadow: 0 0 10px rgba(240,193,70,.6), 0 0 20px rgba(240,193,70,.4); font-weight:800; letter-spacing:.08em; text-transform:uppercase; font-size:28px }
+@media (min-width:768px){ .brand.gold{ font-size:36px } }
+
+.section-title{ margin:6px 0 0; color: var(--accent-ice); opacity:.9 }
+
+.nav{ margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; justify-content:center }
+.nav a{
+  text-decoration:none; color:var(--text); background:#0e1522; border:1px solid var(--border);
+  padding:10px 14px; border-radius:999px; box-shadow:0 0 8px rgba(240,193,70,.25);
+  transition:transform .12s ease,border-color .2s ease,background .2s ease,color .2s ease;
+}
+.nav a:hover{ border-color: rgba(240,193,70,.65); color: var(--accent-gold); box-shadow: 0 0 12px rgba(240,193,70,.45) }
+.nav a.active{
+  color: var(--accent-ice);
+  border-color: rgba(127,208,255,.6);
+  background: linear-gradient(180deg, rgba(127,208,255,.22), rgba(127,208,255,.12));
+  box-shadow: 0 0 14px rgba(127,208,255,.55), 0 0 20px rgba(127,208,255,.35);
+}
+.neon-bar{
+  position:absolute; left:12px; right:12px; bottom:10px; height:2px;
+  background: linear-gradient(90deg, rgba(127,208,255,0), rgba(127,208,255,.95), rgba(240,193,70,.85), rgba(127,208,255,.95), rgba(127,208,255,0));
+  filter: drop-shadow(0 0 8px rgba(127,208,255,.65)); border-radius:2px; pointer-events:none;
+}
 
 /* Timeline with images + vertical line */
 .timeline {
@@ -130,8 +178,20 @@ body{
 <body>
 <div class="wrap">
 
-<!-- Hero will be cloned from index.html to ensure exact same banner -->
-<header class="hero"></header>
+<header class="hero">
+  <div class="brandline">
+    <div class="brand gold">SENTINEL PULSE</div>
+  </div>
+  <p class="section-title">Tracks</p>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="discography.html">Albums</a>
+    <a class="active" href="tracks.html">Tracks</a>
+    <a href="story.html">Story</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="neon-bar"></div>
+</header>
 
 <div class="divider"></div>
 
@@ -288,31 +348,7 @@ body{
 </section>
 
 <script>
-// Clone hero from index.html to ensure identical banner
-(function(){
-  fetch('index.html').then(r => r.text()).then(html => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
-    const masterHero = doc.querySelector('.hero');
-    const hereHero = document.querySelector('.hero');
-    if (masterHero && hereHero) {
-      hereHero.replaceWith(masterHero.cloneNode(true));
-      // Mark nav link active
-      const nav = document.querySelector('.nav');
-      if (nav) {
-        nav.querySelectorAll('a').forEach(a => {
-          a.classList.remove('active'); a.removeAttribute('aria-current');
-          const href = (a.getAttribute('href')||'').toLowerCase();
-          if (href === 'tracks.html') { a.classList.add('active'); a.setAttribute('aria-current','page'); }
-        });
-      }
-    }
-  }).catch(()=>{});
-})();
-</script>
-
-<script>
-// IntersectionObserver for reveal animations
+// IntersectionObserver reveal
 (function(){
   const items = document.querySelectorAll('.reveal');
   if (!('IntersectionObserver' in window)) {
@@ -327,7 +363,6 @@ body{
       }
     });
   }, { root:null, rootMargin:'0px 0px -10% 0px', threshold: 0.15 });
-
   items.forEach(el => obs.observe(el));
 })();
 </script>
