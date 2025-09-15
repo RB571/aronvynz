@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Sentinel Pulse Saga – Tracks</title>
+<title>Sonic Sentinel Saga – Tracks</title>
 <style>
 
 :root{
@@ -228,18 +228,29 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
 <link href='\"style.css\"' rel='\"stylesheet\"'/>
 <link href='\"style.css\"' rel='\"stylesheet\"'/>
 <!-- Favicons + Manifest -->
-<link href="uploads/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="uploads/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
-<link href="uploads/favicon-180.png" rel="apple-touch-icon" sizes="180x180"/>
-<link href="uploads/favicon.ico" rel="icon"/>
+<link href="sentinel-pulse-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="sentinel-pulse-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="sentinel-pulse.ico" rel="icon"/>
 <link href="manifest.json" rel="manifest"/>
 </head>
 <body>
 <div class="wrap">
 <header aria-label="Discography header" class="hero">
 <div class="brandline">
-
-<div class="brand gold">SENTINEL PULSE SAGA</div>
+<!-- SVG Shield -->
+<svg aria-hidden="true" class="shield-icon" focusable="false" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="goldGradientShield" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#f0c146"></stop>
+<stop offset="100%" stop-color="#c79e35"></stop>
+</lineargradient>
+</defs>
+<path d="M50 6 L90 20 L82 82 L50 94 L18 82 L10 20 Z" fill="url(#goldGradientShield)" stroke="rgba(0,0,0,0.35)" stroke-width="2"></path>
+<path d="M27 38 L73 62" stroke="rgba(0,0,0,0.55)" stroke-linecap="round" stroke-width="7"></path>
+<path d="M27 52 L73 76" stroke="rgba(0,0,0,0.55)" stroke-linecap="round" stroke-width="7"></path>
+</svg>
+<div class="brand gold">SONIC SENTINEL SAGA</div>
 </div>
 <p class="section-title">Welcome</p>
 <nav aria-label="Site navigation" class="nav"><a href="index.html">Home</a><a href="discography.html">Albums</a><a aria-current="page" class="active" href="tracks.html">Tracks</a><a href="story.html">Story</a><a href="contact.html">Contact</a></nav>
@@ -451,7 +462,7 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
           shareBtn.className = 'btn share'; shareBtn.type = 'button'; shareBtn.textContent = 'Share';
           shareBtn.addEventListener('click', async () => {
             const url = location.origin + location.pathname + '#' + slug;
-            const text = title + ' — Sentinel Pulse Saga';
+            const text = title + ' — Sonic Sentinel Saga';
             try{
               if (navigator.share){ await navigator.share({ title, text, url }); }
               else if (navigator.clipboard){ await navigator.clipboard.writeText(url); alert('Link gekopieerd: ' + url); }
