@@ -235,6 +235,60 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
   line-height:1.4 !important;
   opacity:0.9;
 }
+
+.about-banner {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.about-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about-banner .about-text {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 20px;
+  color: var(--accent-gold);
+  text-shadow: 0 0 6px rgba(240,193,70,.45);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+
+/* Responsive banner for mobile */
+@media (max-width: 768px) {
+  .about-banner img {
+    max-height: 280px;
+    object-fit: cover;
+  }
+  .about-banner .about-text {
+    margin: 20px auto;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
+
+
+/* Responsive banner for tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .about-banner img {
+    max-height: 400px;
+    object-fit: cover;
+  }
+  .about-banner .about-text {
+    margin: 25px auto;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+}
+
 </style>
 <link href='\"style.css\"' rel='\"stylesheet\"'/>
 <link href='\"style.css\"' rel='\"stylesheet\"'/>
@@ -264,11 +318,15 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
 <nav aria-label="Site navigation" class="nav"><a aria-current="page" class="active" href="index.html">Home</a><a href="discography.html">Albums</a><a href="tracks.html">Tracks</a><a href="story.html">Story</a><a href="contact.html">Contact</a></nav>
 <div aria-hidden="true" class="neon-bar"></div>
 </header>
-<!-- ABOUT -->
-<section aria-labelledby="about-title" class="section panel about-section" id="about">
-<h2 class="gold" id="about-title">About</h2>
-<p class="gold">Sentinel Pulse is a concept-driven electronic music project that explores the intersection of sound, energy and emotion. 
-      Blending elements of progressive house, melodic techno, and cinematic EDM, the project creates sonic landscapes that feel futuristic and primal.</p>
+<!-- ABOUT (banner full width) -->
+<section class="about-banner" id="about">
+  <img src="album3.png" alt="Odyssey of the Sentinel banner" loading="lazy">
+  <div class="about-text">
+    <p>
+      Sentinel Pulse is a concept-driven electronic music project that explores the intersection of sound, energy and emotion. 
+      Blending elements of progressive house, melodic techno, and cinematic EDM, the project creates sonic landscapes that feel futuristic and primal.
+    </p>
+  </div>
 </section>
 <!-- ALBUMS -->
 <section aria-labelledby="albums-title" class="section panel" id="albums">
