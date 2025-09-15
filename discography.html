@@ -221,6 +221,43 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
   line-height:1.4 !important;
   opacity:0.9;
 }
+
+/* === Bonus Tracks (centered, responsive, no banner) === */
+#bonus-tracks { margin-top: 26px; }
+#bonus-tracks .bonus-header { text-align: center; margin: 0 0 10px; }
+#bonus-tracks .bonus-title { font-size: 26px; line-height: 1.2; margin: 0; }
+
+/* Center the content area but keep table text left-aligned for readability */
+#bonus-tracks .bonus-wrap {
+  margin: 0 auto;
+  max-width: 760px;
+}
+
+/* Slightly denser table on desktop for compact look */
+#bonus-tracks .bonus-table thead th { padding: 10px 14px; }
+#bonus-tracks .bonus-table tbody td { padding: 10px 14px; }
+
+/* Mobile tweaks */
+@media (max-width: 768px){
+  #bonus-tracks .bonus-title { font-size: 22px; }
+  #bonus-tracks .bonus-wrap { max-width: 100%; padding: 0 8px; }
+  #bonus-tracks .bonus-table thead th:first-child,
+  #bonus-tracks .bonus-table tbody td.num { width: 44px; }
+  #bonus-tracks .bonus-table tbody td { padding: 10px 10px; }
+  #bonus-tracks .bonus-table .track-title { display: inline-block; }
+}
+
+
+/* Bonus tracks centraal onder albums */
+.bonus-disc {
+  grid-column: 1 / -1; /* neemt hele rij in beslag */
+  text-align: center;
+}
+.bonus-disc .bonus-wrap {
+  margin: 0 auto;
+  max-width: 760px;
+}
+
 </style>
 <link href='\"style.css\"' rel='\"stylesheet\"'/>
 <link href='\"style.css\"' rel='\"stylesheet\"'/>
@@ -430,6 +467,7 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
 <span class="track-buttons"></span>
 </td>
 </tr>
+<<<<<<< Updated upstream
 <tr>
 <td class="num">13</td>
 <td class="track">
@@ -444,9 +482,69 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
 <span class="track-buttons"></span>
 </td>
 </tr>
+=======
+
+>>>>>>> Stashed changes
 </tbody>
 </table>
 </div>
+
+</article>
+<div class=\"divider\"></div>
+<!-- BONUS TRACKS (centered, no banner) -->
+<article class="disc" id="bonus-tracks">
+  <header class="bonus-header">
+    <h2 class="bonus-title"><span class="gold-title">Bonus Tracks</span></h2>
+  </header>
+
+  <div class="tablewrap bonus-wrap">
+    <table class="bonus-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Track</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="num">1</td>
+          <td class="track">
+            <span class="track-title"><strong class="gold-title">Transmission Zero</strong></span>
+            <span class="track-buttons"></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="num">2</td>
+          <td class="track">
+            <span class="track-title"><strong class="gold-title">Temple of Neon</strong></span>
+            <span class="track-buttons"></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="num">3</td>
+          <td class="track">
+            <span class="track-title"><strong class="gold-title">Guardians of the Grid</strong></span>
+            <span class="track-buttons"></span>
+          </td>
+        </tr>
+      
+  <tr>
+    <td class="num">4</td>
+    <td class="track">
+      <span class="track-title"><strong class="gold-title">Awakening (Ambient mix)</strong></span>
+      <span class="track-buttons"></span>
+    </td>
+  </tr>
+  <tr>
+    <td class="num">5</td>
+    <td class="track">
+      <span class="track-title"><strong class="gold-title">Epilogue (Ambient mix)</strong></span>
+      <span class="track-buttons"></span>
+    </td>
+  </tr>
+</tbody>
+    </table>
+  </div>
 </article>
 </section>
 </div>
