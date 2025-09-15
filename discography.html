@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Sonic Sentinel Saga – Discography</title>
+<title>Sentinel Pulse Saga – Discography</title>
 <style>
 
 :root{
@@ -241,7 +241,7 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
 <path d="M27 38 L73 62" stroke="rgba(0,0,0,0.55)" stroke-linecap="round" stroke-width="7"></path>
 <path d="M27 52 L73 76" stroke="rgba(0,0,0,0.55)" stroke-linecap="round" stroke-width="7"></path>
 </svg>
-<div class="brand gold">SONIC SENTINEL SAGA</div>
+<div class="brand gold">SENTINEL PULSE SAGA</div>
 </div>
 <p class="section-title">Welcome</p>
 <nav aria-label="Site navigation" class="nav"><a href="index.html">Home</a><a aria-current="page" class="active" href="discography.html">Albums</a><a href="tracks.html">Tracks</a><a href="story.html">Story</a><a href="contact.html">Contact</a></nav>
@@ -480,7 +480,7 @@ tbody td.track{ font-weight:700; display:flex; align-items:center; justify-conte
         shareBtn.className = 'btn album share'; shareBtn.type = 'button'; shareBtn.textContent = 'Share';
         shareBtn.addEventListener('click', async () => {
           const url = location.origin + location.pathname + '#' + id;
-          const text = title + ' — Sonic Sentinel Saga';
+          const text = title + ' — Sentinel Pulse Saga';
           try{
             if (navigator.share){ await navigator.share({ title, text, url }); }
             else if (navigator.clipboard){ await navigator.clipboard.writeText(url); alert('Link gekopieerd: ' + url); }
