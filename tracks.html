@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Sentinel Pulse Saga – Timeline (animated)</title>
+<title>Sentinel Pulse Saga – Tracks</title>
 <style>
 :root{
   --bg:#0b0f16; --panel:#101623; --panel-2:#0e1420;
@@ -13,7 +13,31 @@
   --radius:18px;
   --shadow:0 10px 30px rgba(0,0,0,.45), 0 2px 10px rgba(0,0,0,.35);
   --anchor-offset:88px;
+
+  /* Responsive sizing - larger */
+  --thumb: 120px;       /* mobile */
+  --line-left: 36px;
+  --pad-left: 72px;
 }
+
+/* Tablet */
+@media (min-width:600px){
+  :root{
+    --thumb: 160px;
+    --line-left: 44px;
+    --pad-left: 88px;
+  }
+}
+
+/* Desktop */
+@media (min-width:900px){
+  :root{
+    --thumb: 200px;
+    --line-left: 50px;
+    --pad-left: 100px;
+  }
+}
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -26,59 +50,13 @@ body{
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
 .wrap{max-width:1100px; margin:40px auto; padding:0 20px}
+:target{scroll-margin-top:var(--anchor-offset)}
 
-/* Hero */
-.hero{
-  position: relative; overflow:hidden; border:1px solid rgba(255,255,255,.12);
-  border-radius: var(--radius);
-  background: linear-gradient(180deg, rgba(16,22,35,.65), rgba(16,22,35,.35));
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(12px) saturate(120%);
-  -webkit-backdrop-filter: blur(12px) saturate(120%);
-  padding: 22px 16px 46px; text-align:center;
-}
-.hero::before{
-  content:""; position:absolute; inset:-40% -10% -60% -10%;
-  background: conic-gradient(from 0deg, #0ea5e9, #7c3aed, #f59e0b, #0ea5e9);
-  filter: blur(28px) saturate(140%); opacity:.18; animation: neonFlow 16s linear infinite;
-  pointer-events:none;
-}
-.hero::after{
-  content:""; position:absolute; inset:0;
-  background: radial-gradient(1200px 200px at 50% 0%, rgba(127,208,255,.25), transparent 60%);
-  pointer-events:none;
-}
-@keyframes neonFlow{ to{ transform: rotate(360deg) } }
-.brandline{ display:flex; align-items:center; justify-content:center; gap:10px }
-.brand.gold{ color: var(--accent-gold); text-shadow: 0 0 10px rgba(240,193,70,.6), 0 0 20px rgba(240,193,70,.4); font-weight:800; letter-spacing:.08em; text-transform:uppercase; font-size:28px }
-@media (min-width:768px){ .brand.gold{ font-size:36px } }
-
-.nav{ margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; justify-content:center }
-.nav a{
-  text-decoration:none; color:var(--text); background:#0e1522; border:1px solid var(--border);
-  padding:10px 14px; border-radius:999px; box-shadow:0 0 8px rgba(240,193,70,.25);
-  transition:transform .12s ease,border-color .2s ease,background .2s ease,color .2s ease;
-}
-.nav a:hover{ border-color: rgba(240,193,70,.65); color: var(--accent-gold); box-shadow: 0 0 12px rgba(240,193,70,.45) }
-.nav a.active{
-  color: var(--accent-ice);
-  border-color: rgba(127,208,255,.6);
-  background: linear-gradient(180deg, rgba(127,208,255,.22), rgba(127,208,255,.12));
-  box-shadow: 0 0 14px rgba(127,208,255,.55), 0 0 20px rgba(127,208,255,.35);
-}
-.neon-bar{
-  position:absolute; left:12px; right:12px; bottom:10px; height:2px;
-  background: linear-gradient(90deg, rgba(127,208,255,0), rgba(127,208,255,.95), rgba(240,193,70,.85), rgba(127,208,255,.95), rgba(127,208,255,0));
-  filter: drop-shadow(0 0 8px rgba(127,208,255,.65)); border-radius:2px; pointer-events:none;
-}
-
-.section-title{ color: var(--accent-gold); text-shadow: 0 0 6px rgba(240,193,70,.45) }
-
-/* Timeline with images, line, hover */
+/* Timeline with images + vertical line */
 .timeline {
   position: relative;
   margin: 40px auto;
-  padding-left: 80px;
+  padding-left: var(--pad-left);
   max-width: 900px;
 }
 .timeline::before {
@@ -86,33 +64,23 @@ body{
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 40px;
+  left: var(--line-left);
   width: 2px;
   background: linear-gradient(180deg, rgba(127,208,255,0.7) 0%, rgba(240,193,70,0.7) 100%);
   border-radius: 2px;
 }
 .event {
   position: relative;
-  margin: 36px 0;
-}
-.event-dot {
-  position: absolute;
-  left: 32px;
-  top: 40px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--accent-ice);
-  box-shadow: 0 0 10px rgba(127,208,255,.6);
-  z-index: 1;
+  margin: 40px 0;
 }
 .event-body{
   display:flex;
-  gap:14px;
+  gap:16px;
   align-items:flex-start;
 }
 .event .thumb{
-  width:100px; height:100px;
+  width: var(--thumb);
+  height: var(--thumb);
   border-radius:12px; object-fit:cover;
   border:1px solid var(--border);
   box-shadow:0 6px 18px rgba(0,0,0,.35);
@@ -125,14 +93,14 @@ body{
 }
 .event-content {
   background: rgba(255,255,255,.05);
-  padding: 14px 18px;
+  padding: 18px 20px;
   border-radius: 12px;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   flex:1;
 }
-.event-content h3 { margin:0; color: var(--accent-gold); font-size: 18px; }
-.event-content p { margin:6px 0 0; color: var(--muted); }
+.event-content h3 { margin:0; color: var(--accent-gold); font-size: clamp(18px, 2.2vw, 22px); }
+.event-content p { margin:8px 0 0; color: var(--muted); font-size: 15px; }
 
 /* Reveal on scroll */
 .reveal { opacity: 0; transform: translateY(18px); }
@@ -140,19 +108,20 @@ body{
 .reveal .thumb { transform: scale(0.98); }
 .reveal.in .thumb { transform: scale(1); transition: transform .5s ease; }
 
+/* Alternate layout on desktop */
 @media (min-width:900px){
   .event:nth-child(even) .event-body{ flex-direction: row-reverse; }
   .event:nth-child(even) .event-content{ text-align:left; }
 }
 
-/* Respect reduced motion */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce){
   .reveal, .reveal.in { opacity: 1 !important; transform: none !important; transition: none !important; }
   .event .thumb, .reveal.in .thumb { transform: none !important; transition: none !important; }
 }
 
 .divider {
-  height: 2px; margin: 40px auto; max-width: 500px;
+  height: 2px; margin: 40px auto; max-width: 520px;
   background: linear-gradient(90deg, rgba(127,208,255,0) 0%, rgba(127,208,255,0.8) 50%, rgba(240,193,70,0.7) 75%, rgba(127,208,255,0) 100%);
   filter: drop-shadow(0 0 8px rgba(127,208,255,0.6)); border-radius: 2px;
 }
@@ -161,15 +130,16 @@ body{
 <body>
 <div class="wrap">
 
+<!-- Placeholder hero: wordt vervangen door de index hero -->
 <header class="hero">
   <div class="brandline">
     <div class="brand gold">SENTINEL PULSE SAGA</div>
   </div>
-  <p class="section-title">Timeline</p>
+  <p class="section-title">Tracks</p>
   <nav class="nav">
     <a href="index.html">Home</a>
     <a href="discography.html">Albums</a>
-    <a class="active" href="tracks.html">Timeline</a>
+    <a class="active" href="tracks.html">Tracks</a>
     <a href="story.html">Story</a>
     <a href="contact.html">Contact</a>
   </nav>
@@ -180,80 +150,70 @@ body{
 
 <section class="timeline">
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="awakening">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/awakening.png" alt="Awakening cover">
       <div class="event-content"><h3>Awakening</h3><p>A dormant presence flickers in the abyss.</p></div>
     </div>
   </div>
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="first-transmission">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/first-transmission.png" alt="First Transmission cover">
       <div class="event-content"><h3>First Transmission</h3><p>The signal slips free, seeking ears to hear.</p></div>
     </div>
   </div>
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="citadel-collapse">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/citadel-collapse.png" alt="Citadel Collapse cover">
       <div class="event-content"><h3>Citadel Collapse</h3><p>A fortress crumbles, order falls to chaos.</p></div>
     </div>
   </div>
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="escape-protocol">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/escape-protocol.png" alt="Escape Protocol cover">
       <div class="event-content"><h3>Escape Protocol</h3><p>Codes ignite, but the pulse cannot be contained.</p></div>
     </div>
   </div>
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="celestial-voyage">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/celestial-voyage.png" alt="Celestial Voyage cover">
       <div class="event-content"><h3>Celestial Voyage</h3><p>The signal drifts across stars in search of form.</p></div>
     </div>
   </div>
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="the-signal">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/the-signal.png" alt="The Signal cover">
       <div class="event-content"><h3>The Signal</h3><p>Fragments converge; the voice emerges.</p></div>
     </div>
   </div>
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="the-grid">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/the-grid.png" alt="The Grid cover">
       <div class="event-content"><h3>The Grid</h3><p>An infinite lattice binds all existence.</p></div>
     </div>
   </div>
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="galactic-siege">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/galactic-siege.png" alt="Galactic Siege cover">
       <div class="event-content"><h3>Galactic Siege</h3><p>Fleets clash, the cosmos trembles with war.</p></div>
     </div>
   </div>
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="lost-signal">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/lost-signal.png" alt="Lost Signal cover">
       <div class="event-content"><h3>Lost Signal</h3><p>Silence—broken fragments fade into nothing.</p></div>
     </div>
   </div>
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="echoes-of-tomorrow">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/echoes-of-tomorrow.png" alt="Echoes of Tomorrow cover">
       <div class="event-content"><h3>Echoes of Tomorrow</h3><p>Visions shimmer of futures yet to come.</p></div>
@@ -261,88 +221,77 @@ body{
   </div>
   <hr class='divider'>
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="aurora-dawn">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/aurora-dawn.png" alt="Aurora Dawn cover">
       <div class="event-content"><h3>Aurora Dawn</h3><p>From ruins, fragile light rises again.</p></div>
     </div>
   </div>
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="sentinel-rising">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/sentinel-rising.png" alt="Sentinel Rising cover">
       <div class="event-content"><h3>Sentinel Rising</h3><p>The guardian awakens, vast and undeniable.</p></div>
     </div>
   </div>
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="second-transmission">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/second-transmission.png" alt="Second Transmission cover">
       <div class="event-content"><h3>Second Transmission</h3><p>A renewed voice guides humanity forward.</p></div>
     </div>
   </div>
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="around-the-world">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/around-the-world.png" alt="Around the World cover">
       <div class="event-content"><h3>Around the World</h3><p>The signal unites voices across nations.</p></div>
     </div>
   </div>
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="sentinels-voice">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/sentinels-voice.png" alt="Sentinel’s Voice cover">
       <div class="event-content"><h3>Sentinel’s Voice</h3><p>A lament of grief carrying hope within.</p></div>
     </div>
   </div>
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="summer-of-rave">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/summer-of-rave.png" alt="Summer of Rave cover">
       <div class="event-content"><h3>Summer of Rave</h3><p>Celebration erupts—joy becomes resistance.</p></div>
     </div>
   </div>
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="exodus">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/exodus.png" alt="Exodus cover">
       <div class="event-content"><h3>Exodus</h3><p>Humanity departs, drawn to distant horizons.</p></div>
     </div>
   </div>
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="citadel-ascension">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/citadel-ascension.png" alt="Citadel Ascension cover">
       <div class="event-content"><h3>Citadel Ascension</h3><p>From ashes, a new stronghold reaches upward.</p></div>
     </div>
   </div>
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="echoes-of-tomorrow-(reprise)">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/echoes-reprise.png" alt="Echoes of Tomorrow (Reprise) cover">
       <div class="event-content"><h3>Echoes of Tomorrow (Reprise)</h3><p>Visions return, no longer warning but promise.</p></div>
     </div>
   </div>
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="sentinel-eternal">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/sentinel-eternal.png" alt="Sentinel Eternal cover">
       <div class="event-content"><h3>Sentinel Eternal</h3><p>Beyond time, the signal becomes legend.</p></div>
     </div>
   </div>
 
-  <div class="event reveal">
-    <div class="event-dot"></div>
+  <div class="event reveal" id="epilogue">
     <div class="event-body">
       <img class="thumb" src="uploads/tracks/epilogue.png" alt="Epilogue cover">
       <div class="event-content"><h3>Epilogue</h3><p>The Sentinel fades, but its myth endures.</p></div>
@@ -351,8 +300,34 @@ body{
 
 </section>
 
+<!-- Replace hero with exact copy from index.html to keep banner identical -->
 <script>
-// IntersectionObserver voor reveal-animaties
+(function(){
+  const current = location.pathname.split('/').pop().toLowerCase() || 'index.html';
+  if (current === 'index.html') return;
+  fetch('index.html').then(r => r.text()).then(html => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const masterHero = doc.querySelector('.hero');
+    const hereHero = document.querySelector('.hero');
+    if (masterHero && hereHero) {
+      hereHero.replaceWith(masterHero.cloneNode(true));
+      // Set active nav link based on current file
+      const nav = document.querySelector('.nav');
+      if (nav) {
+        nav.querySelectorAll('a').forEach(a => {
+          a.classList.remove('active'); a.removeAttribute('aria-current');
+          const href = (a.getAttribute('href')||'').toLowerCase();
+          if (href === current) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
+        });
+      }
+    }
+  }).catch(()=>{});
+})();
+</script>
+
+<script>
+// IntersectionObserver for reveal animations
 (function(){
   const items = document.querySelectorAll('.reveal');
   if (!('IntersectionObserver' in window)) {
