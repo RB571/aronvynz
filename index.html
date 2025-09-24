@@ -1,445 +1,95 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<style>
-
-:root{
-  --bg:#0b0f16; --panel:#101623; --panel-2:#0e1420;
-  --text:#e7ecf3; --muted:#aab4c6;
-  --accent-ice:#7fd0ff; --accent-gold:#f0c146;
-  --border:rgba(255,255,255,.08);
-  --radius:18px;
-  --shadow:0 10px 30px rgba(0,0,0,.45), 0 2px 10px rgba(0,0,0,.35);
-  --anchor-offset:88px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0; font:15px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-  color:var(--text);
-  background:
-    radial-gradient(1200px 800px at 20% -10%, #132037, transparent 60%),
-    radial-gradient(900px 700px at 120% 10%, #1a2640, transparent 60%),
-    var(--bg);
-  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-}
-.wrap{max-width:1100px; margin:40px auto; padding:0 20px}
-:target{scroll-margin-top:var(--anchor-offset)}
-
-/* Hero (glass/neon) */
-.hero{
-  position: relative; overflow:hidden; border:1px solid rgba(255,255,255,.12);
-  border-radius: var(--radius);
-  background: linear-gradient(180deg, rgba(16,22,35,.65), rgba(16,22,35,.35));
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(12px) saturate(120%);
-  -webkit-backdrop-filter: blur(12px) saturate(120%);
-  padding: 22px 16px 46px;
-}
-.hero::before{
-  content:""; position:absolute; inset:-40% -10% -60% -10%;
-  background: conic-gradient(from 0deg, #0ea5e9, #7c3aed, #f59e0b, #0ea5e9);
-  filter: blur(28px) saturate(140%); opacity:.18; animation: neonFlow 16s linear infinite;
-  pointer-events:none;
-}
-.hero::after{
-  content:""; position:absolute; inset:0;
-  background: radial-gradient(1200px 200px at 50% 0%, rgba(127,208,255,.25), transparent 60%);
-  pointer-events:none;
-}
-@keyframes neonFlow{ to{ transform: rotate(360deg) } }
-.brandline{ display:flex; align-items:center; gap:10px }
-.shield-icon{ width:24px; height:24px; flex-shrink:0; filter: drop-shadow(0 0 4px rgba(240,193,70,.5)); }
-@media (min-width:768px){ .shield-icon{ width:28px; height:28px } }
-.brand.gold{ color: var(--accent-gold); text-shadow: 0 0 6px rgba(240,193,70,.45); font-weight:800; letter-spacing:.08em; text-transform:uppercase; font-size:22px }
-@media (min-width:768px){ .brand.gold{ font-size:28px } }
-
-.nav{ margin-top:12px; display:flex; gap:10px; flex-wrap:wrap }
-.nav a{
-  text-decoration:none; color:var(--text); background:#0e1522; border:1px solid var(--border);
-  padding:10px 14px; border-radius:999px; box-shadow:var(--shadow);
-  transition:transform .12s ease,border-color .2s ease,background .2s ease,color .2s ease;
-}
-.nav a:hover{
-  border-color: rgba(240,193,70,.65);
-  color: var(--accent-gold);
-  box-shadow: 0 6px 20px rgba(240,193,70,.35);
-}
-.nav a.active{
-  color: var(--accent-ice);
-  border-color: rgba(127,208,255,.6);
-  background: linear-gradient(180deg, rgba(127,208,255,.22), rgba(127,208,255,.12));
-  box-shadow: 0 8px 24px rgba(0,0,0,.35), 0 0 0 1px rgba(127,208,255,.25) inset;
-}
-.neon-bar{
-  position:absolute; left:12px; right:12px; bottom:10px; height:2px;
-  background: linear-gradient(90deg, rgba(127,208,255,0), rgba(127,208,255,.95), rgba(240,193,70,.85), rgba(127,208,255,.95), rgba(127,208,255,0));
-  filter: drop-shadow(0 0 8px rgba(127,208,255,.65)); border-radius:2px; pointer-events:none;
-}
-
-/* Section titles gold */
-.section-title, h2.title{
-  color: var(--accent-gold);
-  text-shadow: 0 0 6px rgba(240,193,70,.45);
-}
-
-/* Buttons */
-.btn{
-  display:inline-flex; align-items:center; justify-content:center;
-  padding:8px 12px; border-radius:999px; border:1px solid var(--border);
-  background:#0e1522; color:var(--text);
-  text-decoration:none; font-size:13px; line-height:1; cursor:pointer;
-  transition: transform .12s ease, border-color .25s ease, box-shadow .25s ease, color .25s ease;
-}
-.btn:hover{ transform: translateY(-1px); border-color: rgba(127,208,255,.45); box-shadow: 0 8px 24px rgba(0,0,0,.35) }
-.btn.album {
-  background: linear-gradient(180deg, rgba(240,193,70,.22), rgba(240,193,70,.12));
-  border-color: rgba(240,193,70,.55);
-  color: var(--accent-gold);
-  box-shadow: 0 6px 18px rgba(240,193,70,.25);
-}
-.btn.album:hover {
-  border-color: rgba(240,193,70,.75);
-  box-shadow: 0 8px 24px rgba(240,193,70,.35);
-  transform: translateY(-1px);
-}
-
-/* Dividers */
-.divider {
-  height: 2px; margin: 30px auto; max-width: 600px;
-  background: linear-gradient(90deg, rgba(127,208,255,0) 0%, rgba(127,208,255,0.8) 50%, rgba(240,193,70,0.7) 75%, rgba(127,208,255,0) 100%);
-  filter: drop-shadow(0 0 8px rgba(127,208,255,0.6)); border-radius: 2px;
-}
-
-/* Album cards grid (index) */
-.grid{display:grid; grid-template-columns:1fr; gap:18px}
-@media (min-width:980px){ .grid{ grid-template-columns:1fr 1fr } }
-.card{
-  border:1px solid var(--border); border-radius:16px; overflow:hidden;
-  background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0));
-  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
-}
-.card:hover{transform:translateY(-4px); border-color:rgba(127,208,255,.35); box-shadow:0 16px 50px rgba(0,0,0,.45)}
-.cover{aspect-ratio:1/1; background:#0f1422}
-.cover img{width:100%; height:100%; object-fit:cover; display:block}
-.content{padding:14px; display:grid; gap:10px}
-.title{margin:2px 0 0; font-size:18px}
-.desc{margin:0; color:var(--muted)}
-
-/* Tracks grid (tracks.html) */
-.list{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap:18px;
-  margin-top:26px;
-}
-.item{
-  display:flex; flex-direction:column;
-  border:1px solid var(--border); border-radius:16px; overflow:hidden;
-  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
-  transition:transform .2s ease, border-color .25s ease, box-shadow .25s ease;
-}
-.item:hover{ transform:translateY(-4px); border-color:rgba(127,208,255,.45); box-shadow:0 16px 40px rgba(0,0,0,.45) }
-.item .cover{ width:100%; display:flex; align-items:center; justify-content:center; padding:14px 14px 0; }
-.item .cover img{ width:220px; height:220px; object-fit:cover; border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,.4) }
-.item .meta{ padding:12px 14px 16px; min-height:92px }
-.item .meta .title{ font-weight:800; letter-spacing:.02em }
-.item .meta .desc{ margin-top:4px; color:var(--muted) }
-
-/* Table in discography */
-table{ width:100%; border-collapse:separate; border-spacing:0 }
-thead th{ text-align:left; font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); padding:12px 14px; border-bottom:1px solid var(--border) }
-thead th.cover-col{ width:46px }
-tbody td{ padding:12px 14px; vertical-align:middle }
-tbody tr:nth-child(odd){ background: rgba(255,255,255,0.03) }
-tbody tr:hover{ background: rgba(127,208,255,0.06) }
-tbody td.cover{ width:46px; padding:8px 10px }
-tbody td.cover img{ width:40px; height:40px; border-radius:6px; border:1px solid var(--border); object-fit:cover; display:block }
-tbody td.num{ width:70px; color:var(--muted) }
-tbody td.track{ font-weight:700; display:flex; align-items:center; justify-content:space-between; gap:10px }
-.track-title{ display:inline-block }
-.track-buttons{ display:flex; gap:8px }
-
-/* Back to top */
-#backToTop { position: fixed; bottom: 28px; right: 28px; width: 44px; height: 44px; border-radius: 50%;
-  border: 1px solid rgba(127,208,255,.45);
-  background: linear-gradient(180deg, rgba(127,208,255,.18), rgba(127,208,255,.10));
-  color:#eaf5ff; display:flex; align-items:center; justify-content:center;
-  cursor:pointer; opacity:0; visibility:hidden; box-shadow:0 6px 18px rgba(0,0,0,.35);
-  transition: opacity .25s ease, visibility .25s ease, transform .2s ease; z-index:9999;
-}
-#backToTop:hover{ transform: translateY(-2px); border-color: rgba(127,208,255,.65); }
-#backToTop.show{ opacity:1; visibility:visible; transform:translateY(0) }
-
-@media print{
-  body{ background:#fff; color:#000 }
-  .hero,.card,.item{ box-shadow:none; border-color:#ddd }
-  .nav{ display:none }
-  .disc{ break-inside: avoid }
-}
-
-/* Center hero banner content */
-.hero { text-align: center; }
-.hero .brandline { justify-content: center; }
-.hero .nav { justify-content: center; }
-
-/* Bigger brand title when centered */
-.hero .brand.gold {
-  font-size: 28px;
-}
-@media (min-width:768px){
-  .hero .brand.gold { font-size: 36px; }
-}
-
-/* Add glow to central brand title */
-.hero .brand.gold {
-  text-shadow: 0 0 10px rgba(240,193,70,.6), 0 0 20px rgba(240,193,70,.4);
-}
-
-/* Add subtle glow to nav buttons */
-.hero .nav a {
-  box-shadow: 0 0 8px rgba(240,193,70,.25);
-}
-.hero .nav a:hover {
-  box-shadow: 0 0 12px rgba(240,193,70,.45);
-}
-
-/* Extra glow for active nav link */
-.hero .nav a.active {
-  box-shadow: 0 0 14px rgba(127,208,255,.55), 0 0 20px rgba(127,208,255,.35);
-}
-
-  
-/* About section styling */
-.about-section{
-  text-align:center;
-  margin:40px auto;
-  max-width:700px;
-}
-.about-section .gold{
-  color: var(--accent-gold);
-  text-shadow: 0 0 6px rgba(240,193,70,.45);
-}
-
-/* Smaller hero title */
-.hero .title{
-  font-size:26px !important;
-  line-height:1.2 !important;
-}
-.hero .subtitle{
-  font-size:16px !important;
-  line-height:1.4 !important;
-  opacity:0.9;
-}
-
-.about-banner {
-  position: relative;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  overflow: hidden;
-}
-
-.about-banner img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.about-banner .about-text {
-  max-width: 800px;
-  margin: 30px auto;
-  padding: 0 20px;
-  color: var(--accent-gold);
-  text-shadow: 0 0 6px rgba(240,193,70,.45);
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-
-/* Responsive banner for mobile */
-@media (max-width: 768px) {
-  .about-banner img {
-    max-height: 280px;
-    object-fit: cover;
-  }
-  .about-banner .about-text {
-    margin: 20px auto;
-    font-size: 14px;
-    line-height: 1.4;
-  }
-}
-
-
-/* Responsive banner for tablets */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .about-banner img {
-    max-height: 400px;
-    object-fit: cover;
-  }
-  .about-banner .about-text {
-    margin: 25px auto;
-    font-size: 15px;
-    line-height: 1.5;
-  }
-}
-
-</style>
-<link href='\"style.css\"' rel='\"stylesheet\"'/>
-<link href='\"style.css\"' rel='\"stylesheet\"'/>
-<link href="uploads/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="uploads/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
-<link href="uploads/favicon-180.png" rel="apple-touch-icon" sizes="180x180"/>
-<link href="uploads/favicon.ico" rel="icon"/>
-<!-- Open Graph / Twitter -->
-<meta content="website" property="og:type"/>
-<meta content="Sentinel Pulse" property="og:title"/>
-<meta content="Concept-driven electronic music at the intersection of sound, energy, and emotion." property="og:description"/>
-<meta content="" property="og:image"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="Sentinel Pulse" name="twitter:title"/>
-<meta content="Concept-driven electronic music at the intersection of sound, energy, and emotion." name="twitter:description"/>
-<meta content="" name="twitter:image"/>
-<link href="manifest.json" rel="manifest"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aron Vynz — PULSE</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#fff;color:#111;}
+    header{position:sticky;top:0;background:#fff;border-bottom:1px solid #ddd;padding:10px 20px;display:flex;justify-content:space-between;align-items:center}
+    nav a{margin-left:20px;color:#333;text-decoration:none}
+    .hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1000px;margin:40px auto;padding:0 20px}
+    .hero h1{font-size:2.5rem;margin:0}
+    .albums{max-width:1000px;margin:40px auto;padding:0 20px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+    .card{border:1px solid #ddd;border-radius:12px;padding:12px}
+    .card img{width:100%;border-radius:8px}
+    .tracklists{max-width:1000px;margin:40px auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .tracklist{border:1px solid #ddd;border-radius:12px;padding:12px}
+    .tracklist h3{margin-top:0}
+    .tracklist ol{padding-left:20px}
+    footer{border-top:1px solid #ddd;padding:20px;text-align:center;font-size:.9rem;color:#555}
+  </style>
 </head>
 <body>
-<div class="wrap">
-<!-- HERO / NAV -->
-<header aria-label="Discography header" class="hero">
-<div class="brandline">
-
-</div>
-<nav aria-label="Site navigation" class="nav"><a aria-current="page" class="active" href="index.html">Home</a><a href="discography.html">Albums</a><a href="tracks.html">Tracks</a><a href="story.html">Story</a><a href="contact.html">Contact</a></nav>
-<div aria-hidden="true" class="neon-bar"></div>
+<header>
+  <div><strong>ARON VYNZ — PULSE</strong></div>
+  <nav>
+    <a href="#albums">Albums</a>
+    <a href="#story">Story</a>
+    <a href="#tracks">Tracks</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
-<!-- ABOUT (banner full width) -->
-<section class="about-banner" id="about">
-  <img src="uploads/album3.png" alt="Odyssey of the Sentinel banner" loading="lazy">
-  <div class="about-text">
-    <p>
-      Sentinel Pulse is a concept-driven electronic music project created by DJ and producer Aron Vynz, that explores the intersection of sound, energy and emotion. 
-      Blending elements of progressive house, melodic techno, and cinematic EDM, the project creates sonic landscapes that feel both futuristic and primal.
-    </p>
+
+<section class="hero">
+  <div>
+    <h1>Aron Vynz — PULSE</h1>
+    <p>Een minimalistische website voor het Pulse‑project. Pulse bestaat uit twee hoofdalbums en een deluxe verzamelalbum.</p>
+  </div>
+  <div><img src="P3.png" alt="Pulse Deluxe Edition"/></div>
+</section>
+
+<section id="albums" class="albums">
+  <h2>Albums</h2>
+  <div class="cards">
+    <div class="card"><img src="P1.png"/><h3>Pulse pt 1: Origins</h3></div>
+    <div class="card"><img src="P2.png"/><h3>Pulse pt 2: Legacy</h3></div>
+    <div class="card"><img src="P3.png"/><h3>Pulse: Deluxe Edition</h3></div>
   </div>
 </section>
-<!-- ALBUMS -->
-<section aria-labelledby="albums-title" class="section panel" id="albums">
-<h2 id="albums-title">Albums</h2>
-<div class="grid">
-<!-- Album 1 -->
-<article class="card">
-<div class="cover">
-<img alt="Signal of the Sentinel cover" loading="lazy" src="uploads/album1.png"/>
-</div>
-<div class="content">
-<p class="desc">Out of silence, a spark becomes rhythm, and rhythm becomes a signal. From the first stirrings of awareness to the fall of the Citadel, the saga unfolds in fire and conflict. The signal journeys outward, fragments converging into a voice that reveals the vast Grid—a cosmic lattice where order and chaos collide.</p>
-<a aria-label="View Disc I tracklist" class="btn album" href="discography.html#disc-1">View tracks</a>
-</div>
-</article>
-<!-- Album 2 -->
-<article class="card">
-<div class="cover">
-<img alt="Rebirth of the Sentinel cover" loading="lazy" src="uploads/album2.png"/>
-</div>
-<div class="content">
-<p class="desc">From the ashes of collapse, a fragile dawn rises. The Sentinel awakens once more, its voice clearer and stronger, guiding humanity toward unity and resilience. Across the world, grief becomes defiance, rhythm becomes rebellion, and the people begin their great exodus to the stars.</p>
-<a aria-label="View Disc II tracklist" class="btn album album" href="discography.html#disc-2">View tracks</a>
-</div>
-</article>
-</div>
+
+<section id="story" class="albums">
+  <h2>Story</h2>
+  <p>
+    Aron Vynz is an electronic producer and DJ blending melodic techno and progressive house with futuristic soundscapes. 
+    His music is defined by deep basslines, shimmering melodies, and an immersive, cinematic atmosphere. 
+    With <strong>Pulse</strong>, Aron Vynz presents his vision: music as energy, as a signal, as a calling. 
+    Each release becomes a chapter in a larger story, where sound and visuals merge into one futuristic experience.
+  </p>
 </section>
-</div>
-<script>
-    // Active state voor in-page nav
-    (function(){
-      const links = [...document.querySelectorAll('[data-nav]')];
-      const ids = links.map(a => a.getAttribute('href')).filter(h => h && h.startsWith('#'));
-      const targets = ids.map(id => document.querySelector(id)).filter(Boolean);
-      if(!('IntersectionObserver' in window) || !targets.length) return;
 
-      const byId = id => links.find(a => a.getAttribute('href') === id);
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(entry=>{
-          const id = '#' + entry.target.id;
-          const link = byId(id);
-          if(!link) return;
-          if(entry.isIntersecting){
-            links.forEach(l=>l.classList.remove('active'));
-            link.classList.add('active');
-          }
-        });
-      }, { rootMargin: `-${parseInt(getComputedStyle(document.documentElement).getPropertyValue('--anchor-offset'))||88}px 0px -60% 0px`, threshold: .1 });
+<section id="tracks" class="tracklists">
+  <div class="tracklist">
+    <h3>Pulse pt 1: Origins</h3>
+    <ol>
+      <li>Origins (Prologue)</li><li>Awakening</li><li>Transmission</li><li>Elysium</li><li>Overdrive</li><li>Voyager</li><li>Sentinel</li><li>The Grid</li><li>Invasion</li><li>Fading</li>
+    </ol>
+  </div>
+  <div class="tracklist">
+    <h3>Pulse pt 2: Legacy</h3>
+    <ol>
+      <li>Horizon</li><li>Ignition</li><li>Around the world</li><li>Voices</li><li>Summer of rave</li><li>Pulse</li><li>Exodus</li><li>Ascension</li><li>Echoes of tomorrow</li><li>Legacy (Epilogue)</li>
+    </ol>
+  </div>
+  <div class="tracklist">
+    <h3>Pulse: Deluxe Edition</h3>
+    <ol>
+      <li>Origins (Prologue)</li><li>Awakening</li><li>Transmission</li><li>Elysium</li><li>Overdrive</li><li>Voyager</li><li>Sentinel</li><li>The Grid</li><li>Invasion</li><li>Fading</li>
+      <li>Horizon</li><li>Ignition</li><li>Around the world</li><li>Voices</li><li>Summer of rave</li><li>Pulse</li><li>Exodus</li><li>Ascension</li><li>Echoes of tomorrow</li><li>Legacy (Epilogue)</li>
+      <li>Aurora (Bonus track)</li><li>Echoes of tomorrow (chill mix)</li><li>Awakening (slow mix 1)</li><li>Origins (slow mix)</li><li>Awakening (slow mix 2)</li>
+    </ol>
+  </div>
+</section>
 
-      targets.forEach(t=>io.observe(t));
-    })();
-  </script>
-<script>
-    // Smooth scrolling for in-page anchors + apply on load when arriving with a hash
-    (function(){
-      const getOffset = () => parseInt(getComputedStyle(document.documentElement).getPropertyValue('--anchor-offset')) || 88;
+<section id="contact" class="albums">
+  <h2>Contact</h2>
+  <p>Boekingen, promo en demo’s: <a href="mailto:management@aronvynz.com">management@aronvynz.com</a></p>
+</section>
 
-      // On load with a hash, smooth scroll to it
-      window.addEventListener('DOMContentLoaded', () => {
-        if (location.hash) {
-          const el = document.querySelector(location.hash);
-          if (el) {
-            // Use requestAnimationFrame to ensure layout is ready
-            requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }));
-          }
-        }
-      });
-
-      // Intercept same-page anchor clicks for smooth scroll
-      document.addEventListener('click', (e) => {
-        const a = e.target.closest('a[href^="#"]');
-        if (!a) return;
-        const id = a.getAttribute('href');
-        const target = document.querySelector(id);
-        if (target) {
-          e.preventDefault();
-          history.pushState(null, '', id);
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    })();
-  </script>
-<button aria-label="Back to top" id="backToTop"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
-<script>
-    (function(){
-      const btn = document.getElementById('backToTop');
-      if (!btn) return;
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-          btn.classList.add('show');
-        } else {
-          btn.classList.remove('show');
-        }
-      });
-      btn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    })();
-  </script>
-<script>
-    // Move hover glow under cursor for nav pills
-    document.addEventListener('mousemove', (e) => {
-      const a = e.target.closest('.nav a');
-      if(!a) return;
-      const rect = a.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      a.style.setProperty('--x', x + '%');
-    }, { passive: true });
-  </script>
-<script>
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js")
-      .then(() => console.log("Service Worker geregistreerd"))
-      .catch(err => console.error("SW fout:", err));
-  }
-</script>
+<footer>
+  © <span id="year"></span> Aron Vynz • PULSE
+</footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </body>
 </html>
