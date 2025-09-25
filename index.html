@@ -32,8 +32,39 @@
     .section{padding:48px 0}
     .cards{display:grid;gap:18px}
     @media(min-width:900px){.cards{grid-template-columns:repeat(3,1fr)}}
-    .card{background:var(--card);border:none;border-radius:20px;padding:12px}
+    .card{background:var(--card);border:none;border-radius:20px;padding:12px;text-align:center}
     .card img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:14px;border:none}
+
+    .album-title {
+      margin-top: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .listen-links {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .listen-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #e8e8e8;
+      text-decoration: none;
+      background: #f9f9f9;
+      transition: background 0.2s;
+    }
+    .listen-links a img {
+      height: 12px;
+    }
+    .listen-links a:hover {
+      background: #eee;
+    }
 
     /* TRACKLISTS zonder randen */
     .tracks{display:grid;gap:20px}
@@ -54,6 +85,7 @@
     <div class="wrap head-inner">
       <div><span class="chip">ARON VYNZ</span> <strong>• PULSE</strong></div>
       <nav>
+        <a href="#top">Home</a>
         <a href="#albums">Albums</a>
         <a href="#tracks">Tracks</a>
         <a href="#contact">Contact</a>
@@ -61,7 +93,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="top">
     <section class="hero">
       <div class="wrap grid">
         <div>
@@ -80,9 +112,33 @@
       <div class="wrap">
         <h2 style="margin:0 0 12px 0">Albums</h2>
         <div class="cards">
-          <article class="card"><img src="P1.png" alt="Pulse | Origins"></article>
-          <article class="card"><img src="P2.png" alt="Pulse | Legacy"></article> 
-          <article class="card"><img src="P3.png" alt="Pulse | Deluxe "></article> 
+          <article class="card">
+            <img src="P1.png" alt="Pulse | Origins">
+            <div class="album-title">Aron Vynz — Pulse | Origins</div>
+            <div class="listen-links">
+              <a href="https://music.apple.com/" target="_blank"><img src="applemusic.png" alt="Apple Music"></a>
+              <a href="https://open.spotify.com/" target="_blank"><img src="spotify.png" alt="Spotify"></a>
+              <a href="https://youtube.com/" target="_blank"><img src="youtube.png" alt="YouTube"></a>
+            </div>
+          </article>
+          <article class="card">
+            <img src="P2.png" alt="Pulse | Legacy">
+            <div class="album-title">Aron Vynz — Pulse | Legacy</div>
+            <div class="listen-links">
+              <a href="https://music.apple.com/" target="_blank"><img src="applemusic.png" alt="Apple Music"></a>
+              <a href="https://open.spotify.com/" target="_blank"><img src="spotify.png" alt="Spotify"></a>
+              <a href="https://youtube.com/" target="_blank"><img src="youtube.png" alt="YouTube"></a>
+            </div>
+          </article> 
+          <article class="card">
+            <img src="P3.png" alt="Pulse | Deluxe">
+            <div class="album-title">Aron Vynz — Pulse | Deluxe</div>
+            <div class="listen-links">
+              <a href="https://music.apple.com/" target="_blank"><img src="applemusic.png" alt="Apple Music"></a>
+              <a href="https://open.spotify.com/" target="_blank"><img src="spotify.png" alt="Spotify"></a>
+              <a href="https://youtube.com/" target="_blank"><img src="youtube.png" alt="YouTube"></a>
+            </div>
+          </article> 
         </div>
       </div>
     </section>
@@ -91,69 +147,64 @@
       <div class="wrap">
         <h2 style="margin:0 0 12px 0">Tracklists</h2>
         <div class="tracks">
-          <!-- ORIGINS -->
           <div class="tracklist">
             <h3>Pulse | Origins</h3>
             <div class="list">
-              <div class="row"><div class="num">1</div><div class="title">Origins (Prologue)</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">2</div><div class="title">Awakening</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">3</div><div class="title">Transmission</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">4</div><div class="title">Elysium</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">5</div><div class="title">Overdrive</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">6</div><div class="title">Voyager</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">7</div><div class="title">Sentinel</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">8</div><div class="title">The Grid</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">9</div><div class="title">Invasion</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">10</div><div class="title">Fading</div><div class="meta">—</div></div>
+              <div class="row"><div class="num">1</div><div class="title">Origins (Prologue)</div></div>
+              <div class="row"><div class="num">2</div><div class="title">Awakening</div></div>
+              <div class="row"><div class="num">3</div><div class="title">Transmission</div></div>
+              <div class="row"><div class="num">4</div><div class="title">Elysium</div></div>
+              <div class="row"><div class="num">5</div><div class="title">Overdrive</div></div>
+              <div class="row"><div class="num">6</div><div class="title">Voyager</div></div>
+              <div class="row"><div class="num">7</div><div class="title">Sentinel</div></div>
+              <div class="row"><div class="num">8</div><div class="title">The Grid</div></div>
+              <div class="row"><div class="num">9</div><div class="title">Invasion</div></div>
+              <div class="row"><div class="num">10</div><div class="title">Fading</div></div>
             </div>
           </div>
-
-          <!-- LEGACY -->
           <div class="tracklist">
             <h3>Pulse | Legacy</h3>
             <div class="list">
-              <div class="row"><div class="num">1</div><div class="title">Horizon</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">2</div><div class="title">Ignition</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">3</div><div class="title">Around the world</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">4</div><div class="title">Voices</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">5</div><div class="title">Summer of rave</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">6</div><div class="title">Pulse</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">7</div><div class="title">Exodus</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">8</div><div class="title">Ascension</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">9</div><div class="title">Echoes of tomorrow</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">10</div><div class="title">Legacy (Epilogue)</div><div class="meta">—</div></div>
+              <div class="row"><div class="num">1</div><div class="title">Horizon</div></div>
+              <div class="row"><div class="num">2</div><div class="title">Ignition</div></div>
+              <div class="row"><div class="num">3</div><div class="title">Around the world</div></div>
+              <div class="row"><div class="num">4</div><div class="title">Voices</div></div>
+              <div class="row"><div class="num">5</div><div class="title">Summer of rave</div></div>
+              <div class="row"><div class="num">6</div><div class="title">Pulse</div></div>
+              <div class="row"><div class="num">7</div><div class="title">Exodus</div></div>
+              <div class="row"><div class="num">8</div><div class="title">Ascension</div></div>
+              <div class="row"><div class="num">9</div><div class="title">Echoes of tomorrow</div></div>
+              <div class="row"><div class="num">10</div><div class="title">Legacy (Epilogue)</div></div>
             </div>
           </div>
-
-          <!-- DELUXE -->
           <div class="tracklist">
             <h3>Pulse | Deluxe</h3>
             <div class="list">
-              <div class="row"><div class="num">1</div><div class="title">Origins (Prologue)</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">2</div><div class="title">Awakening</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">3</div><div class="title">Transmission</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">4</div><div class="title">Elysium</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">5</div><div class="title">Overdrive</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">6</div><div class="title">Voyager</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">7</div><div class="title">Sentinel</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">8</div><div class="title">The Grid</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">9</div><div class="title">Invasion</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">10</div><div class="title">Fading</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">11</div><div class="title">Horizon</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">12</div><div class="title">Ignition</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">13</div><div class="title">Around the world</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">14</div><div class="title">Voices</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">15</div><div class="title">Summer of rave</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">16</div><div class="title">Pulse</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">17</div><div class="title">Exodus</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">18</div><div class="title">Ascension</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">19</div><div class="title">Echoes of tomorrow</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">20</div><div class="title">Legacy (Epilogue)</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">21</div><div class="title">Aurora (Bonus track)</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">22</div><div class="title">Echoes of tomorrow (chill mix)</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">23</div><div class="title">Awakening (slow mix 1)</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">24</div><div class="title">Origins (slow mix)</div><div class="meta">—</div></div>
-              <div class="row"><div class="num">25</div><div class="title">Awakening (slow mix 2)</div><div class="meta">—</div></div>
+              <div class="row"><div class="num">1</div><div class="title">Origins (Prologue)</div></div>
+              <div class="row"><div class="num">2</div><div class="title">Awakening</div></div>
+              <div class="row"><div class="num">3</div><div class="title">Transmission</div></div>
+              <div class="row"><div class="num">4</div><div class="title">Elysium</div></div>
+              <div class="row"><div class="num">5</div><div class="title">Overdrive</div></div>
+              <div class="row"><div class="num">6</div><div class="title">Voyager</div></div>
+              <div class="row"><div class="num">7</div><div class="title">Sentinel</div></div>
+              <div class="row"><div class="num">8</div><div class="title">The Grid</div></div>
+              <div class="row"><div class="num">9</div><div class="title">Invasion</div></div>
+              <div class="row"><div class="num">10</div><div class="title">Fading</div></div>
+              <div class="row"><div class="num">11</div><div class="title">Horizon</div></div>
+              <div class="row"><div class="num">12</div><div class="title">Ignition</div></div>
+              <div class="row"><div class="num">13</div><div class="title">Around the world</div></div>
+              <div class="row"><div class="num">14</div><div class="title">Voices</div></div>
+              <div class="row"><div class="num">15</div><div class="title">Summer of rave</div></div>
+              <div class="row"><div class="num">16</div><div class="title">Pulse</div></div>
+              <div class="row"><div class="num">17</div><div class="title">Exodus</div></div>
+              <div class="row"><div class="num">18</div><div class="title">Ascension</div></div>
+              <div class="row"><div class="num">19</div><div class="title">Echoes of tomorrow</div></div>
+              <div class="row"><div class="num">20</div><div class="title">Legacy (Epilogue)</div></div>
+              <div class="row"><div class="num">21</div><div class="title">Aurora (Bonus track)</div></div>
+              <div class="row"><div class="num">22</div><div class="title">Echoes of tomorrow (chill mix)</div></div>
+              <div class="row"><div class="num">23</div><div class="title">Awakening (slow mix 1)</div></div>
+              <div class="row"><div class="num">24</div><div class="title">Origins (slow mix)</div></div>
+              <div class="row"><div class="num">25</div><div class="title">Awakening (slow mix 2)</div></div>
             </div>
           </div>
         </div>
@@ -163,7 +214,7 @@
     <section id="contact" class="section" style="border-top:1px solid #e8e8e8">
       <div class="wrap">
         <h2>Contact</h2>
-        <p class="lede">Boekingen, promo en demo’s: <a href="mailto:management@aronvynz.com" style="text-decoration:underline;text-underline-offset:4px">management@aronvynz.com</a></p>
+        <p class="lede">Boekingen, promo en demo’s: <a href="mailto:management@aronvynz.com">management@aronvynz.com</a></p>
       </div>
     </section>
   </main>
