@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VYNZΞ — PULSE</title>
+  <title>ARON VYNZ — PULSE</title>
   <style>
     :root{
       --bg:#ffffff; --text:#0f1115; --muted:#52545a;
@@ -122,10 +122,10 @@
     const pad2=n=>String(n).padStart(2,"0");
     const makeTracks=(n,id)=>Array.from({length:n},(_,i)=>({n:i+1,title:"Track "+(i+1),cover:`covers/${id}/${pad2(i+1)}.png`}));
     const albums=[
-      {id:"origins",name:"Aron VYNZ — Pulse | Origins",note:"",tracks:makeTracks(10,"origins")},
-      {id:"legacy",name:"Aron VYNZ — Pulse | Legacy",note:"",tracks:makeTracks(10,"legacy")},
-      {id:"echoes",name:"Aron VYNZ — Pulse | Echoes",note:"",tracks:makeTracks(10,"echoes")},
-      {id:"deluxe",name:"Aron VYNZ — Pulse | Deluxe",note:"",tracks:makeTracks(30,"deluxe")}
+      {id:"origins",name:"Aron Vynz — Pulse | Origins",note:"",tracks:makeTracks(10,"origins")},
+      {id:"legacy",name:"Aron Vynz — Pulse | Legacy",note:"",tracks:makeTracks(10,"legacy")},
+      {id:"echoes",name:"Aron Vynz — Pulse | Echoes",note:"",tracks:makeTracks(10,"echoes")},
+      {id:"deluxe",name:"Aron Vynz — Pulse | Deluxe",note:"",tracks:makeTracks(30,"deluxe")}
     ];
     const root=document.getElementById('albumsRoot');
     albums.forEach((a,idx)=>{
