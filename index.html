@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VYNZΞ — PULSΞ · Albums & Tracks</title>
+  <title>VYNZE — PULSE · Albums & Tracks</title>
   <style>
     :root{
       --bg:#ffffff; --text:#0f1115; --muted:#52545a;
@@ -43,24 +43,54 @@
     .overview-card{display:block;background:#fff;border:1px solid var(--ring);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:transform .12s ease, box-shadow .2s ease}
     .overview-card:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(10,10,20,.10)}
     .overview-title{padding:10px 12px;font-weight:800}
-  </style>
+  
+/* Full-width hero with background and centered overlay text */
+.hero-full{
+  position: relative;
+  width: 100%;
+  min-height: clamp(320px, 55vh, 560px);
+  background-image: url('banner.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 24px;
+}
+.hero-full .wrap{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.hero-full h1{
+  margin: 0 0 12px 0;
+  font-size: clamp(28px, 6vw, 56px);
+  letter-spacing: .02em;
+}
+.hero-full .lede{
+  margin: 8px auto;
+  font-size: clamp(14px, 2.1vw, 20px);
+  line-height: 1.5;
+}
+/* subtle text shadow to maintain readability while keeping the image unchanged */
+.hero-full, .hero-full *{
+  text-shadow: 0 2px 18px rgba(0,0,0,.6);
+}
+
+</style>
 </head>
 <body>
   <main id="top">
-    <section class="hero">
-      <div class="wrap grid">
-        <div>
-          <h1>VYNZΞ — PULSΞ</h1>
-          <p class="lede">
-            VYNZΞ (Vision Your Next Zenith) is the project name of Aron Vynze, an electronic DJ / producer, melodic techno and progressive house with futuristic soundscapes. His music is defined by deep basslines, shimmering melodies, and an immersive, cinematic atmosphere.
-          </p>
-          <p class="lede">
-            With PULSΞ, Aron Vynze presents his vision: music as energy, as a signal, as a calling. Each release becomes a chapter in a larger story, where sound and visuals merge into one futuristic experience.
-          </p>
-        </div>
-        <div><img src="catalogue.png" alt="Catalogue Banner" style="width:100%;border-radius:18px;"/></div>
-      </div>
-    </section>
+    
+<section id="hero" class="hero-full">
+  <div class="wrap">
+    <h1>VYNZE — PULSE</h1>
+    <p class="lede">VYNZE (Vision Your Next Zenith) is the project name of Aron Vynze, electronic DJ / producer creating melodic techno and progressive house with futuristic soundscapes. His music is defined by deep basslines, shimmering melodies, and an immersive, cinematic atmosphere.</p>
+    <p class="lede">With PULSE, Aron Vynze presents his vision: music as energy, as a signal, as a calling. Each release becomes a chapter in a larger story, where sound and visuals merge into one futuristic experience.</p>
+  </div>
+</section>
+
 
     <!-- Albums Overview Row -->
     <section class="section">
@@ -91,17 +121,17 @@
     </section>
   </main>
 
-  <footer><div class="wrap footer">© <span id="year"></span> Aron VYNZΞ</div></footer>
+  <footer><div class="wrap footer">© <span id="year"></span> Aron VYNZE</div></footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     const pad2=n=>String(n).padStart(2,"0");
     const makeTracks=(n,id)=>Array.from({length:n},(_,i)=>({n:i+1,title:"Track "+(i+1),cover:`covers/${id}/${pad2(i+1)}.png`}));
     const albums=[
-      {id:"origins",name:"Aron VYNZΞ — Pulse | Origins",note:"Tracks 1–10",tracks:makeTracks(10,"origins")},
-      {id:"legacy",name:"Aron VYNZΞ — Pulse | Legacy",note:"Tracks 11–20",tracks:makeTracks(10,"legacy")},
-      {id:"echoes",name:"Aron VYNZΞ — Pulse | Echoes",note:"Ambient remix",tracks:makeTracks(10,"echoes")},
-      {id:"deluxe",name:"Aron VYNZΞ — Pulse | Deluxe",note:"Complete edition",tracks:makeTracks(30,"deluxe")}
+      {id:"origins",name:"Aron VYNZE — Pulse | Origins",note:"Tracks 1–10",tracks:makeTracks(10,"origins")},
+      {id:"legacy",name:"Aron VYNZE — Pulse | Legacy",note:"Tracks 11–20",tracks:makeTracks(10,"legacy")},
+      {id:"echoes",name:"Aron VYNZE — Pulse | Echoes",note:"Ambient remix",tracks:makeTracks(10,"echoes")},
+      {id:"deluxe",name:"Aron VYNZE — Pulse | Deluxe",note:"Complete edition",tracks:makeTracks(30,"deluxe")}
     ];
     const root=document.getElementById('albumsRoot');
     albums.forEach((a,idx)=>{
