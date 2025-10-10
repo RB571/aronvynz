@@ -127,7 +127,7 @@
     const pad2=n=>String(n).padStart(2,"0");
     const makeTracks=(n,id)=>Array.from({length:n},(_,i)=>({n:i+1,title:"Track "+(i+1),cover:`covers/${id}/${pad2(i+1)}.png`}));
     const albums=[
-      {id:"origins",name:"Aron VYNZ — Pulse | Origins",note:"Tracks 1–10",tracks:makeTracks(10,"origins")},
+      {id:"origins",name:"Aron VYNZ — Pulse | Origins",tracks:makeTracks(10,"origins")},
       {id:"legacy",name:"Aron VYNZ — Pulse | Legacy",note:"Tracks 11–20",tracks:makeTracks(10,"legacy")},
       {id:"echoes",name:"Aron VYNZ — Pulse | Echoes",note:"Ambient remix",tracks:makeTracks(10,"echoes")},
       {id:"deluxe",name:"Aron VYNZ — Pulse | Deluxe",note:"Complete edition",tracks:makeTracks(30,"deluxe")}
