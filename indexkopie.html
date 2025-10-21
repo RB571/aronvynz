@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ARON VYNZ — PULSE</title>
+  <style>
+    :root{
+      --bg:#ffffff; --text:#0f1115; --muted:#52545a;
+      --chip:#0b0f14; --chipText:#fff; --card:#ffffff;
+      --ring:#e7e7ea; --shadow: 0 8px 30px rgba(10,10,20,.06);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.8);backdrop-filter:blur(10px);border-bottom:1px solid var(--ring)}
+    .wrap{max-width:1400px;margin:0 auto;padding:0 16px}
+    .section{padding:36px 0}
+    h1{font-size:clamp(28px,4vw,42px);line-height:1.1;margin:0 0 10px 0}
+    .lede{margin-top:10px;color:#444;max-width:70ch;line-height:1.6}
+    .divider{height:1px;background:var(--ring);margin:22px 0}
+    footer{border-top:1px solid var(--ring)}
+    .footer{padding:22px 0;color:#888d95;font-size:12px}
+
+    /* Hero banner */
+    .hero-full{
+      position: relative;
+      width: 100%;
+      min-height: clamp(320px, 55vh, 560px);
+      background-image: url('banner.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: block;
+    }
+
+    /* Scroll reveal animation */
+    .reveal{opacity:0; transform:translateY(20px)}
+    .reveal.is-visible{opacity:1; transform:none; transition:opacity .8s ease-out, transform .8s ease-out}
+    @media (prefers-reduced-motion: reduce){
+      .reveal,.reveal.is-visible{opacity:1; transform:none; transition:none}
+    }
+
+    /* Albums grid */
+    .overview-grid{display:grid;gap:18px}
+    @media(min-width:900px){.overview-grid{grid-template-columns:repeat(4,1fr)}}
+    .overview-card{display:block;background:#fff;border:1px solid var(--ring);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:transform .12s ease, box-shadow .2s ease}
+    .overview-card:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(10,10,20,.10)}
+    .overview-title{padding:10px 12px;font-weight:800}
+
+    .grid-covers{display:grid;gap:18px}
+    @media(min-width:900px){.grid-covers{grid-template-columns:repeat(5,1fr)}}
+    .tile{background:#fff;border:1px solid var(--ring);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:transform .12s ease, box-shadow .2s ease}
+    .tile:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(10,10,20,.10)}
+    .cover{aspect-ratio:1/1;background:linear-gradient(180deg,#f9fafb,#eef1f5);display:grid;place-items:center}
+    .meta{padding:10px 12px}
+    .title{font-weight:800;font-size:.98rem}
+    .sub{font-size:.78rem;color:#9aa0a6;margin-top:2px}
+  </style>
+</head>
+<body>
+  <main id="top">
+
+    <!-- Hero banner zonder tekst -->
+    <section id="hero" class="hero-full"></section>
+
+    <!-- Bio onder de banner, gecentreerd met scroll reveal -->
+    <section id="bio" class="section reveal" style="background:#fff;border-top:1px solid var(--ring);text-align:center;">
+      <div class="wrap" style="max-width:800px;margin:0 auto;">
+        <h1 style="font-size:clamp(30px,4.5vw,50px);margin-bottom:12px;">ARON VYNZ — PULSE</h1>
+<p class="lede" style="margin:0 auto 12px auto;">
+  VYNZΞ (Vision Your Next Zenith) is the brand of Aron Vynz — an electronic DJ and producer creating
+  melodic techno and progressive house with futuristic soundscapes. His music is defined by deep
+  basslines, shimmering melodies, and an immersive, cinematic atmosphere.
+</p>
+
+<p class="lede" style="margin:0 auto 12px auto;">
+  With PULSE — released under his label VYNZΞ RECORDS — Aron Vynz presents his vision: music as energy, as a signal. PULSE consists of three albums — <em>Origins (Pt. 1)</em>, <em>Rebirth (Pt. 2) </em> and <em>Legacy (Pt. 3)</em>. 
+  An <em>Anthology Edition</em> will follow, featuring all 21 tracks alongside additional remixes and extended versions.
+</p>
+        
+      </div>
+    </section>
+
+    <!-- Albums Overview Row -->
+    <section class="section">
+      <div class="wrap">
+        <div class="overview-grid">
+          <a class="overview-card" href="#origins">
+            <img src="covers/origins/origins.png" alt="Pulse | Origins cover">
+            <div class="overview-title">Pulse | Origins</div>
+          </a>
+          <a class="overview-card" href="#rebirth">
+            <img src="covers/rebirth/rebirth.png" alt="Pulse | Rebirth cover">
+            <div class="overview-title">Pulse | Rebirth</div>
+          </a>
+          <a class="overview-card" href="#legacy">
+            <img src="covers/legacy/legacy.png" alt="Pulse | Legacy cover">
+            <div class="overview-title">Pulse | Legacy</div>
+          </a>
+          <a class="overview-card" href="#anthology">
+            <img src="covers/anthology/anthology.png" alt="Pulse | Anthology cover">
+            <div class="overview-title">Pulse | Anthology</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="albums" class="section">
+      <div class="wrap" id="albumsRoot"></div>
+    </section>
+  </main>
+
+  <footer><div class="wrap footer">© <span id="year"></span> Aron Vynz</div></footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const pad2=n=>String(n).padStart(2,"0");
+    const makeTracks=(n,id)=>Array.from({length:n},(_,i)=>({n:i+1,title:"Track "+(i+1),cover:`covers/${id}/${pad2(i+1)}.png`}));
+    const albums=[
+      {id:"origins",name:"Aron Vynz — Pulse | Origins",note:"",tracks:makeTracks(7,"origins")},
+      {id:"rebirth",name:"Aron Vynz — Pulse | Rebirth",note:"",tracks:makeTracks(7,"rebirth")},
+      {id:"legacy",name:"Aron Vynz — Pulse | Legacy",note:"",tracks:makeTracks(7,"legacy")},
+      {id:"anthology",name:"Aron Vynz — Pulse | Anthology",note:"",tracks:makeTracks(28,"anthology")}
+    ];
+    const root=document.getElementById('albumsRoot');
+    albums.forEach((a,idx)=>{
+      const sec=document.createElement('section');
+      sec.className='album';sec.id=a.id;
+      sec.innerHTML=`<div class="album-head"><h2>${a.name}</h2><div>${a.note}</div></div>
+      <div class="grid-covers">${a.tracks.map(t=>`
+        <div class="tile"><div class="cover"><img src="${t.cover}" alt="${t.title}" 
+        onerror="this.closest('.cover').classList.add('missing');this.remove();"></div>
+        <div class="meta"><div class="title">${String(t.n).padStart(2,'0')}. ${t.title}</div>
+        <div class="sub">${a.name.split('—')[1]?.trim()}</div></div></div>`).join('')}</div>
+      ${idx<albums.length-1?'<div class="divider"></div>':''}`;
+      root.appendChild(sec);
+    });
+
+    // Scroll reveal logic
+    (function(){
+      const els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+      els.forEach(el=>io.observe(el));
+    })();
+  </script>
+</body>
+</html>
