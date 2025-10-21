@@ -78,8 +78,7 @@
 
 <p class="lede" style="margin:0 auto 12px auto;">
   With PULSE — released under his label VYNZΞ RECORDS — Aron Vynz presents his vision: music as energy,
-  as a signal. PULSE consists of two main albums — <em>Origins (Pt. 1)</em> and <em>Legacy (Pt. 2)</em> — accompanied by
-  an ambient remix album, <em>Echoes (Pt. 3)</em>. A <em>Deluxe Edition</em> will follow, featuring all 30 tracks
+  as a signal. PULSE consists of two main albums — <em>Origins (Pt. 1)</em> , <em>Rebirth (Pt. 2) </em> and <em>Legacy (Pt. 3)</em>. An <em>Anthology Edition</em> will follow, featuring all 21 tracks
   alongside additional remixes and extended versions.
 </p>
         
@@ -94,17 +93,17 @@
             <img src="covers/origins/origins.png" alt="Pulse | Origins cover">
             <div class="overview-title">Pulse | Origins</div>
           </a>
+          <a class="overview-card" href="#rebirth">
+            <img src="covers/rebirth/rebirth.png" alt="Pulse | Rebirth cover">
+            <div class="overview-title">Pulse | Revbirth</div>
+          </a>
           <a class="overview-card" href="#legacy">
             <img src="covers/legacy/legacy.png" alt="Pulse | Legacy cover">
             <div class="overview-title">Pulse | Legacy</div>
           </a>
-          <a class="overview-card" href="#echoes">
-            <img src="covers/echoes/echoes.png" alt="Pulse | Echoes cover">
-            <div class="overview-title">Pulse | Echoes</div>
-          </a>
-          <a class="overview-card" href="#deluxe">
-            <img src="covers/deluxe/deluxe.png" alt="Pulse | Deluxe cover">
-            <div class="overview-title">Pulse | Deluxe</div>
+          <a class="overview-card" href="#anthology">
+            <img src="covers/deluxe/anthology.png" alt="Pulse | Anthology cover">
+            <div class="overview-title">Pulse | Anthology</div>
           </a>
         </div>
       </div>
@@ -122,10 +121,10 @@
     const pad2=n=>String(n).padStart(2,"0");
     const makeTracks=(n,id)=>Array.from({length:n},(_,i)=>({n:i+1,title:"Track "+(i+1),cover:`covers/${id}/${pad2(i+1)}.png`}));
     const albums=[
-      {id:"origins",name:"Aron Vynz — Pulse | Origins",note:"",tracks:makeTracks(10,"origins")},
-      {id:"legacy",name:"Aron Vynz — Pulse | Legacy",note:"",tracks:makeTracks(10,"legacy")},
-      {id:"echoes",name:"Aron Vynz — Pulse | Echoes",note:"",tracks:makeTracks(10,"echoes")},
-      {id:"deluxe",name:"Aron Vynz — Pulse | Deluxe",note:"",tracks:makeTracks(30,"deluxe")}
+      {id:"origins",name:"Aron Vynz — Pulse | Origins",note:"",tracks:makeTracks(7,"origins")},
+      {id:"rebirth",name:"Aron Vynz — Pulse | Rebirth",note:"",tracks:makeTracks(7,"rebirth")},
+      {id:"legacy",name:"Aron Vynz — Pulse | Legacy",note:"",tracks:makeTracks(7,"legacy")},
+      {id:"anthology",name:"Aron Vynz — Pulse | Anthology",note:"",tracks:makeTracks(28,"anthology")}
     ];
     const root=document.getElementById('albumsRoot');
     albums.forEach((a,idx)=>{
