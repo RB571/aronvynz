@@ -69,7 +69,7 @@
     <!-- Bio onder de banner, gecentreerd met scroll reveal -->
     <section id="bio" class="section reveal" style="background:#fff;border-top:1px solid var(--ring);text-align:center;">
       <div class="wrap" style="max-width:800px;margin:0 auto;">
-        <h1 style="font-size:clamp(30px,4.5vw,50px);margin-bottom:12px;">ARON VYNZ — PULSE</h1>
+        <h1 style="font-size:clamp(30px,4.5vw,50px);margin-bottom:12px;">VYNZΞ — PULSE</h1>
 <p class="lede" style="margin:0 auto 12px auto;">
   VYNZΞ (Vision Your Next Zenith) is the brand of Aron Vynz — an electronic DJ and producer creating
   melodic techno and progressive house with futuristic soundscapes. His music is defined by deep
@@ -77,8 +77,8 @@
 </p>
 
 <p class="lede" style="margin:0 auto 12px auto;">
-  With PULSE — released under his label VYNZΞ RECORDS — Aron Vynz presents his vision: music as energy, as a signal. PULSE consists of three albums — <em>Origins (Pt. 1)</em>, <em>Rebirth (Pt. 2) </em> and <em>Legacy (Pt. 3)</em>. 
-  An <em>Anthology Edition</em> will follow, featuring all 21 tracks alongside additional remixes and extended versions.
+  With VYNZΞ - PULSE — released under his label VYNZΞ RECORDS — Aron Vynz presents his vision: music as energy, as a signal. PULSE consists of three albums — <em>Origins (Pt. 1)</em>, <em>Rebirth (Pt. 2) </em> and <em>Legacy (Pt. 3)</em>. 
+  A <em>Complete Edition</em> will follow, featuring all 21 tracks alongside additional 'serenity' remixes and extended versions.
 </p>
         
       </div>
@@ -113,17 +113,17 @@
     </section>
   </main>
 
-  <footer><div class="wrap footer">© <span id="year"></span> Aron Vynz</div></footer>
+  <footer><div class="wrap footer">© <span id="year"></span> VYNZΞ</div></footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     const pad2=n=>String(n).padStart(2,"0");
     const makeTracks=(n,id)=>Array.from({length:n},(_,i)=>({n:i+1,title:"Track "+(i+1),cover:`covers/${id}/${pad2(i+1)}.png`}));
     const albums=[
-      {id:"origins",name:"Aron Vynz — Pulse | Origins",note:"",tracks:makeTracks(7,"origins")},
-      {id:"rebirth",name:"Aron Vynz — Pulse | Rebirth",note:"",tracks:makeTracks(7,"rebirth")},
-      {id:"legacy",name:"Aron Vynz — Pulse | Legacy",note:"",tracks:makeTracks(7,"legacy")},
-      {id:"anthology",name:"Aron Vynz — Pulse | Anthology",note:"",tracks:makeTracks(28,"anthology")}
+      {id:"origins",name:"VYNZΞ — Pulse | Origins",note:"",tracks:makeTracks(7,"origins")},
+      {id:"rebirth",name:"VYNZΞ — Pulse | Rebirth",note:"",tracks:makeTracks(7,"rebirth")},
+      {id:"legacy",name:"VYNZΞ Vynz — Pulse | Legacy",note:"",tracks:makeTracks(7,"legacy")},
+      {id:"anthology",name:"VYNZΞ Vynz — Pulse | Anthology",note:"",tracks:makeTracks(28,"anthology")}
     ];
     const root=document.getElementById('albumsRoot');
     albums.forEach((a,idx)=>{
