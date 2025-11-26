@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VYNZΞ — PULSE (Complete Edition)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --surface:#0e131a;
+      --text:#e9edf2;
+      --muted:#9aa4af;
+      --ring:#1d2430;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:Inter,system-ui;
+    }
+
+    header{
+      position:sticky;top:0;z-index:20;
+      background:rgba(10,14,20,.6);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--ring);
+      padding:16px 22px;
+      font-weight:800;
+      letter-spacing:.15em;
+    }
+
+    /* HERO */
+    .hero{
+      width:100%;
+      height:92vh;
+      background-image:url("pu2.png");
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      position:relative;
+    }
+    .hero::after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,.75) 100%);
+    }
+    .hero-content{ position:relative; z-index:10; }
+    h1{ font-size:clamp(54px,6vw,100px); letter-spacing:.18em; margin:0; }
+    h2{ margin-top:6px; letter-spacing:.28em; font-size:clamp(14px,2vw,22px); color:var(--muted); }
+
+    /* buttons */
+    .btn-row{
+      margin-top:24px;
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      padding:12px 24px;
+      border-radius:12px;
+      font-weight:600;
+      text-decoration:none;
+      background:white;
+      color:#000;
+      transition:opacity .15s ease, transform .15s ease;
+    }
+    .btn:hover{opacity:0.85; transform:translateY(-2px);}
+
+    .section{ padding:70px 20px; max-width:1200px; margin:auto; }
+    .wrap{ max-width:900px; margin:auto; }
+
+    .card{ background:var(--surface); padding:26px; border-radius:18px; border:1px solid var(--ring); margin-top:40px; }
+    h3{ margin-bottom:8px }
+    .lede{ margin:4px 0 16px 0; color:var(--muted); line-height:1.7; }
+
+    .list{ list-style:none; padding-left:0; margin:0 }
+    .list li{
+      padding:10px 0;
+      border-bottom:1px dashed var(--ring);
+    }
+    .list li:last-child{ border-bottom:0 }
+  </style>
+</head>
+
+<body>
+
+<header>VYNZΞ</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>PULSE</h1>
+    <h2>COMPLETE EDITION</h2>
+
+    <!-- ✅ BUTTONS -->
+    <div class="btn-row">
+      <a class="btn" href="https://open.spotify.com/artist/1cbKetks9X9cnxPKQSWXKD?si=Bdlw4o93SmCA21HiDAj2Mg" target="_blank">Spotify</a>
+      <a class="btn" href="#" target="_blank">Apple Music</a>
+      <a class="btn" href="https://www.youtube.com/@vynzeofficial" target="_blank">YouTube</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="section">
+  <div class="wrap">
+    <div class="card">
+      <h2>About VYNZΞ</h2>
+
+      <p class="lede">
+        VYNZΞ (Vision Your Next Zenith) is the brand of Aron Vynz — an electronic DJ and producer creating melodic techno
+        and progressive house with futuristic soundscapes. His music is defined by deep basslines, shimmering melodies,
+        and an immersive, cinematic atmosphere.
+      </p>
+
+      <p class="lede">
+        With <strong>PULSE</strong> — released under his label <strong>VYNZΞ RECORDS</strong> — Aron Vynz presents
+        his vision: music as energy, as a signal. PULSE consists of three albums:
+        <em>Origins (Pt. 1)</em>, <em>Rebirth (Pt. 2)</em> and <em>Legacy (Pt. 3)</em>.
+        A <em>Complete Edition</em> features all 21 tracks, including Serenity remixes and extended versions.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- TRACKLISTS -->
+<section class="section">
+  <div class="wrap">
+    <div class="card">
+      <h2>Tracklist</h2>
+
+      <h3 style="margin-top:26px;">PULSE — ORIGINS (Pt. 1)</h3>
+      <p class="lede">Origins traces the birth of a new soundscape — melodic techno with cinematic intensity.</p>
+      <ol class="list">
+        <li>01 — Origins <span style="float:right;color:#9aa4af;">2:57</span></li>
+        <li>02 — Awakening <span style="float:right;color:#9aa4af;">3:46</span></li>
+        <li>03 — Transmission <span style="float:right;color:#9aa4af;">3:23</span></li>
+        <li>04 — Fading <span style="float:right;color:#9aa4af;">1:58</span></li>
+        <li>05 — Horizon <span style="float:right;color:#9aa4af;">4:45</span></li>
+        <li>06 — Elysium <span style="float:right;color:#9aa4af;">4:19</span></li>
+        <li>07 — Voyager <span style="float:right;color:#9aa4af;">6:33</span></li>
+      </ol>
+
+      <h3 style="margin-top:26px;">PULSE — REBIRTH (Pt. 2)</h3>
+      <p class="lede">Rebirth captures the fusion of progressive house and euphoric trance, a resurrection of rhythm and light.</p>
+      <ol class="list">
+        <li>08 — Around the World <span style="float:right;color:#9aa4af;">3:23</span></li>
+        <li>09 — Ignition <span style="float:right;color:#9aa4af;">3:45</span></li>
+        <li>10 — The Grid <span style="float:right;color:#9aa4af;">5:46</span></li>
+        <li>11 — Robot Rave <span style="float:right;color:#9aa4af;">3:15</span></li>
+        <li>12 — Sentinel <span style="float:right;color:#9aa4af;">3:35</span></li>
+        <li>13 — Voices <span style="float:right;color:#9aa4af;">0:30</span></li>
+        <li>14 — Summer of Rave <span style="float:right;color:#9aa4af;">3:43</span></li>
+      </ol>
+
+      <h3 style="margin-top:26px;">PULSE — LEGACY (Pt. 3)</h3>
+      <p class="lede">Legacy concludes the trilogy — transforming reflection into motion and emotion into light.</p>
+      <ol class="list">
+        <li>15 — Pulse <span style="float:right;color:#9aa4af;">3:25</span></li>
+        <li>16 — Invasion <span style="float:right;color:#9aa4af;">2:08</span></li>
+        <li>17 — Exodus <span style="float:right;color:#9aa4af;">6:32</span></li>
+        <li>18 — Ascension <span style="float:right;color:#9aa4af;">2:06</span></li>
+        <li>19 — Echoes of Tomorrow <span style="float:right;color:#9aa4af;">4:12</span></li>
+        <li>20 — Aurora <span style="float:right;color:#9aa4af;">3:53</span></li>
+        <li>21 — Legacy <span style="float:right;color:#9aa4af;">8:53</span></li>
+      </ol>
+
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
